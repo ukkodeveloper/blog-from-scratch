@@ -19,6 +19,12 @@ const TechPost = defineDocumentType(() => ({
       required: false,
     },
   },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    },
+  },
 }));
 
 const LifePost = defineDocumentType(() => ({
