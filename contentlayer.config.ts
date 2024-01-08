@@ -37,14 +37,7 @@ const LifePost = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' }, required: true },
     published: { type: 'boolean', required: false, default: false },
     summary: { type: 'string', required: false },
-    images: {
-      type: 'list',
-      of: {
-        type: 'string',
-      },
-      default: [],
-      required: false,
-    },
+    image: { type: 'string', required: true },
   },
 }));
 
