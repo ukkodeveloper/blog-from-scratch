@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "contentlayer": "^0.3.4",
     "next": "14.0.4",
     "next-contentlayer": "^0.3.4",
     "prettier": "^3.1.1",
