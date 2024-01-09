@@ -11,7 +11,6 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  console.log(allTechPosts);
   return allTechPosts.map((post) => post.slug);
 }
 
