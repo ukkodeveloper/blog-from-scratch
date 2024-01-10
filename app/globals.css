@@ -78,7 +78,7 @@ pre {
 pre[class*="language-"],
 code[class*="language-"] {
   color: #d4d4d4;
-  font-size: 13px;
+  font-size: 0.8rem;
   text-shadow: none;
   font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
   direction: ltr;
@@ -127,9 +127,9 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
-  margin: .5em 0;
+  margin: 0 0 .5em 0;
   overflow: auto;
-  border-radius: 1em;
+  border-radius: 0 0 1em 1em;
 }
 
 :not(pre) > code[class*="language-"],
@@ -217,4 +217,13 @@ pre[class*="language-"] {
 
 .token.entity {
   cursor: help;
+}
+
+/* code block title */
+.rehype-code-title {
+  color: floralwhite;
+  background-color: rgba(55, 65, 81, 0.5);
+  border-radius: 1em 1em 0 0;
+  padding-left: 1em;
+  font-size: 0.8em;
 }
