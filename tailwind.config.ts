@@ -16,22 +16,10 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: colors.purple,
+        primary: colors.green,
         neutral: colors.zinc,
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            color: '#333',
-            a: {
-              color: '#3182ce',
-              '&:hover': {
-                color: '#2c5282',
-              },
-            },
-          },
-        },
-      },
+      typography: require('./typography'),
     },
   },
   plugins: [require('@tailwindcss/typography')],
