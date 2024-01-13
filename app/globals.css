@@ -21,8 +21,9 @@ code::before, code::after {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  @apply relative font-gSans;
 }
+
 
 pre {
   overflow-x: auto;

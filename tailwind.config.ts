@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
+const { fontFamily } = require('tailwindcss/defaultTheme');
 import colors from 'tailwindcss/colors';
+import { wantedSans } from '@/styles/fonts';
 
 /** @type {import('tailwindcss').Config} */
 const config: Config = {
@@ -13,6 +15,10 @@ const config: Config = {
       colors: {
         primary: colors.green,
         neutral: colors.zinc,
+      },
+      fontFamily: {
+        wSans: ['var(--font-wanted)', ...fontFamily.sans],
+        gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
       typography: require('./typography'),
     },

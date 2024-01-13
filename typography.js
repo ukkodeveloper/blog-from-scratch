@@ -1,10 +1,10 @@
 module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
-      h1: {
+      'h1, h2': {
         fontWeight: '700',
       },
-      'h2, h3': {
+      h3: {
         fontWeight: '500',
       },
       a: {
@@ -18,6 +18,9 @@ module.exports = ({ theme }) => ({
         background: theme('colors.neutral.200'),
         padding: '3px 4px',
         borderRadius: '4px',
+      },
+      p: {
+        fontFamily: 'var(--font-wanted)',
       },
     },
   },

@@ -17,7 +17,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-4 text-xl font-bold text-primary-100">
           <Link href={'/tech/example'}>블로그</Link>
-          <Link className="text-primary-200" href={'/tech/example'}>
+          <Link className="font-wSans text-primary-200" href={'/tech/example'}>
             포트폴리오
           </Link>
         </div>
