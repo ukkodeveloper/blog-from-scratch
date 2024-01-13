@@ -9,7 +9,7 @@ const Header = () => {
         <Link className="inline-block " href={'/tech/example'}>
           <Image
             alt={'로고'}
-            src={'/logo.png'}
+            src={'/logo.svg'}
             width={144}
             height={25.88}
             className="w-32 lg:w-48"
