@@ -10,16 +10,14 @@ const Header = () => {
           <Image
             alt={'로고'}
             src={'/logo.png'}
-            width={192}
-            height={100}
+            width={144}
+            height={25.88}
             className="w-32 lg:w-48"
           />
         </Link>
-        <div className="flex gap-4 text-xl font-bold text-primary-100">
+        <div className="flex items-end gap-4 text-xs font-light text-neutral-50 lg:text-base">
           <Link href={'/tech/example'}>블로그</Link>
-          <Link className="font-wSans text-primary-200" href={'/tech/example'}>
-            포트폴리오
-          </Link>
+          <Link href={'/tech/example'}>나에 대해</Link>
         </div>
       </nav>
     </header>
