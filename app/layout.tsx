@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header';
 import { gmarketSans, wantedSans } from '@/styles/fonts';
+import PageContainer from '@/components/PageContainer';
 
 export default function RootLayout({
   children,
@@ -14,7 +15,7 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        {children}
+        <PageContainer>{children}</PageContainer>
       </body>
     </html>
   );
