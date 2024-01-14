@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
-const { fontFamily } = require('tailwindcss/defaultTheme');
+import { fontFamily } from 'tailwindcss/defaultTheme';
 import colors from 'tailwindcss/colors';
-import { wantedSans } from '@/styles/fonts';
+import { screens } from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 const config: Config = {
@@ -11,14 +11,10 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    screens: {
-      tablet: '770px',
-      laptop: '1200px',
-    },
     extend: {
       colors: {
-        primary: colors.green,
-        neutral: colors.zinc,
+        primary: { ...colors.green, DEFAULT: colors.green[600] },
+        neutral: { ...colors.zinc, DEFAULT: colors.zinc[600] },
       },
       fontFamily: {
         wSans: ['var(--font-wanted)', ...fontFamily.sans],
