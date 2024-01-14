@@ -3,11 +3,12 @@ import tech from '../public/images/image_tech.png';
 import Image from 'next/image';
 import hero from '../public/images/hero.png';
 import heroHovered from '../public/images/hero-hovered.png';
+import Txt from '@/components/Txt';
 
 export default function Home() {
   return (
-    <>
-      <section className="relative my-6 space-y-6">
+    <div className="relative mt-4 space-y-6">
+      <section>
         <div className="group">
           <Image
             src={hero}
@@ -21,26 +22,41 @@ export default function Home() {
               alt="메인 이미지"
             />
             <div className="absolute left-0 top-0 flex h-full w-full -translate-y-5 transform items-center justify-center opacity-0 transition duration-1000 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
-              <h1 className="absolute right-16 px-2 text-3xl font-extrabold text-neutral-50">
+              <Txt
+                as="h1"
+                fontSize="2xl"
+                color="white"
+                className="absolute right-8"
+              >
                 안녕하세요,
-                <span className="text-neutral-700"> 우코의 블로그</span>입니다.
-              </h1>
+                <span className="text-neutral-700"> 우코의 블로그</span>
+                입니다.
+              </Txt>
             </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-4 space-x-4">
-          <div className="h-24  bg-primary-200">안녕</div>
-          <div className=" col-span-3 flex space-x-4">
-            <div className="h-24 flex-1 bg-primary-200">안녕</div>
-            <div className="h-24 flex-1 bg-primary-200">안녕</div>
-            <div className="h-24 flex-1 bg-primary-200">안녕</div>
           </div>
         </div>
       </section>
 
-      <section>
-        <h1></h1>
+      <section className="space-y-6">
+        <div className="space-x-4 space-y-6 md:grid md:grid-cols-3 xl:grid-cols-4">
+          <Txt fontSize="xl" as="h3">
+            SERIES
+          </Txt>
+          <div className="flex flex-nowrap space-x-4 overflow-x-auto md:col-span-2 xl:col-span-3">
+            {Array.from({ length: 4 }, (_, index) => (
+              <div
+                key={index}
+                className="h-40 w-56 flex-shrink-0 bg-primary-200"
+              >
+                안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <Txt fontSize="xl">ARTICLES</Txt>
         <div className="grid grid-cols-3 gap-6">
           <Postcard
             imgSrc={tech}
@@ -84,6 +100,6 @@ export default function Home() {
           />
         </div>
       </section>
-    </>
+    </div>
   );
 }
