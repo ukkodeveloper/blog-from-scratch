@@ -2,9 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Tag from '@/components/Tag';
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type PostcardProps = {
-  imgSrc: string;
+  imgSrc: StaticImport;
   title: string;
   date: string;
   description: string;
