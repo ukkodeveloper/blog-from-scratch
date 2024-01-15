@@ -12,6 +12,7 @@ import rehypeCodeTitles from 'rehype-code-titles';
 
 const fields: FieldDefs = {
   title: { type: 'string', required: true },
+  series: { type: 'string', required: true },
   date: { type: 'date', required: true },
   tags: { type: 'list', of: { type: 'string' }, required: true },
   image: {
@@ -29,17 +30,9 @@ const computedFields: ComputedFields = {
   },
 };
 
-const TechPost = defineDocumentType(() => ({
+const Post = defineDocumentType(() => ({
   name: 'TechPost',
-  filePathPattern: 'tech/**/*.mdx',
-  contentType: 'mdx',
-  fields,
-  computedFields,
-}));
-
-const LifePost = defineDocumentType(() => ({
-  name: 'LifePost',
-  filePathPattern: 'life/**/*.mdx',
+  filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields,
   computedFields,
@@ -47,7 +40,7 @@ const LifePost = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [TechPost, LifePost],
+  documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
