@@ -31,7 +31,7 @@ const computedFields: ComputedFields = {
 };
 
 const Post = defineDocumentType(() => ({
-  name: 'TechPost',
+  name: 'Post',
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields,
