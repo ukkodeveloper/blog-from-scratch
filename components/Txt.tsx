@@ -7,14 +7,14 @@ interface TxtProps<C extends React.ElementType> {
   fontSize?: keyof typeof SIZE_VARIANT;
 }
 
-const Txt = <C extends React.ElementType = 'span'>({
+const Txt = <C extends React.ElementType = 'p'>({
   as,
   color = 'black',
   fontSize,
   className,
   ...props
 }: TxtProps<C> & Omit<React.ComponentProps<C>, keyof TxtProps<C>>) => {
-  const Component = as || 'span';
+  const Component = as || 'p';
   return (
     <Component
       className={twMerge(
@@ -32,8 +32,8 @@ export default Txt;
 const SIZE_VARIANT = {
   '2xl': 'xl:text-6xl md:text-5xl text-4xl font-bold',
   xl: 'xl:text-5xl md:text-4xl text-3xl font-bold',
-  lg: 'xl:text-3xl md:text-2xl text-xl font-bold',
-  md: 'xl:text-2xl md:text-xl text-lg font-bold',
+  lg: 'xl:text-2xl text-xl font-bold',
+  md: 'xl:text-xl text-lg font-bold',
   sm: 'text-sm font-light',
 };
 
