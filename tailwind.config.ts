@@ -14,7 +14,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: { ...colors.green, DEFAULT: colors.green[600] },
-        neutral: { ...colors.zinc, DEFAULT: colors.zinc[600] },
+        neutral: { ...colors.zinc, DEFAULT: colors.zinc[500] },
       },
       fontFamily: {
         wSans: ['var(--font-wanted)', ...fontFamily.sans],

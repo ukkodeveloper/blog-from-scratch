@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Tag from '@/components/Tag';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import Txt from '@/components/Txt';
 
 type PostCardProps = {
   imgSrc: StaticImport;
@@ -21,13 +22,19 @@ const PostCard = ({
   tags,
 }: PostCardProps) => {
   return (
-    <article className="flex flex-col">
-      <Link href="/">
-        <Image className="w-full" src={imgSrc} alt="Article image" />
-        <div className="py-4">
-          <div className="mb-2 text-xl font-bold ">{title}</div>
-          <p className="mb-2 text-base">{date}</p>
-          <p className="text-base text-gray-700">{description}</p>
+    <article className="mb-16 flex flex-col space-y-4">
+      <Link href="/" className="space-y-4">
+        <Image
+          className="hidden w-full md:block"
+          src={imgSrc}
+          alt="Article image"
+        />
+        <div className="space-y-4">
+          <Txt as="h3" fontSize="lg">
+            {title}
+          </Txt>
+          <Txt>{description}</Txt>
+          <Txt color="neutral">{date}</Txt>
         </div>
       </Link>
       <div className="flex flex-wrap gap-2">

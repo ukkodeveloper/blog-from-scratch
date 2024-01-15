@@ -8,7 +8,7 @@ import SeriesCard from '@/components/SeriesCard';
 
 export default function Home() {
   return (
-    <div className="relative mt-4 space-y-6">
+    <div className="relative mt-4 space-y-12">
       <section>
         <div className="group">
           <Image
@@ -38,27 +38,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="md:grid md:grid-cols-3 xl:grid-cols-4">
-          <Txt fontSize="xl" as="h2" className="mb-4">
-            SERIES
-          </Txt>
-          <div className="mb-4 flex flex-nowrap space-x-6 overflow-x-auto md:col-span-2 xl:col-span-3">
-            {Array.from({ length: 10 }, (_, index) => (
-              <SeriesCard
-                imgSrc={tech}
-                title="시리즈 이름"
-                itemCount={4}
-                key={index}
-              />
-            ))}
-          </div>
+      <section className="md:grid md:grid-cols-3 xl:grid-cols-4">
+        <Txt fontSize="xl" as="h2">
+          SERIES
+        </Txt>
+        <div className="mb-4 flex flex-nowrap space-x-6 overflow-x-auto md:col-span-2 xl:col-span-3">
+          {Array.from({ length: 10 }, (_, index) => (
+            <SeriesCard
+              imgSrc={tech}
+              title="시리즈 이름"
+              itemCount={4}
+              key={index}
+            />
+          ))}
         </div>
       </section>
 
-      <section className="space-y-6">
+      <section className="mb-16">
         <Txt fontSize="xl">ARTICLES</Txt>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
           <PostCard
             imgSrc={tech}
             title="리액트 부서붜리기"
