@@ -93,7 +93,7 @@ export default function Page({ params: { slug } }: PageProps) {
               </div>
             </Box>
             <Box title="PREV/NEXT">
-              <div className="relative w-full pb-[40%]">
+              <div className="relative hidden w-full pb-[40%] md:block">
                 <Image
                   src={seriesImage}
                   alt="series"

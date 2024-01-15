@@ -1,20 +1,17 @@
 module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
-      'h1, h2': {
+      'h1, h2, h3': {
         fontWeight: '700',
       },
-      h3: {
-        fontWeight: '500',
-      },
       a: {
-        color: theme('colors.primary.600'),
+        color: theme('colors.primary.400'),
         '&:hover': {
           color: `${theme('colors.primary.500')}`,
         },
       },
       code: {
-        color: theme('colors.primary.700'),
+        color: theme('colors.primary.600'),
         background: theme('colors.neutral.200'),
         padding: '3px 4px',
         borderRadius: '4px',

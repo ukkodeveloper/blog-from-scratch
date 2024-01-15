@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: { ...colors.green, DEFAULT: colors.green[600] },
+        primary: { ...colors.blue, DEFAULT: colors.blue[600] },
         neutral: { ...colors.zinc, DEFAULT: colors.zinc[500] },
       },
       fontFamily: {
