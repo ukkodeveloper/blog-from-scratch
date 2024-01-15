@@ -3,7 +3,7 @@ import { allPosts, type Post } from '@/.contentlayer/generated';
 // sort posts
 const sortedPosts = allPosts
   .filter((post) => post.published)
-  .toSorted((a, b) => b.date.localeCompare(a.date))
+  .sort((a, b) => b.date.localeCompare(a.date))
   .map((post) => {
     const tags = post.tags.map((tag) => tag.toUpperCase());
     const series = post.series.toUpperCase();
@@ -23,7 +23,7 @@ sortedPosts.forEach(({ tags }) => {
   });
 });
 
-const tags = [...new Set(tagList)].toSorted((a, b) => a.localeCompare(b));
+const tags = [...new Set(tagList)].sort((a, b) => a.localeCompare(b));
 
 // seriesMap
 let seriesTempt: Record<string, { tags: Set<string>; posts: Post[] }> = {};
