@@ -12,14 +12,11 @@ const Header = () => {
           <Image alt="로고" src={logo} className="w-44 xl:w-56" />
         </Link>
         <div className="flex items-end gap-4 text-neutral-50">
-          <Link href="/">만들기</Link>
-          <Link href="/">학습하기</Link>
-          <Link href="/">회고하기</Link>
           <Link href="/" className=" border-spacing-1.5 rounded-lg pb-1">
-            <TagIcon className="h-5 w-5 text-neutral-50" />
+            <TagIcon className="h-6 w-6 text-neutral-50" />
           </Link>
           <Link href="/" className=" border-spacing-1.5 rounded-lg pb-1">
-            <MagnifyingGlassIcon className="h-5 w-5 text-neutral-50" />
+            <MagnifyingGlassIcon className="h-6 w-6 text-neutral-50" />
           </Link>
         </div>
       </nav>
