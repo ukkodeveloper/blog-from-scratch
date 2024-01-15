@@ -1,0 +1,220 @@
+---
+title: 'example2'
+date: '2024-06-01'
+series: 'TIL'
+tags: ['우아한테크코스', 'react', '프론트엔드']
+published: true
+summary: '안녕하세요 UKKO입니다. 이거슨 예시입니다.'
+image: '/static/images/example.png'
+---
+
+Sure, I will translate the provided text into Korean for you. Here's the translation:
+
+# 코드 블록 복사 버튼
+## 코드 블록 복사
+### 코드
+코드 블록에 마우스를 올리면 GitHub에서 영감을 받은 복사 버튼이 보일 거예요! ./components/Pre.js를 수정하여 이를 더 커스텀화할 수 있습니다. 이
+컴포넌트는 MDXComponents에 전달되어 모든 록을 수정합니다.
+
+줄 강조 및 줄 번호
+새로운 rehype-prism-plus 플러그인 덕분에 이제 줄 강조 및 줄 번호가 기본적으로 지원됩니다.
+
+
+
+````
+```js {1, 3-4} showLineNumbers
+var num1, num2, sum
+num1 = prompt('Enter first number')
+num2 = prompt('Enter second number')
+sum = parseInt(num1) + parseInt(num2) // "+" means "add"
+alert('Sum = ' + sum) // "+" means combine into a string
+```
+````
+
+will appear as:
+
+```js {1,3-4} showLineNumbers
+var num1, num2, sum
+num1 = prompt('Enter first number')
+num2 = prompt('Enter second number')
+sum = parseInt(num1) + parseInt(num2) // "+" means "add"
+alert('Sum = ' + sum) // "+" means combine into a string
+```
+
+To modify the styles, change the following class selectors in the `prism.css` file:
+
+```css
+.code-highlight {
+  @apply float-left min-w-full;
+}
+
+.code-line {
+  @apply -mx-4 block border-l-4 border-opacity-0 pl-4 pr-4;
+}
+
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
+
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
+
+.highlight-line {
+  @apply -mx-4 border-l-4 border-primary-500 bg-gray-700 bg-opacity-50;
+}
+
+.line-number::before {
+  @apply -ml-2 mr-4 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
+```
+To use it, specify the provider which you are using in the config file and add the necessary environment variables to the `.env` file.
+For more information on the required variables, check out `.env.sample.`
+
+Two components are exported, a default `NewsletterForm` and a `BlogNewsletterForm` component, which is also passed in as an MDX component
+and can be used in a blog post:
+
+```jsx
+<BlogNewsletterForm title="Like what you are reading?" />
+```
+
+
+The component relies on nextjs's which requires a server-side instance of nextjs to be setup
+and is not compatible with a 100% static site export. Users should either self-host or use a compatible platform like Vercel or Netlify which supports this functionality.
+
+A static site compatible alternative is to substitute the route in the newsletter component with a form API endpoint provider.
+
+## Bibliography and Citations (v1.2.1)
+
+`rehype-citation` plugin is added to the xdm processing pipeline in v1.2.1. This allows you to easily format citations and insert bibliography from an existing bibtex or CSL-json file.
+
+is rendered to the following:
+
+Standard citation [@Nash1950]
+In-text citations e.g. @Nash1951
+Multiple citations [see @Nash1950; @Nash1951, page 50]
+
+**References:**
+
+[^ref]
+
+A bibliography will be inserted at the end of the document, but this can be overwritten by specifying a `[^Ref]` tag at the intended location.
+The plugin uses APA citation formation, but also supports the following CSLs, 'apa', 'vancouver', 'harvard1', 'chicago', 'mla', or a path to a user-specified CSL file.
+
+See [rehype-citation readme](https://github.com/timlrx/rehype-citation) for more information on the configuration options.
+
+## Self-hosted font (v1.5.0)
+
+Google font has been replaced with self-hosted font from [Fontsource](https://fontsource.org/). This gives the following [advantages](https://fontsource.org/docs/introduction):
+
+> Self-hosting brings significant performance gains as loading fonts from hosted services, such as Google Fonts, lead to an extra (render blocking) network request. To provide perspective, for simple websites it has been seen to double visual load times.
+>
+> Fonts remain version locked. Google often pushes updates to their fonts without notice, which may interfere with your live production projects. Manage your fonts like any other NPM dependency.
+>
+> Commit to privacy. Google does track the usage of their fonts and for those who are extremely privacy concerned, self-hosting is an alternative.
+
+This leads to a smaller font bundle and a 0.1s faster load time ([webpagetest comparison](https://www.webpagetest.org/video/compare.php?tests=220201_AiDcFH_f68a69b758454dd52d8e67493fdef7da,220201_BiDcMC_bf2d53f14483814ba61e794311dfa771)).
+
+To change the default Inter font:
+
+1. Install the preferred [font](https://fontsource.org/fonts) - `npm install -save @fontsource/<font-name>`
+2. Update the import at `pages/_app.js`- `import '@fontsource/<font-name>.css'`
+3. Update the `fontfamily` property in the tailwind css config file
+
+## Upgrade guide
+
+There are significant portions of the code that has been changed from v0 to v1 including support for layouts and a new mdx engine.
+
+There's also no real reason to change if the previous one serves your needs and it might be easier to copy
+the component changes you are interested in to your existing blog rather than migrating everything over.
+
+Nonetheless, if you want to do so and have not changed much of the template, you could clone the new version and copy over the blog post over to the new template.
+
+Another alternative would be to pull the latest template version with the following code:
+
+```bash
+git remote add template git@github.com:timlrx/tailwind-nextjs-starter-blog.git
+git pull template v1 --allow-unrelated-histories
+rm -rf node_modules
+```
+
+You can see an example of such a migration in this [commit](https://github.com/timlrx/timlrx.com/commit/bba1c185384fd6d5cdaac15abf802fdcff027286) for my personal blog.
+
+v1 also uses `feed.xml` rather than `index.xml`, to avoid some build issues with Vercel. If you are migrating you should add a redirect to `next.config.js` like so:
+
+```js
+async function redirects() {
+  return [
+    {
+      source: '/:path/index.xml',
+      destination: '/:path/feed.xml',
+      permanent: true,
+    }
+  ]
+}
+```
+
+Choose your preferred service by modifying `siteMetadata.js` and changing the appropriate fields. For example to change from Umami Analytics to Plausible, we can change the following fields:
+
+```diff-js:siteMetadata.js
+analytics: {
+-   umamiAnalytics: {
+-     // We use an env variable for this site to avoid other users cloning our analytics ID
+-     umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
+-   },
++    plausibleAnalytics: {
++      plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
++    },
+},
+```
+
+Changes in the configuration file gets propagated to the components automatically. No modification to the template is required.
+
+Under the hood, Pliny exports high level components such as `<Analytics analyticsConfig={analyticsConfig}/>` and `<Comments commentsConfig={commentsConfig}/>` which takes in a configuration object and renders the appropriate component. Since the layouts are defined on the server side, Next.js is able to use the configuration object to determine which component to render and send only the required component bundle to the client.
+
+## New Search Component
+
+What's a blog in 2023 without a command palette search bar?
+
+One of the most highly requested features have been added 🎉! The search component supports 2 search providers - Algolia and Kbar local search.
+
+### Algolia
+
+[Algolia Docsearch](https://docsearch.algolia.com/) is popular free service used across many documentation websites. It automatically scrapes the website that has is submitted for indexing and makes the search result available via a beautiful dialog modal. The pliny component is greatly inspired by the Docusaurus implementation and comes with a stylesheet that is compatible with the Tailwind CSS theme.
+
+### Kbar
+
+[Kbar](https://github.com/timc1/kbar) is a fast, portable, and extensible cmd+k interface. The pliny implementation uses kbar to create a local search dialog box. The component loads a JSON file, default `search.json`, that was created in the contentlayer build process. Try pressing ⌘-k or ctrl-k to see the search bar in action!
+
+## Styling and Layout Updates
+
+### Theming
+
+`tailwind.config.js` has been updated to use tailwind typography defaults where possible and to use the built-in support for dark mode via the `prose-invert` class. This replaces the previous `prose-dark` class and configuration.
+
+The primary theme color is updated from `teal` to `pink` and the primary gray theme from `neutral` to `gray`.
+
+Inter is now replaced with Space Grotesk as the default font.
+
+### New Layouts
+
+Layout components available in the `layouts` directory, provide a simple way to customize the look and feel of the blog.[^2]
+
+The downside of building a popular template is that you start seeing multiple similar sites everywhere 😆. While users are encouraged to customized the layouts to their liking, having more layout options that are easily switchable promotes diversity and perhaps can be a good starting point for further customizations.
+
+In v2, I added a new post layout - `PostBanner`. It features a large banner image and a centered content container. Check out "[Pictures of Canada](/blog/pictures-of-canada)" blog post which has been updated to use the new layout.
+
+The default blog listing layout has also been updated to include a side bar with blog tags. The search bar in the previous layout has been replace with the new command palette search. To switch back to the old layout, simply change the pages that use the `ListLayoutWithTags` component back to the original `ListLayout`.
+
+## Migration Recommendations
+
+Due to the large changes in directory structure, setup and tooling, I recommend starting from a fresh template and copying existing content, followed by incrementally migrating changes over to the new template.
+
+Styling changes should be relatively minor and can be copied over from the old `tailwind.config.js` to the new one. If copying over, you might need to add back the `prose-dark` class to components that opt into tailwind typography styling. Do modify the font import in the root layout component to use the desired font of choice.
+
+Changes to the MDX processing pipeline and schema can be easily ported to the new Contentlayer setup. If there are changes to the frontmatter fields, you can modify the document type in `contentlayer.config.ts` to include the new fields. Custom plugins can be added to the `remarkPlugins` and `rehypePlugins` properties in the `makeSource` export of `contentlayer.config.ts`.
+
+Markdown layouts are no longer sourced automatically from the `layouts` directory. Instead, they have to be specified in the `layouts` object defined in `blog/[...slug]/page.tsx`.[^3]
+
+To port over larger components or pages, I recommend first specificing it as a client component by using the `"use client"` directive. Once it renders correctly, you can split the interactive components (parts that rely on `use` hooks) as a client component and keep the remaining code as a server component. Consult the comprehensive Next.js [migration guide](https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#migrating-from-pages-to-app) for more details.
