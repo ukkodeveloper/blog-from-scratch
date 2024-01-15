@@ -53,18 +53,14 @@ const getPostsBySeries = (series: string) => {
   const seriesToFind = series.toUpperCase();
   const Posts = seriesMap[seriesToFind];
 
-  if (!Posts) return undefined;
-
-  return Posts.posts;
+  return Posts?.posts || [];
 };
 
 const getTagsBySeries = (series: string) => {
   const seriesToFind = series.toUpperCase();
   const Posts = seriesMap[seriesToFind];
 
-  if (!Posts) return undefined;
-
-  return Posts.tags;
+  return Posts?.tags || [];
 };
 
 const series = Object.keys(seriesTempt).sort((a, b) => a.localeCompare(b));
