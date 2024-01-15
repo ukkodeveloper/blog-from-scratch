@@ -7,7 +7,7 @@ interface TagProps {
 }
 
 const Tag = ({ name, link, shape = 'FULL' }: TagProps) => {
-  const className = `border border-2 border-neutral-800 px-3 py-1 text-xs ${VARIANT[shape]}`;
+  const className = `border border-2 border-neutral-800 px-1 py-0.5 text-[10px] my-1 mx-0.5 ${VARIANT[shape]}`;
 
   return link ? (
     <Link href={link} className={className}>
@@ -21,6 +21,6 @@ const Tag = ({ name, link, shape = 'FULL' }: TagProps) => {
 export default Tag;
 
 const VARIANT = {
-  SQUARE: 'rounded-md hover:bg-primary-200',
-  FULL: 'rounded-full hover:bg-neutral-200',
+  SQUARE: 'rounded-md hover:bg-primary-300',
+  FULL: 'rounded-full hover:bg-neutral-300',
 };
