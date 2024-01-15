@@ -1,9 +1,10 @@
-import Postcard from '@/components/PostCard';
+import PostCard from '@/components/PostCard';
 import tech from '../public/images/image_tech.png';
 import Image from 'next/image';
 import hero from '../public/images/hero.png';
 import heroHovered from '../public/images/hero-hovered.png';
 import Txt from '@/components/Txt';
+import SeriesCard from '@/components/SeriesCard';
 
 export default function Home() {
   return (
@@ -38,18 +39,18 @@ export default function Home() {
       </section>
 
       <section className="space-y-6">
-        <div className="space-x-4 space-y-6 md:grid md:grid-cols-3 xl:grid-cols-4">
-          <Txt fontSize="xl" as="h3">
+        <div className="md:grid md:grid-cols-3 xl:grid-cols-4">
+          <Txt fontSize="xl" as="h2" className="mb-4">
             SERIES
           </Txt>
-          <div className="flex flex-nowrap space-x-4 overflow-x-auto md:col-span-2 xl:col-span-3">
-            {Array.from({ length: 4 }, (_, index) => (
-              <div
+          <div className="mb-4 flex flex-nowrap space-x-6 overflow-x-auto md:col-span-2 xl:col-span-3">
+            {Array.from({ length: 10 }, (_, index) => (
+              <SeriesCard
+                imgSrc={tech}
+                title="시리즈 이름"
+                itemCount={4}
                 key={index}
-                className="h-40 w-56 flex-shrink-0 bg-primary-200"
-              >
-                안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕
-              </div>
+              />
             ))}
           </div>
         </div>
@@ -58,7 +59,7 @@ export default function Home() {
       <section className="space-y-6">
         <Txt fontSize="xl">ARTICLES</Txt>
         <div className="grid grid-cols-3 gap-6">
-          <Postcard
+          <PostCard
             imgSrc={tech}
             title="리액트 부서붜리기"
             date="2019-01-14"
@@ -66,7 +67,7 @@ export default function Home() {
             series="Insights"
             tags={['Design', 'UI/UX']}
           />
-          <Postcard
+          <PostCard
             imgSrc={tech}
             title="Are designers happy? Our new “State of the Designer” report aims to find out"
             date="2019-01-14"
@@ -74,7 +75,7 @@ export default function Home() {
             series="Insights"
             tags={['Design', 'UI/UX']}
           />
-          <Postcard
+          <PostCard
             imgSrc={tech}
             title="Are designers happy? Our new “State of the Designer” report aims to find out"
             date="2019-01-14"
@@ -82,7 +83,7 @@ export default function Home() {
             series="Insights"
             tags={['Design', 'UI/UX']}
           />
-          <Postcard
+          <PostCard
             imgSrc={tech}
             title="Are designers happy? Our new “State of the Designer” report aims to find out"
             date="2019-01-14"
@@ -90,7 +91,7 @@ export default function Home() {
             series="Insights"
             tags={['Design', 'UI/UX']}
           />
-          <Postcard
+          <PostCard
             imgSrc={tech}
             title="Are designers happy? Our new “State of the Designer” report aims to find out"
             date="2019-01-14"

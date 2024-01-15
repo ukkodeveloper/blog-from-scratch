@@ -32,9 +32,9 @@ export default Txt;
 const SIZE_VARIANT = {
   '2xl': 'xl:text-6xl md:text-5xl text-4xl font-bold',
   xl: 'xl:text-5xl md:text-4xl text-3xl font-bold',
-  lg: 'xl:text-4xl md:text-3xl text-2xl font-bold',
-  md: 'xl:text-3xl md:text-2xl text-xl',
-  p: '',
+  lg: 'xl:text-3xl md:text-2xl text-xl font-bold',
+  md: 'xl:text-2xl md:text-xl text-lg font-bold',
+  sm: 'text-sm font-light',
 };
 
 const COLOR_VARIANT = {

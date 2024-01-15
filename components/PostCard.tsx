@@ -1,10 +1,9 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Tag from '@/components/Tag';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-type PostcardProps = {
+type PostCardProps = {
   imgSrc: StaticImport;
   title: string;
   date: string;
@@ -13,24 +12,18 @@ type PostcardProps = {
   tags: string[];
 };
 
-const Postcard: React.FC<PostcardProps> = ({
+const PostCard = ({
   imgSrc,
   title,
   date,
   description,
   series,
   tags,
-}) => {
+}: PostCardProps) => {
   return (
     <article className="flex flex-col">
       <Link href="/">
-        <Image
-          className="w-full"
-          src={imgSrc}
-          width={300}
-          height={300}
-          alt="Article image"
-        />
+        <Image className="w-full" src={imgSrc} alt="Article image" />
         <div className="py-4">
           <div className="mb-2 text-xl font-bold ">{title}</div>
           <p className="mb-2 text-base">{date}</p>
@@ -47,4 +40,4 @@ const Postcard: React.FC<PostcardProps> = ({
   );
 };
 
-export default Postcard;
+export default PostCard;
