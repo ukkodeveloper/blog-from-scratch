@@ -7,7 +7,7 @@ interface TagProps {
 }
 
 const Tag = ({ name, link, shape = 'FULL' }: TagProps) => {
-  const className = `border border-2 border-neutral-800 px-1 py-0.5 text-[10px] my-1 mx-0.5 ${VARIANT[shape]}`;
+  const className = `border border-2 border-neutral-800 px-1 py-0.5 text-[10px] my-1 mr-0.5 ${VARIANT[shape]}`;
 
   return link ? (
     <Link href={link} className={className}>
