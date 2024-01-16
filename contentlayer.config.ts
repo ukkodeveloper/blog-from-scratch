@@ -26,20 +26,20 @@ const fields: FieldDefs = {
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    resolve: (doc) => doc._raw.flattenedPath.split('/').pop(),
   },
 };
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: 'blog/**/*.mdx',
+  filePathPattern: 'blog/**/*.{mdx,md}',
   contentType: 'mdx',
   fields,
   computedFields,
 }));
 
 export default makeSource({
-  contentDirPath: 'content',
+  contentDirPath: 'public',
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
@@ -47,7 +47,7 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeCodeTitles,
-      [rehypePrismPlus, { defaultLanguage: 'ts' }],
+      [rehypePrismPlus, { defaultLanguage: 'tsx' }],
     ],
   },
 });

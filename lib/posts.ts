@@ -1,5 +1,7 @@
 import { allPosts, type Post } from '@/.contentlayer/generated';
 
+console.log(allPosts.map((post) => post.slug));
+
 // sort posts
 const sortedPosts = allPosts
   .filter((post) => post.published)

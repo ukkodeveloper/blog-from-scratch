@@ -1,8 +1,13 @@
 module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
-      'h1, h2, h3': {
-        fontWeight: '700',
+      h2: {
+        fontSize: '2rem',
+        paddingBottom: '8px',
+        borderBottom: `1px ${theme('colors.neutral.200')} solid`,
+      },
+      h3: {
+        fontSize: '1.5rem',
       },
       a: {
         color: theme('colors.primary.400'),
@@ -16,7 +21,7 @@ module.exports = ({ theme }) => ({
         padding: '3px 4px',
         borderRadius: '4px',
       },
-      p: {
+      'p, li': {
         fontFamily: 'var(--font-wanted)',
       },
     },

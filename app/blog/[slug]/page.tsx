@@ -59,7 +59,7 @@ export default function Page({ params: { slug } }: PageProps) {
           className="-z-10 rounded-md opacity-80"
         />
         <div className="md:col-span-3">
-          <Txt fontSize="2xl" className="leading-4 tracking-wider">
+          <Txt fontSize="2xl" as="h1" className="leading-8 tracking-wider">
             {post.title}
           </Txt>
           <Txt
