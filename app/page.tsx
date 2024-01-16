@@ -1,12 +1,15 @@
 import PostCard from '@/components/PostCard';
-import tech from '../public/images/image_tech.png';
+import tech from '../public/images/shook.png';
 import Image from 'next/image';
 import hero from '../public/images/hero.png';
 import heroHovered from '../public/images/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
+import { sortedPosts } from '@/lib/posts';
 
 export default function Home() {
+  const recentPosts = sortedPosts.slice(0, 12);
+
   return (
     <div className="relative mt-4 space-y-12">
       <section>
@@ -57,46 +60,9 @@ export default function Home() {
       <section className="mb-16">
         <Txt fontSize="xl">ARTICLES</Txt>
         <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
-          <PostCard
-            imgSrc={tech}
-            title="리액트 부서붜리기"
-            date="2019-01-14"
-            description=""
-            series="Insights"
-            tags={['Design', 'UI/UX']}
-          />
-          <PostCard
-            imgSrc={tech}
-            title="Are designers happy? Our new “State of the Designer” report aims to find out"
-            date="2019-01-14"
-            description="Our new report examines what it takes for designers to feel fulfilled and satisfied in their roles now that work has radically changed."
-            series="Insights"
-            tags={['Design', 'UI/UX']}
-          />
-          <PostCard
-            imgSrc={tech}
-            title="Are designers happy? Our new “State of the Designer” report aims to find out"
-            date="2019-01-14"
-            description="Our new report examines what it takes for designers to feel fulfilled and satisfied in their roles now that work has radically changed."
-            series="Insights"
-            tags={['Design', 'UI/UX']}
-          />
-          <PostCard
-            imgSrc={tech}
-            title="Are designers happy? Our new “State of the Designer” report aims to find out"
-            date="2019-01-14"
-            description="Our new report examines what it takes for designers to feel fulfilled and satisfied in their roles now that work has radically changed."
-            series="Insights"
-            tags={['Design', 'UI/UX']}
-          />
-          <PostCard
-            imgSrc={tech}
-            title="Are designers happy? Our new “State of the Designer” report aims to find out"
-            date="2019-01-14"
-            description="Our new report examines what it takes for designers to feel fulfilled and satisfied in their roles now that work has radically changed."
-            series="TIL"
-            tags={['Design', 'UI/UX', 'BLOG', 'REACT']}
-          />
+          {recentPosts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
         </div>
       </section>
     </div>

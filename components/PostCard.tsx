@@ -1,46 +1,39 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Tag from '@/components/Tag';
-import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Txt from '@/components/Txt';
+import type { Post } from '@/.contentlayer/generated';
 
 type PostCardProps = {
-  imgSrc: StaticImport;
-  title: string;
-  date: string;
-  description: string;
-  series: string;
-  tags: string[];
+  post: Post;
 };
 
 const PostCard = ({
-  imgSrc,
-  title,
-  date,
-  description,
-  series,
-  tags,
+  post: { image, title, date, summary, series, tags },
 }: PostCardProps) => {
   return (
     <article className="mb-16 flex flex-col space-y-4">
       <Link href="/" className="space-y-4">
         <Image
           className="hidden w-full md:block"
-          src={imgSrc}
-          alt="Article image"
+          src={image}
+          alt={title}
+          width={0}
+          height={0}
+          sizes="100vw"
         />
         <div className="space-y-4">
           <Txt as="h3" fontSize="lg">
             {title}
           </Txt>
-          <Txt>{description}</Txt>
+          <Txt>{summary}</Txt>
           <Txt color="neutral">{date}</Txt>
         </div>
       </Link>
       <div className="flex flex-wrap gap-2">
-        <Tag name={series} link="/" shape="SQUARE" />
+        <Tag name={series} link={`/series/${series}`} shape="SQUARE" />
         {tags.map((tag) => (
-          <Tag key={tag} name={tag} link="/" shape="FULL" />
+          <Tag key={tag} name={tag} link={`/tags/${tag}`} shape="FULL" />
         ))}
       </div>
     </article>
