@@ -20,6 +20,16 @@ const config: Config = {
         wSans: ['var(--font-wanted)', ...fontFamily.sans],
         gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
+      animation: {
+        slideDown: 'slideDown 1s',
+      },
+      keyframes: {
+        slideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '40%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
       typography: require('./typography'),
     },
   },
