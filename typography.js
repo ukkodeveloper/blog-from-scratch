@@ -24,6 +24,10 @@ module.exports = ({ theme }) => ({
       'p, li': {
         fontFamily: 'var(--font-wanted)',
       },
+      li: {
+        wordWrap: 'break-word',
+        whiteSpace: 'normal',
+      },
     },
   },
   invert: {
