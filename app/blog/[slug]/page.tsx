@@ -17,13 +17,12 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  sortedPosts.map(({ slug, series }) => ({
+  return sortedPosts.map(({ slug }) => ({
     slug,
-    seriesImg: `/images/series/${series}.png`,
   }));
 }
 
-export default function Page({ params: { slug, seriesImg } }: PageProps) {
+export default function Page({ params: { slug } }: PageProps) {
   const post = getPostBySlug(slug);
 
   if (!post) notFound();
@@ -47,6 +46,8 @@ export default function Page({ params: { slug, seriesImg } }: PageProps) {
   const author = '우코';
   const githubLink = 'https://github.com/ukkodeveloper';
 
+  const seriesImg = `/images/series/${series.toLowerCase()}.png`;
+
   return (
     <div className="divide divide-y-2">
       <aside className="relative mb-20 mt-10 p-10 pb-0 md:grid md:grid-cols-4">
@@ -54,8 +55,7 @@ export default function Page({ params: { slug, seriesImg } }: PageProps) {
           src={image}
           alt="post image"
           fill
-          objectFit="cover"
-          className="-z-10 rounded-md opacity-50 backdrop-brightness-50"
+          className="-z-10 rounded-md object-cover opacity-50 backdrop-brightness-50"
         />
         <div className="md:col-span-3">
           <Txt fontSize="2xl" as="h1" className="tracking-wider">
@@ -100,7 +100,7 @@ export default function Page({ params: { slug, seriesImg } }: PageProps) {
                   objectFit="cover"
                   className="rounded-md opacity-80"
                 />
-                <Link href={`/series/${series}`}>
+                <Link href={`/series/${series.toLowerCase()}`}>
                   <Txt
                     color="white"
                     fontSize="md"
