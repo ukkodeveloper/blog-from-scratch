@@ -14,14 +14,15 @@ const PostCard = ({
   return (
     <article className="mb-16 flex flex-col space-y-4">
       <Link href={`/blog/${slug}`} className="space-y-4">
-        <Image
-          className="hidden w-full md:block"
-          src={image}
-          alt={title}
-          width={0}
-          height={0}
-          sizes="100vw"
-        />
+        <div className="hidden w-full md:relative md:block md:h-48">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            objectFit="cover"
+            className="rounded-md border-2 shadow-sm"
+          />
+        </div>
         <div className="space-y-4">
           <Txt as="h3" fontSize="lg">
             {title}

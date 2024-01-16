@@ -15,14 +15,14 @@ const SeriesCard = ({ series }: SeriesCardProps) => {
       href={`/series/${series}`}
       className="mb-4 max-w-64 flex-shrink-0 space-y-4 overflow-hidden rounded-md p-4 shadow-lg md:max-w-xs"
     >
-      <Image
-        className="w-full rounded-lg "
-        src={`/images/series/${series.toLowerCase()}.png`}
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt="Article image"
-      />
+      <div className="relative h-40 w-40 md:h-60 md:w-60">
+        <Image
+          className="w-full rounded-lg "
+          src={`/images/series/${series.toLowerCase()}.png`}
+          fill
+          alt="Article image"
+        />
+      </div>
       <Txt fontSize="md" as="h3">
         {series}
       </Txt>

@@ -12,14 +12,18 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 interface PageProps {
   params: {
     slug: string;
+    seriesImg: string;
   };
 }
 
 export async function generateStaticParams() {
-  return sortedPosts.map((post) => post.slug);
+  sortedPosts.map(({ slug, series }) => ({
+    slug,
+    seriesImg: `/images/series/${series}.png`,
+  }));
 }
 
-export default function Page({ params: { slug } }: PageProps) {
+export default function Page({ params: { slug, seriesImg } }: PageProps) {
   const post = getPostBySlug(slug);
 
   if (!post) notFound();
@@ -31,7 +35,6 @@ export default function Page({ params: { slug } }: PageProps) {
   };
   // todo: Refactor
   const { tags, series, image } = post;
-  console.log('[image]', image);
 
   const postsInSeries = getPostsBySeries(series);
   const currentIndex = postsInSeries.findIndex(
@@ -49,8 +52,8 @@ export default function Page({ params: { slug } }: PageProps) {
       <aside className="relative mb-20 mt-10 p-10 pb-0 md:grid md:grid-cols-4">
         <Image
           src={image}
-          alt="series"
-          layout="fill"
+          alt="post image"
+          fill
           objectFit="cover"
           className="-z-10 rounded-md opacity-50 backdrop-brightness-50"
         />
@@ -91,9 +94,9 @@ export default function Page({ params: { slug } }: PageProps) {
             <Box title="PREV/NEXT">
               <div className="relative hidden w-full pb-[40%] md:block">
                 <Image
-                  src={`/images/series/${series}.png`}
+                  src={seriesImg}
                   alt="series"
-                  layout="fill"
+                  fill
                   objectFit="cover"
                   className="rounded-md opacity-80"
                 />

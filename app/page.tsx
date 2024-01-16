@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="md:grid md:grid-cols-3 xl:grid-cols-4">
+      <section className="animate-slideDown md:grid md:grid-cols-3 xl:grid-cols-4">
         <Txt fontSize="xl" as="h2">
           SERIES
         </Txt>
@@ -52,8 +52,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-16">
-        <Txt fontSize="xl">ARTICLES</Txt>
+      <section className="animate-slideDown mb-16">
+        <Txt fontSize="xl" as="h2">
+          ARTICLES
+        </Txt>
         <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
           {recentPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
