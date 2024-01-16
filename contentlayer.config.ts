@@ -12,7 +12,6 @@ import rehypeCodeTitles from 'rehype-code-titles';
 
 const fields: FieldDefs = {
   title: { type: 'string', required: true },
-  series: { type: 'string', required: true },
   date: { type: 'date', required: true },
   tags: { type: 'list', of: { type: 'string' }, required: true },
   image: {
@@ -27,6 +26,13 @@ const computedFields: ComputedFields = {
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.split('/').pop(),
+  },
+  series: {
+    type: 'string',
+    resolve: (doc) => {
+      const segments = doc._raw.flattenedPath.split('/');
+      return segments[segments.length - 2];
+    },
   },
 };
 

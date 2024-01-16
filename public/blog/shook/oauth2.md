@@ -1,11 +1,10 @@
 ---
-title: 'OAuth로 프로젝트 로그인 기능 추가하기'
+title: 'OAuth로 프로젝트 로그인 기능 추가하기2'
 date: '2023-06-01'
-series: 'TIL'
-tags: ['우아한테크코스', 'react', '프론트엔드']
+tags: ['우테코', 'react', 'oauth']
 published: true
+image: '/images/shook/oauth1.png'
 summary: '안녕하세요 UKKO입니다. 이거슨 예시입니다.'
-image: '/static/images/example.png'
 ---
 ## 왜 Oauth를 도입했는가
 ### 왜 Oauth인가
