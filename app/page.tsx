@@ -54,15 +54,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div>
-        <div className="m-4">
-          <div className="transform bg-white p-4 shadow-lg transition duration-500 hover:scale-110 hover:shadow-2xl">
-            <Image src={tech} alt="안녕하세요" className="h-auto max-w-full" />
-            <div className="mt-2 text-center text-lg">{'안녕하세요'}</div>
-          </div>
-        </div>
-      </div>
-
       <section className="mb-16">
         <Txt fontSize="xl">ARTICLES</Txt>
         <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
