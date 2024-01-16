@@ -29,34 +29,30 @@ export default function Page({ params: { slug } }: PageProps) {
   const mdxComponents: MDXComponents = {
     a: ({ href, children }) => <Link href={href ?? ''}>{children}</Link>,
   };
-
   // todo: Refactor
-  const tags = post.tags;
-  const series = post.series;
-  const posts = getPostsBySeries(series);
-  const currentIndex = posts.findIndex(
+  const { tags, series, image } = post;
+  console.log('[image]', image);
+
+  const postsInSeries = getPostsBySeries(series);
+  const currentIndex = postsInSeries.findIndex(
     (postItem) => post.slug == postItem.slug
   );
-  const nextPost = posts[currentIndex + 1];
-  const prevPost = posts[currentIndex - 1];
 
-  const nextIdx = currentIndex + 1;
-  const prevIndex = currentIndex - 1;
+  const nextPost = postsInSeries[currentIndex + 1];
+  const prevPost = postsInSeries[currentIndex - 1];
 
-  const seriesImage = '/images/image_life.png';
   const author = '우코';
   const githubLink = 'https://github.com/ukkodeveloper';
-  const mailLink = 'mailto:ukkodeveloper@gmail.com';
 
   return (
     <div className="divide divide-y-2">
       <aside className="relative mb-20 mt-10 p-10 pb-0 md:grid md:grid-cols-4">
         <Image
-          src={seriesImage}
+          src={image}
           alt="series"
           layout="fill"
           objectFit="cover"
-          className="-z-10 rounded-md opacity-80"
+          className="-z-10 rounded-md opacity-50 backdrop-brightness-50"
         />
         <div className="md:col-span-3">
           <Txt fontSize="2xl" as="h1" className="tracking-wider">
@@ -95,23 +91,25 @@ export default function Page({ params: { slug } }: PageProps) {
             <Box title="PREV/NEXT">
               <div className="relative hidden w-full pb-[40%] md:block">
                 <Image
-                  src={seriesImage}
+                  src={`/images/series/${series}.png`}
                   alt="series"
                   layout="fill"
                   objectFit="cover"
                   className="rounded-md opacity-80"
                 />
-                <Txt
-                  color="white"
-                  fontSize="md"
-                  className="spacing absolute inset-0 flex items-center justify-center tracking-wider"
-                >
-                  안녕하세요
-                </Txt>
+                <Link href={`/series/${series}`}>
+                  <Txt
+                    color="white"
+                    fontSize="md"
+                    className="spacing absolute inset-0 flex items-center justify-center tracking-wider backdrop-brightness-75"
+                  >
+                    {series}
+                  </Txt>
+                </Link>
               </div>
               <div className="flex min-h-16 flex-col items-start justify-center  rounded-sm bg-neutral-100 p-2">
                 {prevPost ? (
-                  <Link href="/" className="space-y-2">
+                  <Link href={`/blog/${prevPost.slug}`} className="space-y-2">
                     <ArrowLeftIcon className="h-5 w-5 rounded-sm border border-black bg-white p-0.5 " />
                     <Txt fontSize="sm">{prevPost.title}</Txt>
                   </Link>
@@ -121,7 +119,7 @@ export default function Page({ params: { slug } }: PageProps) {
               </div>
               <div className="flex min-h-16 flex-col items-end justify-center space-y-2 rounded-sm bg-neutral-100 p-2">
                 {nextPost ? (
-                  <Link href="/" className="space-y-2">
+                  <Link href={`/blog/${nextPost.slug}`} className="space-y-2">
                     <ArrowRightIcon className="ml-auto h-5 w-5 rounded-sm border border-black bg-white p-0.5" />
                     <Txt fontSize="sm">{nextPost.title}</Txt>
                   </Link>

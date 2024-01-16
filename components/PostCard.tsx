@@ -9,11 +9,11 @@ type PostCardProps = {
 };
 
 const PostCard = ({
-  post: { image, title, date, summary, series, tags },
+  post: { image, title, date, summary, series, tags, slug },
 }: PostCardProps) => {
   return (
     <article className="mb-16 flex flex-col space-y-4">
-      <Link href="/" className="space-y-4">
+      <Link href={`/blog/${slug}`} className="space-y-4">
         <Image
           className="hidden w-full md:block"
           src={image}

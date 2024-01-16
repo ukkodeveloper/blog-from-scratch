@@ -1,8 +1,5 @@
 import { allPosts, type Post } from '@/.contentlayer/generated';
 
-console.log(allPosts.map((post) => post.slug));
-console.log(allPosts.map((post) => post.series));
-
 // sort posts
 const sortedPosts = allPosts
   .filter((post) => post.published)
@@ -66,7 +63,7 @@ const getTagsBySeries = (series: string) => {
   return Posts?.tags || [];
 };
 
-const series = Object.keys(seriesTempt).sort((a, b) => a.localeCompare(b));
+const seriesList = Object.keys(seriesTempt).sort((a, b) => a.localeCompare(b));
 
 const getPostBySlug = (slug: string) => {
   return sortedPosts.find((post) => post.slug === slug);
@@ -88,7 +85,7 @@ export {
   sortedPosts,
   tags,
   seriesMap,
-  series,
+  seriesList,
   getPostBySlug,
   getTagsBySeries,
   getPostsBySeries,

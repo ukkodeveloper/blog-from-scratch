@@ -1,11 +1,10 @@
 import PostCard from '@/components/PostCard';
-import tech from '../public/images/shook.png';
 import Image from 'next/image';
 import hero from '../public/images/hero.png';
 import heroHovered from '../public/images/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
-import { sortedPosts } from '@/lib/posts';
+import { sortedPosts, seriesList } from '@/lib/posts';
 
 export default function Home() {
   const recentPosts = sortedPosts.slice(0, 12);
@@ -45,14 +44,10 @@ export default function Home() {
         <Txt fontSize="xl" as="h2">
           SERIES
         </Txt>
+
         <div className="mb-4 flex flex-nowrap space-x-6 overflow-x-auto md:col-span-2 xl:col-span-3">
-          {Array.from({ length: 10 }, (_, index) => (
-            <SeriesCard
-              imgSrc={tech}
-              title="시리즈 이름"
-              itemCount={4}
-              key={index}
-            />
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
           ))}
         </div>
       </section>
