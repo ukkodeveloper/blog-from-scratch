@@ -15,6 +15,11 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* prose body */
+.prose {
+  max-width: 100%;
+}
+
 
 /* code block title */
 .rehype-code-title {
