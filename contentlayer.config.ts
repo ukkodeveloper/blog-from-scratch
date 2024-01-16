@@ -18,8 +18,8 @@ const fields: FieldDefs = {
     type: 'string',
     required: true,
   },
-  published: { type: 'boolean', required: false, default: false },
-  summary: { type: 'string', required: false },
+  published: { type: 'boolean', required: true },
+  summary: { type: 'string', required: true },
 };
 
 const computedFields: ComputedFields = {
@@ -33,6 +33,10 @@ const computedFields: ComputedFields = {
       const segments = doc._raw.flattenedPath.split('/');
       return segments[segments.length - 2];
     },
+  },
+  date: {
+    type: 'string',
+    resolve: (doc) => doc.date.split('T')[0],
   },
 };
 
