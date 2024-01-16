@@ -18,9 +18,9 @@ const Txt = <C extends React.ElementType = 'p'>({
   return (
     <Component
       className={twMerge(
-        className,
         COLOR_VARIANT[color],
-        fontSize && SIZE_VARIANT[fontSize]
+        fontSize && SIZE_VARIANT[fontSize],
+        className
       )}
       {...props}
     />
@@ -32,7 +32,7 @@ export default Txt;
 const SIZE_VARIANT = {
   '2xl': 'xl:text-6xl  md:text-5xl text-4xl font-bold',
   xl: 'xl:text-4xl md:text-3xl text-2xl font-bold',
-  lg: 'xl:text-2xl text-xl font-bold',
+  lg: 'xl:text-3xl text-2xl font-bold',
   md: 'xl:text-xl text-lg font-bold',
   sm: 'text-sm font-light',
 };

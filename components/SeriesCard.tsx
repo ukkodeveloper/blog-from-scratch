@@ -13,20 +13,31 @@ const SeriesCard = ({ series }: SeriesCardProps) => {
   return (
     <Link
       href={`/series/${series}`}
-      className="mb-4 max-w-64 flex-shrink-0 space-y-4 overflow-hidden rounded-md p-4 shadow-lg md:max-w-xs"
+      className="group relative items-center overflow-hidden rounded-md pb-[40%]"
     >
-      <div className="relative h-40 w-40 md:h-60 md:w-60">
-        <Image
-          className="w-full rounded-lg "
-          src={`/images/series/${series.toLowerCase()}.png`}
-          fill
-          alt="Article image"
-        />
-      </div>
-      <Txt fontSize="md" as="h3">
+      <Image
+        className="absolute -top-8 h-auto w-full rounded-lg opacity-80 brightness-75 group-hover:blur-sm group-hover:brightness-50"
+        src={`/images/series/${series.toLowerCase()}.png`}
+        alt="Picture of the article"
+        sizes="100vw"
+        width={500}
+        height={500}
+      />
+
+      <Txt
+        fontSize="lg"
+        as="h3"
+        color="white"
+        className="absolute -left-0.5 -top-1.5"
+      >
         {series}
       </Txt>
-      <Txt fontSize="sm" color="neutral" as="p" className="text-right">
+      <Txt
+        fontSize="sm"
+        color="white"
+        as="p"
+        className="absolute bottom-2 right-2 z-10 hidden rounded-lg border-2 border-white px-2 py-1 group-hover:block"
+      >
         아티클 {itemCount}개
       </Txt>
     </Link>

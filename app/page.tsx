@@ -7,7 +7,7 @@ import SeriesCard from '@/components/SeriesCard';
 import { sortedPosts, seriesList } from '@/lib/posts';
 
 export default function Home() {
-  const recentPosts = sortedPosts.slice(0, 12);
+  const recentPosts = sortedPosts.slice(0, 6);
 
   return (
     <div className="relative mt-4 space-y-12">
@@ -40,23 +40,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="animate-slideDown md:grid md:grid-cols-3 xl:grid-cols-4">
-        <Txt fontSize="xl" as="h2">
-          SERIES
+      <section className="grid animate-slideDown grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        <Txt
+          fontSize="sm"
+          as="h2"
+          className="my-2 text-2xl italic text-neutral-700"
+        >
+          series
         </Txt>
-
-        <div className="mb-4 flex flex-nowrap space-x-6 overflow-x-auto md:col-span-2 xl:col-span-3">
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
-        </div>
+        {seriesList.map((series) => (
+          <SeriesCard key={series} series={series} />
+        ))}
+        {seriesList.map((series) => (
+          <SeriesCard key={series} series={series} />
+        ))}
+        {seriesList.map((series) => (
+          <SeriesCard key={series} series={series} />
+        ))}
+        {seriesList.map((series) => (
+          <SeriesCard key={series} series={series} />
+        ))}
+        {seriesList.map((series) => (
+          <SeriesCard key={series} series={series} />
+        ))}
       </section>
 
-      <section className="animate-slideDown mb-16">
-        <Txt fontSize="xl" as="h2">
-          ARTICLES
-        </Txt>
+      <section className="mb-16 animate-slideDown">
         <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
+          <Txt
+            fontSize="sm"
+            as="h2"
+            className="my-10 text-2xl italic text-neutral-700"
+          >
+            articles
+          </Txt>
           {recentPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
