@@ -5,6 +5,7 @@ import heroHovered from '../public/images/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
 import { sortedPosts, seriesList } from '@/lib/posts';
+import Title from '@/components/Title';
 
 export default function Home() {
   const recentPosts = sortedPosts.slice(0, 6);
@@ -40,14 +41,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid animate-slideDown grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        <Txt
-          fontSize="sm"
-          as="h2"
-          className="my-2 text-2xl italic text-neutral-700"
-        >
-          series
-        </Txt>
+      <section className="grid animate-slideDown grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/*<Txt*/}
+        {/*  fontSize="sm"*/}
+        {/*  as="h2"*/}
+        {/*  className="my-2 text-2xl italic text-neutral-700"*/}
+        {/*>*/}
+        {/*  series*/}
+        {/*</Txt>*/}
+        <Title>series</Title>
         {seriesList.map((series) => (
           <SeriesCard key={series} series={series} />
         ))}
@@ -66,14 +68,8 @@ export default function Home() {
       </section>
 
       <section className="mb-16 animate-slideDown">
+        <Title>articles</Title>
         <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
-          <Txt
-            fontSize="sm"
-            as="h2"
-            className="my-10 text-2xl italic text-neutral-700"
-          >
-            articles
-          </Txt>
           {recentPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
