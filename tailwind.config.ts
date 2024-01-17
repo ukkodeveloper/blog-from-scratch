@@ -21,13 +21,12 @@ const config: Config = {
         gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
       animation: {
-        slideDown: 'slideDown 1s',
+        slideDown: 'slideDown 0.8s',
       },
       keyframes: {
         slideDown: {
           '0%': { opacity: '0', transform: 'translateY(-20px)' },
-          '40%': { opacity: '0', transform: 'translateY(-20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+          '30%': { opacity: '0', transform: 'translateY(-20px)' },
         },
       },
       typography: require('./typography'),
