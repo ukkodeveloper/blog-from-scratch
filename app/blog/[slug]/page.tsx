@@ -12,7 +12,6 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 interface PageProps {
   params: {
     slug: string;
-    seriesImg: string;
   };
 }
 

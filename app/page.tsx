@@ -41,28 +41,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid animate-slideDown grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <section className="mb-16 space-y-6">
         <Title>series</Title>
-        {seriesList.map((series) => (
-          <SeriesCard key={series} series={series} />
-        ))}
-        {seriesList.map((series) => (
-          <SeriesCard key={series} series={series} />
-        ))}
-        {seriesList.map((series) => (
-          <SeriesCard key={series} series={series} />
-        ))}
-        {seriesList.map((series) => (
-          <SeriesCard key={series} series={series} />
-        ))}
-        {seriesList.map((series) => (
-          <SeriesCard key={series} series={series} />
-        ))}
+        <div className="grid animate-slideDown grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
+          ))}
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
+          ))}
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
+          ))}
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
+          ))}
+          {seriesList.map((series) => (
+            <SeriesCard key={series} series={series} />
+          ))}
+        </div>
       </section>
 
-      <section className="mb-16 animate-slideDown">
+      <section className="mb-16">
         <Title>articles</Title>
-        <div className="mt-6 flex flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
+        <div className="mt-6 flex animate-slideDown flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
           {recentPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}

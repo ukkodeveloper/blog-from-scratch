@@ -69,6 +69,10 @@ const getPostBySlug = (slug: string) => {
   return sortedPosts.find((post) => post.slug === slug);
 };
 
+const getPostsByTag = (tag: string) => {
+  return sortedPosts.filter((post) => post.tags.includes(tag));
+};
+
 const filterPostsByTags = (posts: Post[], tags: string[]) => {
   if (tags.length === 0) return posts;
 
@@ -86,6 +90,7 @@ export {
   tags,
   seriesMap,
   seriesList,
+  getPostsByTag,
   getPostBySlug,
   getTagsBySeries,
   getPostsBySeries,
