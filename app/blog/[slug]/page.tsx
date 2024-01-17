@@ -50,7 +50,7 @@ export default function Page({ params: { slug } }: PageProps) {
 
   return (
     <div className="divide divide-y-2">
-      <aside className="relative mb-20 mt-10 p-10 pb-0 md:grid md:grid-cols-4">
+      <aside className="relative mb-20 mt-10 animate-slideDown p-10 pb-0 md:grid md:grid-cols-4">
         <Image
           src={image}
           alt="post image"
@@ -74,16 +74,9 @@ export default function Page({ params: { slug } }: PageProps) {
         <section className="prose md:col-span-3 md:pr-4 xl:col-span-3">
           <MDXContent components={mdxComponents} />
         </section>
-        <div className="md:min-h-screen md:pl-4">
+
+        <div className="animate-slideDown md:min-h-screen md:pl-4">
           <aside className="top-10 mt-20 flex flex-col space-y-4 py-2 md:sticky md:top-14 md:col-span-1 md:mt-0 md:block ">
-            <Box title="AUTHOR">
-              <div className="flex items-end space-x-2 ">
-                <div className="h-8 w-8 rounded-full bg-neutral-800 " />
-                <div className="h-8 w-8 rounded-full bg-neutral-800 " />
-                <div className="h-8 w-8 rounded-full bg-neutral-800 " />
-              </div>
-              <a href={githubLink}>{`@ ${author}`}</a>
-            </Box>
             <Box title="TAGS">
               <div className="flex flex-wrap ">
                 {tags.map((tag) => (
@@ -110,23 +103,23 @@ export default function Page({ params: { slug } }: PageProps) {
                   </Txt>
                 </Link>
               </div>
-              <div className="flex min-h-16 flex-col items-start justify-center  rounded-sm bg-neutral-100 p-2">
+              <div className="flex min-h-16 flex-col items-center justify-center rounded-sm bg-neutral-200 p-2">
                 {prevPost ? (
-                  <Link href={`/blog/${prevPost.slug}`} className="flex">
-                    <ArrowLeftIcon className="h-5 w-5 flex-1 rounded-sm border border-black bg-white p-0.5" />
-                    <Txt fontSize="sm" className="ml-1">
+                  <Link href={`/blog/${prevPost.slug}`} className="flex gap-2">
+                    <ArrowLeftIcon className="aboslute h-5 w-5 rounded-sm border border-black bg-white" />
+                    <Txt fontSize="sm" className="flex-1">
                       {prevPost.title}
                     </Txt>
                   </Link>
                 ) : (
-                  <Txt fontSize="sm">이전 페이지가 없습니다.</Txt>
+                  <Txt fontSize="sm">이전 글이 없습니다.</Txt>
                 )}
               </div>
-              <div className="flex min-h-16 items-end justify-center rounded-sm bg-neutral-100 p-2">
+              <div className="flex min-h-16 items-center justify-center rounded-sm bg-neutral-200 p-2">
                 {nextPost ? (
                   <Link
                     href={`/blog/${nextPost.slug}`}
-                    className="flex items-center space-y-2"
+                    className="flex items-center gap-2"
                   >
                     <Txt fontSize="sm" className="flex-1">
                       {nextPost.title}
@@ -134,7 +127,7 @@ export default function Page({ params: { slug } }: PageProps) {
                     <ArrowRightIcon className="aboslute h-5 w-5 rounded-sm border border-black bg-white" />
                   </Link>
                 ) : (
-                  <Txt fontSize="sm">이전 페이지가 없습니다.</Txt>
+                  <Txt fontSize="sm">다음 글이 없습니다.</Txt>
                 )}
               </div>
               <Link href="/"></Link>
@@ -154,10 +147,8 @@ const Box = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="flex flex-1 flex-col space-y-2 rounded-md bg-neutral-200 p-2 md:m-0 md:my-2">
-      <p className="border border-b-neutral-400 text-xs text-neutral-400">
-        {title}
-      </p>
+    <div className="flex flex-1 flex-col space-y-2 rounded-md bg-neutral-100 p-2 shadow-md md:m-0 md:my-2">
+      <p className="border-b-neutral-400 text-xs text-neutral-400">{title}</p>
       {children}
     </div>
   );

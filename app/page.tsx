@@ -41,14 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid animate-slideDown grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {/*<Txt*/}
-        {/*  fontSize="sm"*/}
-        {/*  as="h2"*/}
-        {/*  className="my-2 text-2xl italic text-neutral-700"*/}
-        {/*>*/}
-        {/*  series*/}
-        {/*</Txt>*/}
+      <section className="grid animate-slideDown grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <Title>series</Title>
         {seriesList.map((series) => (
           <SeriesCard key={series} series={series} />
