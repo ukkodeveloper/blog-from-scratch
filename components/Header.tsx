@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import logo from '../public/logo.svg';
-import { TagIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { TagIcon, RectangleStackIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   return (
@@ -12,11 +12,14 @@ const Header = () => {
           <Image alt="로고" src={logo} className="w-44 xl:w-56" />
         </Link>
         <div className="flex items-end gap-4 text-neutral-50">
-          <Link href="/" className=" border-spacing-1.5 rounded-lg pb-1">
-            <TagIcon className="h-6 w-6 text-neutral-50" />
+          <Link
+            href={'/series'}
+            className=" border-spacing-1.5 rounded-lg pb-1"
+          >
+            <RectangleStackIcon className="h-6 w-6 text-neutral-50 xl:h-8  xl:w-8" />
           </Link>
-          <Link href="/" className=" border-spacing-1.5 rounded-lg pb-1">
-            <MagnifyingGlassIcon className="h-6 w-6 text-neutral-50" />
+          <Link href={'/tags'} className=" border-spacing-1.5 rounded-lg pb-1">
+            <TagIcon className="h-6 w-6 text-neutral-50 xl:h-8  xl:w-8" />
           </Link>
         </div>
       </nav>
