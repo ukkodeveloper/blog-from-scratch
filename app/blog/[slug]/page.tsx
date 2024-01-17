@@ -112,19 +112,26 @@ export default function Page({ params: { slug } }: PageProps) {
               </div>
               <div className="flex min-h-16 flex-col items-start justify-center  rounded-sm bg-neutral-100 p-2">
                 {prevPost ? (
-                  <Link href={`/blog/${prevPost.slug}`} className="space-y-2">
-                    <ArrowLeftIcon className="h-5 w-5 rounded-sm border border-black bg-white p-0.5 " />
-                    <Txt fontSize="sm">{prevPost.title}</Txt>
+                  <Link href={`/blog/${prevPost.slug}`} className="flex">
+                    <ArrowLeftIcon className="h-5 w-5 flex-1 rounded-sm border border-black bg-white p-0.5" />
+                    <Txt fontSize="sm" className="ml-1">
+                      {prevPost.title}
+                    </Txt>
                   </Link>
                 ) : (
                   <Txt fontSize="sm">이전 페이지가 없습니다.</Txt>
                 )}
               </div>
-              <div className="flex min-h-16 flex-col items-end justify-center space-y-2 rounded-sm bg-neutral-100 p-2">
+              <div className="flex min-h-16 items-end justify-center rounded-sm bg-neutral-100 p-2">
                 {nextPost ? (
-                  <Link href={`/blog/${nextPost.slug}`} className="space-y-2">
-                    <ArrowRightIcon className="ml-auto h-5 w-5 rounded-sm border border-black bg-white p-0.5" />
-                    <Txt fontSize="sm">{nextPost.title}</Txt>
+                  <Link
+                    href={`/blog/${nextPost.slug}`}
+                    className="flex items-center space-y-2"
+                  >
+                    <Txt fontSize="sm" className="flex-1">
+                      {nextPost.title}
+                    </Txt>
+                    <ArrowRightIcon className="aboslute h-5 w-5 rounded-sm border border-black bg-white" />
                   </Link>
                 ) : (
                   <Txt fontSize="sm">이전 페이지가 없습니다.</Txt>

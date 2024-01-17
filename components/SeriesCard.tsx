@@ -13,10 +13,10 @@ const SeriesCard = ({ series }: SeriesCardProps) => {
   return (
     <Link
       href={`/series/${series}`}
-      className="group relative items-center overflow-hidden rounded-md pb-[40%]"
+      className="group relative min-h-44 min-w-44 items-center overflow-hidden rounded-md sm:pb-[60%]"
     >
       <Image
-        className="absolute -top-8 h-auto w-full rounded-lg opacity-80 brightness-75 group-hover:blur-sm group-hover:brightness-50"
+        className="absolute h-auto w-full rounded-lg opacity-80 brightness-75 group-hover:blur-sm group-hover:brightness-50 md:-top-8"
         src={`/images/series/${series.toLowerCase()}.png`}
         alt="Picture of the article"
         sizes="100vw"
