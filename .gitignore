@@ -38,5 +38,13 @@ next-env.d.ts
 # webstorm
 .idea
 
-#contentlayer
+# contentlayer
 .contentlayer
+
+# obsidian
+public/*
+
+# 허용할 디렉토리
+!public/images/
+!public/blog/
+!public/static/
