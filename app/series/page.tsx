@@ -7,12 +7,12 @@ const Page = () => {
   console.log('[series]', seriesList);
   return (
     <>
-      <section className="my-10 flex animate-slideDown flex-col items-center space-y-10">
+      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
         <Txt fontSize="sm">series</Txt>
         <Txt fontSize="2xl" as="h1">
           ALL
         </Txt>
-        <div className="flex flex-wrap gap-1 xl:max-w-xl">
+        <div className="flex flex-wrap gap-1 py-6">
           {seriesList.map((series) => (
             <Tag
               key={series}

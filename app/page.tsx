@@ -47,18 +47,6 @@ export default function Home() {
           {seriesList.map((series) => (
             <SeriesCard key={series} series={series} />
           ))}
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
         </div>
       </section>
 

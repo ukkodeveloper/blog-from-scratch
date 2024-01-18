@@ -17,7 +17,7 @@ const Page = ({ params: { series } }: PageParams) => {
   const posts = getPostsBySeries(series);
   return (
     <>
-      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2 ">
+      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
         <Txt fontSize="sm">series</Txt>
         <Txt fontSize="2xl" as="h1">
           {series}
