@@ -1,7 +1,7 @@
 import PostCard from '@/components/PostCard';
 import Image from 'next/image';
-import hero from '../public/images/hero.png';
-import heroHovered from '../public/images/hero-hovered.png';
+import hero from '../public/static/hero.png';
+import heroHovered from '../public/static/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
 import { sortedPosts, seriesList } from '@/lib/posts';

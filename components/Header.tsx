@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import logo from '../public/logo.svg';
+import logo from '../public/static/logo.svg';
 import { TagIcon, RectangleStackIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
