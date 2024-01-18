@@ -2,11 +2,14 @@ import { notFound } from 'next/navigation';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import ImageMDX from '@/components/Image';
 
 import { getPostBySlug, getPostsBySeries, sortedPosts } from '@/lib/posts';
 import Txt from '@/components/Txt';
 import Tag from '@/components/Tag';
-import Image from 'next/image';
+
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface PageProps {
@@ -29,6 +32,12 @@ export default function Page({ params: { slug } }: PageProps) {
   const MDXContent = useMDXComponent(post.body.code);
 
   const mdxComponents: MDXComponents = {
+    img: ({ src, ...rest }) => {
+      if (!src) return;
+      const srcWithSlash = src.startsWith('/') ? src : `\/${src}`;
+
+      return <img src={srcWithSlash} {...rest} />;
+    },
     a: ({ href, children }) => <Link href={href ?? ''}>{children}</Link>,
   };
   // todo: Refactor
@@ -89,8 +98,7 @@ export default function Page({ params: { slug } }: PageProps) {
                   src={seriesImg}
                   alt="series"
                   fill
-                  objectFit="cover"
-                  className="rounded-md opacity-80"
+                  className="rounded-md object-cover opacity-80"
                 />
                 <Link href={`/series/${series.toLowerCase()}`}>
                   <Txt
