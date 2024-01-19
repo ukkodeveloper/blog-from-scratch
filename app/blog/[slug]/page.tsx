@@ -9,6 +9,7 @@ import Txt from '@/components/Txt';
 import Badge from '@/components/Badge';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import BadgesContainer from '@/components/BadgesContainer';
 
 interface PageProps {
   params: {
@@ -83,11 +84,11 @@ export default function Page({ params }: PageProps) {
         <div className="animate-slideDown md:min-h-screen md:pl-4">
           <aside className="top-10 mt-20 flex flex-col space-y-4 py-2 md:sticky md:top-14 md:col-span-1 md:mt-0 md:block ">
             <Box title="TAGS">
-              <div className="flex flex-wrap ">
+              <BadgesContainer>
                 {tags.map((tag) => (
                   <Badge key={tag} variant="TAG" name={tag} />
                 ))}
-              </div>
+              </BadgesContainer>
             </Box>
             <Box title="PREV/NEXT">
               <div className="relative hidden w-full pb-[40%] md:block">

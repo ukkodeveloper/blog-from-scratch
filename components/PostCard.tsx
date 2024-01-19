@@ -4,6 +4,7 @@ import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import type { Post } from '@/.contentlayer/generated';
 import slugger from '@/lib/utils/slugger';
+import BadgesContainer from '@/components/BadgesContainer';
 
 type PostCardProps = {
   post: Post;
@@ -32,12 +33,12 @@ const PostCard = ({
           <Txt color="neutral">{date}</Txt>
         </div>
       </Link>
-      <div className="flex flex-wrap gap-2">
+      <BadgesContainer>
         <Badge name={series} variant="SERIES" />
         {tags.map((tag) => (
           <Badge key={tag} name={tag} variant="TAG" />
         ))}
-      </div>
+      </BadgesContainer>
     </article>
   );
 };
