@@ -4,8 +4,6 @@ import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ImageMDX from '@/components/Image';
-
 import { getPostBySlug, getPostsBySeries, postList } from '@/lib/utils/posts';
 import Txt from '@/components/Txt';
 import Badge from '@/components/Badge';
