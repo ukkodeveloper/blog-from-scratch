@@ -1,11 +1,12 @@
 ---
-title: 'OAuth로 프로젝트 로그인 기능 추가하기2'
-date: '2023-06-01'
+title: 'OAuth로 프로젝트 로그인 기능 추가하기1'
+date: '2010-4-2'
 tags: ['우테코', 'react', 'oauth']
-published: true
 image: '/images/shook/oauth1.png'
 summary: '안녕하세요 UKKO입니다. 이거슨 예시입니다.'
+published: true
 ---
+
 ## 왜 Oauth를 도입했는가
 ### 왜 Oauth인가
 
