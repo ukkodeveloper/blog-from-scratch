@@ -10,6 +10,7 @@ import Badge from '@/components/Badge';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import BadgesContainer from '@/components/BadgesContainer';
+import Box from '@/components/Box';
 
 interface PageProps {
   params: {
@@ -143,18 +144,3 @@ export default function Page({ params }: PageProps) {
     </div>
   );
 }
-
-const Box = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <div className="flex flex-1 flex-col space-y-2 rounded-md bg-neutral-100 p-2 shadow-md md:m-0 md:my-2">
-      <p className="border-b-neutral-400 text-xs text-neutral-400">{title}</p>
-      {children}
-    </div>
-  );
-};
