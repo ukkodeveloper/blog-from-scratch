@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import ImageMDX from '@/components/Image';
 
-import { getPostBySlug, getPostsBySeries, sortedPosts } from '@/lib/posts';
+import { getPostBySlug, getPostsBySeries, postList } from '@/lib/posts';
 import Txt from '@/components/Txt';
 import Tag from '@/components/Tag';
 
@@ -19,7 +19,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return sortedPosts.map(({ slug }) => ({
+  return postList.map(({ slug }) => ({
     slug,
   }));
 }

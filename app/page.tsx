@@ -4,11 +4,11 @@ import hero from '../public/static/hero.png';
 import heroHovered from '../public/static/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
-import { sortedPosts, seriesList } from '@/lib/posts';
+import { postList, seriesList } from '@/lib/posts';
 import Title from '@/components/Title';
 
 export default function Home() {
-  const recentPosts = sortedPosts.slice(0, 6);
+  const recentPosts = postList.slice(0, 6);
 
   return (
     <div className="relative mt-4 space-y-12">

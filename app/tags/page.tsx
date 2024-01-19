@@ -1,4 +1,4 @@
-import { sortedPosts, tags } from '@/lib/posts';
+import { postList, tagList } from '@/lib/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
@@ -12,13 +12,13 @@ const Page = () => {
           ALL
         </Txt>
         <div className="flex flex-wrap gap-1 py-6">
-          {tags.map((tag) => (
+          {tagList.map((tag) => (
             <Tag key={tag} name={tag} link={`/tags/${tag}`} shape="FULL" />
           ))}
         </div>
       </section>
       <ul className="m-auto max-w-xl">
-        {sortedPosts
+        {postList
           .slice(0, 10)
           .map(({ slug, title, summary, date, series, tags }) => (
             <li key={slug} className="mb-16 space-y-4">

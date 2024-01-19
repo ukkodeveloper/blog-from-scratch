@@ -2,7 +2,7 @@ import { allPosts, type Post } from '@/.contentlayer/generated';
 import slugger from '@/lib/utils/slugger';
 
 // sort posts
-const sortedPosts = allPosts
+const postList = allPosts
   .filter((post) => post.published)
   .sort((a, b) => b.date.localeCompare(a.date))
   .map((post) => ({
@@ -12,61 +12,62 @@ const sortedPosts = allPosts
     slug: slugger(post.slug),
   }));
 
-let tagList: string[] = [];
-sortedPosts.forEach(({ tags }) => {
-  tags.forEach((tag) => {
-    tagList.push(tag);
-  });
-});
+const getUniqueSortedArray = (arr: string[]) => {
+  return [...new Set(arr)].sort((a, b) => a.localeCompare(b));
+};
 
-const tags = [...new Set(tagList)].sort((a, b) => a.localeCompare(b));
+const tagList = getUniqueSortedArray(
+  postList.reduce<string[]>((acc, { tags }) => [...acc, ...tags], [])
+);
 
-// seriesMap
-let seriesTempt: Record<string, { tags: Set<string>; posts: Post[] }> = {};
+const seriesList = getUniqueSortedArray(postList.map(({ series }) => series));
 
-sortedPosts.forEach((post) => {
-  if (!seriesTempt[post.series]) {
-    seriesTempt[post.series] = {
-      tags: new Set(),
+const seriesMap = postList.reduce<
+  Record<string, { tags: string[]; posts: Post[] }>
+>((acc, post) => {
+  const { series, tags } = post;
+  if (!acc[series]) {
+    acc[series] = {
       posts: [],
+      tags: [],
     };
   }
 
-  seriesTempt[post.series].posts.push(post);
-  post.tags.forEach((tag) => seriesTempt[post.series].tags.add(tag));
-});
+  acc[series].posts.push(post);
+  acc[series].tags.push(...tags);
+  return acc;
+}, {});
 
-let seriesMap: Record<string, { tags: string[]; posts: Post[] }> = {};
+for (const series in seriesMap) {
+  const tags = seriesMap?.[series].tags;
 
-for (const series in seriesTempt) {
-  seriesMap[series] = {
-    ...seriesTempt[series],
-    tags: [...seriesTempt[series].tags],
-  };
+  seriesMap[series]!.tags = getUniqueSortedArray(tags);
 }
 
 const getPostsBySeries = (series: string) => {
-  const seriesToFind = series.toUpperCase();
+  const seriesToFind = slugger(series);
   const Posts = seriesMap[seriesToFind];
 
   return Posts?.posts || [];
 };
 
-const seriesList = Object.keys(seriesTempt).sort((a, b) => a.localeCompare(b));
-
 const getPostBySlug = (slug: string) => {
-  return sortedPosts.find((post) => post.slug === slug);
+  const slugToFind = slugger(slug);
+
+  return postList.find((post) => post.slug === slugToFind);
 };
 
 const getPostsByTag = (tag: string) => {
-  return sortedPosts.filter((post) => post.tags.includes(tag));
+  const tagToFind = slugger(tag);
+
+  return postList.filter((post) => post.tags.includes(tagToFind)) || [];
 };
 
 export {
-  sortedPosts,
-  tags,
-  seriesMap,
+  postList,
+  tagList,
   seriesList,
+  seriesMap,
   getPostsByTag,
   getPostBySlug,
   getPostsBySeries,

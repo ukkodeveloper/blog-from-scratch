@@ -1,10 +1,9 @@
-import { seriesList, sortedPosts } from '@/lib/posts';
+import { seriesList, postList } from '@/lib/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
 
 const Page = () => {
-  console.log('[series]', seriesList);
   return (
     <>
       <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
@@ -24,7 +23,7 @@ const Page = () => {
         </div>
       </section>
       <ul className="m-auto max-w-xl">
-        {sortedPosts
+        {postList
           .slice(0, 10)
           .map(({ slug, title, summary, date, series, tags }) => (
             <li key={slug} className="mb-16 space-y-4">
