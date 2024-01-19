@@ -1,4 +1,4 @@
-import { getPostsBySeries, seriesList } from '@/lib/posts';
+import { getPostsBySeries, seriesList } from '@/lib/utils/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';

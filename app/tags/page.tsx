@@ -1,4 +1,4 @@
-import { postList, tagList } from '@/lib/posts';
+import { postList, tagList } from '@/lib/utils/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';

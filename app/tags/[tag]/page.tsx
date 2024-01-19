@@ -1,8 +1,7 @@
-import { getPostsByTag, tagList } from '@/lib/posts';
+import { getPostsByTag, tagList } from '@/lib/utils/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface PageParams {
   params: {

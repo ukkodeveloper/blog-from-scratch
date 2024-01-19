@@ -4,7 +4,7 @@ import hero from '../public/static/hero.png';
 import heroHovered from '../public/static/hero-hovered.png';
 import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
-import { postList, seriesList } from '@/lib/posts';
+import { postList, seriesList } from '@/lib/utils/posts';
 import Title from '@/components/Title';
 
 export default function Home() {

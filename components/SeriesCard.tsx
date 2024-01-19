@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Txt from './Txt';
-import { getPostsBySeries, seriesMap } from '@/lib/posts';
+import { getPostsBySeries, seriesMap } from '@/lib/utils/posts';
 
 interface SeriesCardProps {
   series: string;
