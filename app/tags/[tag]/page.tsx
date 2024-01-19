@@ -1,4 +1,4 @@
-import { getPostsByTag, tags } from '@/lib/posts';
+import { getPostsByTag, tagList } from '@/lib/posts';
 import Tag from '@/components/Tag';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ interface PageParams {
 }
 
 export async function generateStaticParams() {
-  return tags.map(encodeURI);
+  return tagList.map(encodeURI);
 }
 
 const Page = ({ params }: PageParams) => {
@@ -25,7 +25,7 @@ const Page = ({ params }: PageParams) => {
           {tag}
         </Txt>
         <div className="flex flex-wrap gap-1 py-6">
-          {tags.map((curTag) => (
+          {tagList.map((curTag) => (
             <Tag
               key={curTag}
               name={curTag}
