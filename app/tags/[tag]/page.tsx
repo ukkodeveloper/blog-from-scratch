@@ -2,6 +2,7 @@ import { getPostsByTag, tagList } from '@/lib/utils/posts';
 import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
+import BadgeListLayout from '@/components/layout/BadgeListLayout';
 
 interface PageParams {
   params: {
@@ -18,22 +19,16 @@ const Page = ({ params }: PageParams) => {
   const posts = getPostsByTag(tag);
   return (
     <>
-      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
-        <Txt fontSize="sm">tags</Txt>
-        <Txt fontSize="2xl" as="h1">
-          {tag}
-        </Txt>
-        <div className="flex flex-wrap gap-1 py-6">
-          {tagList.map((curTag) => (
-            <Badge
-              key={curTag}
-              name={curTag}
-              variant="TAG"
-              selected={curTag === tag}
-            />
-          ))}
-        </div>
-      </section>
+      <BadgeListLayout category="tags" currentValue={tag}>
+        {tagList.map((curTag) => (
+          <Badge
+            key={curTag}
+            name={curTag}
+            variant="TAG"
+            selected={curTag === tag}
+          />
+        ))}
+      </BadgeListLayout>
       <ul className="m-auto max-w-xl">
         {posts.map(({ slug, title, summary, date, series, tags }) => (
           <li key={slug} className="mb-16 space-y-4">

@@ -2,6 +2,7 @@ import { getPostsBySeries, seriesList } from '@/lib/utils/posts';
 import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
+import BadgeListLayout from '@/components/layout/BadgeListLayout';
 
 interface PageParams {
   params: {
@@ -17,22 +18,17 @@ const Page = ({ params: { series } }: PageParams) => {
   const posts = getPostsBySeries(series);
   return (
     <>
-      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
-        <Txt fontSize="sm">series</Txt>
-        <Txt fontSize="2xl" as="h1">
-          {series}
-        </Txt>
-        <div className="flex flex-wrap gap-1 py-6">
-          {seriesList.map((curSeries) => (
-            <Badge
-              key={curSeries}
-              name={curSeries}
-              selected={curSeries === series}
-              variant="SERIES"
-            />
-          ))}
-        </div>
-      </section>
+      <BadgeListLayout category="series" currentValue={series}>
+        {seriesList.map((curSeries) => (
+          <Badge
+            key={curSeries}
+            name={curSeries}
+            selected={curSeries === series}
+            variant="SERIES"
+          />
+        ))}
+      </BadgeListLayout>
+
       <ul className="m-auto max-w-xl">
         {posts.map(({ slug, title, summary, date, series, tags }) => (
           <li key={slug} className="mb-16 space-y-4">

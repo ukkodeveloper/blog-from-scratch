@@ -2,21 +2,16 @@ import { postList, tagList } from '@/lib/utils/posts';
 import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
+import BadgeListLayout from '@/components/layout/BadgeListLayout';
 
 const Page = () => {
   return (
     <>
-      <section className="m-auto my-10 flex max-w-xl animate-slideDown flex-col items-center space-y-10 border-b-2">
-        <Txt fontSize="sm">tags</Txt>
-        <Txt fontSize="2xl" as="h1">
-          ALL
-        </Txt>
-        <div className="flex flex-wrap gap-1 py-6">
-          {tagList.map((tag) => (
-            <Badge key={tag} name={tag} variant="TAG" />
-          ))}
-        </div>
-      </section>
+      <BadgeListLayout category="tags" currentValue="all">
+        {tagList.map((tag) => (
+          <Badge key={tag} name={tag} variant="TAG" />
+        ))}
+      </BadgeListLayout>
       <ul className="m-auto max-w-xl">
         {postList
           .slice(0, 10)
