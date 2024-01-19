@@ -12,8 +12,8 @@
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "contentlayer": "^0.3.4",
-    "github-slugger": "^2.0.0",
-    "next": "^14.0.1",
+    "github-slugger": "^1.4.0",
+    "next": "^14.0.3",
     "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-dom": "^18",
