@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -11,6 +9,7 @@ import Badge from '@/components/Badge';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import BadgesContainer from '@/components/BadgesContainer';
 import Box from '@/components/Box';
+import usePost from '@/app/hooks/usePost';
 
 interface PageProps {
   params: {
@@ -23,37 +22,11 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: PageProps) {
-  const slug = decodeURI(params.slug);
-  const post = getPostBySlug(slug);
-
-  if (!post) notFound();
-
-  const MDXContent = useMDXComponent(post.body.code);
-
-  const mdxComponents: MDXComponents = {
-    img: ({ src, ...rest }) => {
-      if (!src) return;
-      const srcWithSlash = src.startsWith('/') ? src : `\/${src}`;
-
-      return <img src={srcWithSlash} {...rest} />;
-    },
-    a: ({ href, children }) => <Link href={href ?? ''}>{children}</Link>,
-  };
-  // todo: Refactor
-  const { tags, series, image } = post;
-
-  const postsInSeries = getPostsBySeries(series);
-  const currentIndex = postsInSeries.findIndex(
-    (postItem) => post.slug == postItem.slug
+  const { MDXComponent, post, seriesImg, prevPost, nextPost } = usePost(
+    params.slug
   );
 
-  const nextPost = postsInSeries[currentIndex + 1];
-  const prevPost = postsInSeries[currentIndex - 1];
-
-  const author = '우코';
-  const githubLink = 'https://github.com/ukkodeveloper';
-
-  const seriesImg = `/images/series/${series.toLowerCase()}.png`;
+  const { tags, image, series } = post;
 
   return (
     <div className="divide divide-y-2">
@@ -79,7 +52,7 @@ export default function Page({ params }: PageProps) {
 
       <div className="py-12 md:grid md:grid-cols-4 xl:grid-cols-4">
         <section className="prose md:col-span-3 md:pr-4 xl:col-span-3">
-          <MDXContent components={mdxComponents} />
+          <MDXComponent />
         </section>
 
         <div className="animate-slideDown md:min-h-screen md:pl-4">
