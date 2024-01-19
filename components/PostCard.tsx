@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import type { Post } from '@/.contentlayer/generated';
+import slugger from '@/lib/utils/slugger';
 
 type PostCardProps = {
   post: Post;
@@ -11,20 +12,17 @@ type PostCardProps = {
 const PostCard = ({
   post: { image, title, date, summary, series, tags, slug },
 }: PostCardProps) => {
+  console.log('[image]', image);
+
   return (
     <article className="mb-16 flex flex-col space-y-4">
       <Link href={`/blog/${slug}`} className="space-y-4">
         <Image
           src={image}
           alt={title}
-          sizes="100vw"
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-          className="hidden md:block md:h-48"
-          width={500}
-          height={500}
+          className="hidden object-cover md:block"
+          width={1000}
+          height={1000}
         />
         <div className="space-y-4">
           <Txt as="h3" fontSize="lg">

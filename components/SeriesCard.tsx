@@ -2,12 +2,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Txt from './Txt';
 import { getPostsBySeries, seriesMap } from '@/lib/utils/posts';
+import slugger from '@/lib/utils/slugger';
 
 interface SeriesCardProps {
   series: string;
 }
 
-const SeriesCard = ({ series }: SeriesCardProps) => {
+const SeriesCard = (props: SeriesCardProps) => {
+  const series = slugger(props.series);
   const itemCount = getPostsBySeries(series).length;
 
   return (
@@ -17,18 +19,16 @@ const SeriesCard = ({ series }: SeriesCardProps) => {
     >
       <Image
         className="absolute w-full rounded-lg object-cover opacity-80 brightness-75 group-hover:blur-sm group-hover:brightness-50 md:-top-8"
-        src={`/images/series/${series.toLowerCase()}.png`}
+        src={`/images/series/${series}.png`}
         alt="Picture of the article"
-        sizes="100vw"
         width={500}
         height={500}
       />
-
       <Txt
         fontSize="lg"
         as="h3"
         color="white"
-        className="absolute -left-0.5 -top-1.5"
+        className="absolute -left-0.5 -top-1.5 uppercase"
       >
         {series}
       </Txt>
