@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Txt from '@/components/Txt';
+import BadgesContainer from '@/components/BadgesContainer';
 
 interface BadgeListLayoutProps {
   category: string;
@@ -20,7 +21,7 @@ const BadgeListLayout = ({
       <Txt fontSize="2xl" className="uppercase" as="h1">
         {currentValue}
       </Txt>
-      <div className="flex flex-wrap gap-1 py-6">{children}</div>
+      <BadgesContainer>{children}</BadgesContainer>
     </section>
   );
 };

@@ -1,7 +1,8 @@
 ---
 title: 'OAuth로 프로젝트 로그인 기능 추가하기1'
 date: '2010-4-2'
-tags: ['우테코', 'react', 'oauth', '리액트 부수기']
+tags: ['우테코', 'react', 'oauth', '리액트 부수기', '간장', '공장', '공장장', 'itmust be', '공장장', '아누', '이누', 
+       '매우매우매매우 긴 싸움', '이될거야', '이걸 넘어가면 안된다는 걸 너는 알고 있지만 그렇지 못하고 있어']
 image: '/images/oauth1.png'
 summary: '안녕하세요 UKKO입니다. 이거슨 예시입니다.'
 published: true

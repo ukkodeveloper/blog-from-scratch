@@ -2,6 +2,7 @@ import type { Post } from '@/.contentlayer/generated';
 import Link from 'next/link';
 import Txt from '@/components/Txt';
 import Badge from '@/components/Badge';
+import BadgesContainer from '@/components/BadgesContainer';
 
 interface PlainPostListProps {
   posts: Post[];
@@ -21,12 +22,12 @@ const PlainPostList = ({ posts }: PlainPostListProps) => {
               <Txt color="neutral">{date}</Txt>
             </div>
           </Link>
-          <div className="flex flex-wrap gap-2">
+          <BadgesContainer>
             <Badge name={series} variant="SERIES" />
             {tags.map((tag) => (
               <Badge key={tag} name={tag} variant="TAG" />
             ))}
-          </div>
+          </BadgesContainer>
         </li>
       ))}
     </ul>
