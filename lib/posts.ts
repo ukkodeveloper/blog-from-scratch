@@ -1,5 +1,4 @@
 import { allPosts, type Post } from '@/.contentlayer/generated';
-import { slug } from 'github-slugger';
 import slugger from '@/lib/utils/slugger';
 
 // sort posts
@@ -53,13 +52,6 @@ const getPostsBySeries = (series: string) => {
   return Posts?.posts || [];
 };
 
-const getTagsBySeries = (series: string) => {
-  const seriesToFind = series.toUpperCase();
-  const Posts = seriesMap[seriesToFind];
-
-  return Posts?.tags || [];
-};
-
 const seriesList = Object.keys(seriesTempt).sort((a, b) => a.localeCompare(b));
 
 const getPostBySlug = (slug: string) => {
@@ -70,18 +62,6 @@ const getPostsByTag = (tag: string) => {
   return sortedPosts.filter((post) => post.tags.includes(tag));
 };
 
-const filterPostsByTags = (posts: Post[], tags: string[]) => {
-  if (tags.length === 0) return posts;
-
-  const tagsToFind = tags.map((tag) => tag.toUpperCase());
-
-  return posts.filter(
-    (post) =>
-      new Set([...post.tags, ...tagsToFind]).size !==
-      post.tags.length + tagsToFind.length
-  );
-};
-
 export {
   sortedPosts,
   tags,
@@ -89,7 +69,5 @@ export {
   seriesList,
   getPostsByTag,
   getPostBySlug,
-  getTagsBySeries,
   getPostsBySeries,
-  filterPostsByTags,
 };
