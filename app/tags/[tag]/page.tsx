@@ -11,11 +11,12 @@ interface PageParams {
 }
 
 export async function generateStaticParams() {
-  return tagList.map(encodeURI);
+  return tagList;
 }
 
 const Page = ({ params }: PageParams) => {
   const tag = decodeURI(params.tag);
+
   const posts = getPostsByTag(tag);
   return (
     <>

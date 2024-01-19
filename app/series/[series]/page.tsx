@@ -14,8 +14,10 @@ export async function generateStaticParams() {
   return seriesList;
 }
 
-const Page = ({ params: { series } }: PageParams) => {
+const Page = ({ params }: PageParams) => {
+  const series = decodeURI(params.series);
   const posts = getPostsBySeries(series);
+
   return (
     <>
       <BadgeListLayout category="series" currentValue={series}>
