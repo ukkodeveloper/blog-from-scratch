@@ -8,7 +8,7 @@ import ImageMDX from '@/components/Image';
 
 import { getPostBySlug, getPostsBySeries, postList } from '@/lib/utils/posts';
 import Txt from '@/components/Txt';
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
@@ -88,7 +88,7 @@ export default function Page({ params: { slug } }: PageProps) {
             <Box title="TAGS">
               <div className="flex flex-wrap ">
                 {tags.map((tag) => (
-                  <Tag key={tag} name={tag} link={`/tags/${tag}`} />
+                  <Badge key={tag} variant="TAG" name={tag} />
                 ))}
               </div>
             </Box>

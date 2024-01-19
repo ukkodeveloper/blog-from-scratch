@@ -1,5 +1,5 @@
 import { getPostsBySeries, seriesList } from '@/lib/utils/posts';
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
 
@@ -24,12 +24,11 @@ const Page = ({ params: { series } }: PageParams) => {
         </Txt>
         <div className="flex flex-wrap gap-1 py-6">
           {seriesList.map((curSeries) => (
-            <Tag
+            <Badge
               key={curSeries}
               name={curSeries}
-              link={`/series/${curSeries}`}
-              shape="SQUARE"
               selected={curSeries === series}
+              variant="SERIES"
             />
           ))}
         </div>
@@ -47,9 +46,9 @@ const Page = ({ params: { series } }: PageParams) => {
               </div>
             </Link>
             <div className="flex flex-wrap gap-2">
-              <Tag name={series} link={`/series/${series}`} shape="SQUARE" />
+              <Badge name={series} variant="SERIES" />
               {tags.map((tag) => (
-                <Tag key={tag} name={tag} link={`/tags/${tag}`} shape="FULL" />
+                <Badge key={tag} name={tag} variant="TAG" />
               ))}
             </div>
           </li>

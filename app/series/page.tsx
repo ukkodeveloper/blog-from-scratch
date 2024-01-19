@@ -1,5 +1,5 @@
 import { seriesList, postList } from '@/lib/utils/posts';
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
 
@@ -13,12 +13,7 @@ const Page = () => {
         </Txt>
         <div className="flex flex-wrap gap-1 py-6">
           {seriesList.map((series) => (
-            <Tag
-              key={series}
-              name={series}
-              link={`/series/${series}`}
-              shape="SQUARE"
-            />
+            <Badge key={series} name={series} variant="SERIES" />
           ))}
         </div>
       </section>
@@ -37,14 +32,9 @@ const Page = () => {
                 </div>
               </Link>
               <div className="flex flex-wrap gap-2">
-                <Tag name={series} link={`/series/${series}`} shape="SQUARE" />
+                <Badge name={series} variant="SERIES" />
                 {tags.map((tag) => (
-                  <Tag
-                    key={tag}
-                    name={tag}
-                    link={`/tags/${tag}`}
-                    shape="FULL"
-                  />
+                  <Badge key={tag} name={tag} variant="TAG" />
                 ))}
               </div>
             </li>

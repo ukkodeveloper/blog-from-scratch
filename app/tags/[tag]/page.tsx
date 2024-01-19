@@ -1,5 +1,5 @@
 import { getPostsByTag, tagList } from '@/lib/utils/posts';
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import Link from 'next/link';
 
@@ -25,11 +25,10 @@ const Page = ({ params }: PageParams) => {
         </Txt>
         <div className="flex flex-wrap gap-1 py-6">
           {tagList.map((curTag) => (
-            <Tag
+            <Badge
               key={curTag}
               name={curTag}
-              link={`/tags/${encodeURIComponent(curTag)}`}
-              shape="FULL"
+              variant="TAG"
               selected={curTag === tag}
             />
           ))}
@@ -48,9 +47,9 @@ const Page = ({ params }: PageParams) => {
               </div>
             </Link>
             <div className="flex flex-wrap gap-2">
-              <Tag name={series} link={`/series/${series}`} shape="SQUARE" />
+              <Badge name={series} variant="SERIES" />
               {tags.map((tag) => (
-                <Tag key={tag} name={tag} link={`/tags/${tag}`} shape="FULL" />
+                <Badge key={tag} name={tag} variant="TAG" />
               ))}
             </div>
           </li>

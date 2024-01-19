@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 import Txt from '@/components/Txt';
 import type { Post } from '@/.contentlayer/generated';
 
@@ -35,9 +35,9 @@ const PostCard = ({
         </div>
       </Link>
       <div className="flex flex-wrap gap-2">
-        <Tag name={series} link={`/series/${series}`} shape="SQUARE" />
+        <Badge name={series} variant="SERIES" />
         {tags.map((tag) => (
-          <Tag key={tag} name={tag} link={`/tags/${tag}`} shape="FULL" />
+          <Badge key={tag} name={tag} variant="TAG" />
         ))}
       </div>
     </article>
