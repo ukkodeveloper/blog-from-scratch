@@ -92,12 +92,12 @@ export default function Page({ params }: PageProps) {
               </BadgesContainer>
             </Box>
             <Box title="PREV/NEXT">
-              <div className="relative hidden w-full pb-[40%] md:block">
+              <div className="relative hidden w-full rounded-md pb-[40%]">
                 <Image
                   src={seriesImg}
                   alt="series"
                   fill
-                  className="rounded-md object-cover opacity-80"
+                  className="object-cover opacity-80"
                 />
                 <Link href={`/series/${series.toLowerCase()}`}>
                   <Txt
@@ -109,10 +109,13 @@ export default function Page({ params }: PageProps) {
                   </Txt>
                 </Link>
               </div>
-              <div className="flex min-h-16 flex-col items-center justify-center rounded-sm bg-neutral-200 p-2">
+              <div className="group  flex min-h-16 flex-col items-center justify-center rounded-sm bg-neutral-200 p-2 hover:bg-neutral-300">
                 {prevPost ? (
-                  <Link href={`/blog/${prevPost.slug}`} className="flex gap-2">
-                    <ArrowLeftIcon className="aboslute h-5 w-5 rounded-sm border border-black bg-white" />
+                  <Link
+                    href={`/blog/${prevPost.slug}`}
+                    className="flex items-center gap-2"
+                  >
+                    <ArrowLeftIcon className="aboslute group-hover:bg-neutral- h-5 w-5 rounded-full border border-black bg-neutral-100" />
                     <Txt fontSize="sm" className="flex-1">
                       {prevPost.title}
                     </Txt>
@@ -121,7 +124,7 @@ export default function Page({ params }: PageProps) {
                   <Txt fontSize="sm">이전 글이 없습니다.</Txt>
                 )}
               </div>
-              <div className="flex min-h-16 items-center justify-center rounded-sm bg-neutral-200 p-2">
+              <div className="group flex min-h-16 items-center justify-center rounded-sm bg-neutral-200 p-2 hover:bg-neutral-300">
                 {nextPost ? (
                   <Link
                     href={`/blog/${nextPost.slug}`}
@@ -130,7 +133,7 @@ export default function Page({ params }: PageProps) {
                     <Txt fontSize="sm" className="flex-1">
                       {nextPost.title}
                     </Txt>
-                    <ArrowRightIcon className="aboslute h-5 w-5 rounded-sm border border-black bg-white" />
+                    <ArrowRightIcon className="aboslute h-5 w-5 rounded-full border border-black bg-neutral-100" />
                   </Link>
                 ) : (
                   <Txt fontSize="sm">다음 글이 없습니다.</Txt>
