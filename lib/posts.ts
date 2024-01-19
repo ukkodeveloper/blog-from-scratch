@@ -1,20 +1,17 @@
 import { allPosts, type Post } from '@/.contentlayer/generated';
+import { slug } from 'github-slugger';
+import slugger from '@/lib/utils/slugger';
 
 // sort posts
 const sortedPosts = allPosts
   .filter((post) => post.published)
   .sort((a, b) => b.date.localeCompare(a.date))
-  .map((post) => {
-    const tags = post.tags.map((tag) => tag.toUpperCase());
-    const series = post.series.toUpperCase();
-    return {
-      ...post,
-      tags,
-      series,
-    };
-  });
-
-// tagList
+  .map((post) => ({
+    ...post,
+    tags: post.tags.map(slugger),
+    series: slugger(post.series),
+    slug: slugger(post.slug),
+  }));
 
 let tagList: string[] = [];
 sortedPosts.forEach(({ tags }) => {
