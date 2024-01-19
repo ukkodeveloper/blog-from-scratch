@@ -19,12 +19,11 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return postList.map(({ slug }) => ({
-    slug,
-  }));
+  return postList.map(({ slug }) => slug);
 }
 
-export default function Page({ params: { slug } }: PageProps) {
+export default function Page({ params }: PageProps) {
+  const slug = decodeURI(params.slug);
   const post = getPostBySlug(slug);
 
   if (!post) notFound();
