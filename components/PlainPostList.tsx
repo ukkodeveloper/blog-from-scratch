@@ -10,7 +10,7 @@ interface PlainPostListProps {
 
 const PlainPostList = ({ posts }: PlainPostListProps) => {
   return (
-    <ul>
+    <ul className="border-t-2 py-16">
       {posts.map(({ slug, title, summary, date, series, tags }) => (
         <li key={slug} className="mb-16 space-y-4">
           <Link href={`/blog/${slug}`} className="space-y-4">
