@@ -2,7 +2,7 @@
 title: useEffect의 목적은 외부시스템과 동기화하기 위해서다
 date: 2023-05-08
 tags: ['useEffect', '리액트', '외부시스템']
-image: images/useEffect의%20목적은%20외부시스템과%20동기화하기%20위해서다-20240128232621063.webp
+image: /images/useEffect의%20목적은%20외부시스템과%20동기화하기%20위해서다-20240128232621063.webp
 summary: useEffect의 목적이 생명주기 관리가 아니라 외부와 동기화에 있다는 것을 설명합니다
 published: true
 ---

@@ -2,7 +2,7 @@
 title: 모달, 공통 컴포넌트부터 useModal까지
 date: 2023-04-26
 tags: ['hook', '리액트']
-image: images/미처%20알지%20못했던%20리액트-20240128233029954.webp
+image: /images/미처%20알지%20못했던%20리액트-20240128233029954.webp
 summary: 처음 모달을 만들었을 때부터, 이를 훅으로 분리하기 까지 여정을 담았습니다.
 published: true
 ---
