@@ -16,7 +16,7 @@ published: true
 
 Oauth란 사용자의 접근 권한을 제 3자에게 위임하는 프로토콜이다.
 
-![Oauth1](/images/shook/oauth1.png)
+![Oauth1](/images/oauth1.png)
 
 Oauth의 플로우는 다음과 같다. 위 그림에서 Client는 백엔드를 가르키고, Authorization Server는 구글이나 카카오의 인증서버다. Client(백엔드)에서 인증 요청을 보내고 유효할 경우 Access Token과 Refresh Token을 받게 된다. 그리고 인증이 필요할 때 Resource 서버에 요청을 하여 Access Token이 유효한 지 확인할 수 있으며 만료 응답이 올 수도 있다. 만료 응답이 올 경우 Refresh Token을 Authorization에 보내어 갱신된 새로운 Access Token을 받을 수 있다.
 
@@ -24,7 +24,7 @@ Oauth의 플로우는 다음과 같다. 위 그림에서 Client는 백엔드를 
 
 위의 Oauth 플로우는 서버(인증 클라이언트)와 인증 서버와의 플로우다. 이번에는 우리 서비스의 Client와 Server와의 플로우를 확인해보면 다음과 같다.
 
-![Oauth2](/images/shook/oauth2.png)
+![Oauth2](/images/oauth2.png)
 
 1. 클라이언트에서 카카오나 구글에서 제공해주는 Oauth 인증 페이지로 리다이렉트시켜준다.
 2. 해당 페이지에서 유저가 로그인을 하면 지정해준 리다이렉트 페이지에 인증 코드가 담긴 URL을 보내준다.
@@ -94,7 +94,7 @@ but, 회원 정보가 틀린 경우 (탈퇴 등으로 인하여) | 유효 | 본 
 | 기간 만료 | 기간 만료 및 유효 X | 갱신 요청 / 401 |
 
 이를 그림으로 그리면 다음과 같다.
-![Oauth3](/images/shook/oauth3.png)
+![Oauth3](/images/oauth3.png)
 
 ### 401 에러 처리
 
@@ -128,7 +128,7 @@ class ErrorBoundary extends React.Component {
 
 첫째, 스크롤이 처음 진입점으로 가지는 문제가 발생한다.
 
-![Oauth4](/images/shook/oauth4.png)
+![Oauth4](/images/oauth4.png)
 
 shook 서비스에는 스와이프 형식으로 노래를 보여준다. 페이지 진입점으로 부터 스와이프 후에 인증이 필요한 상호작용이 발생하고 Error Bounday에서 이를 감지한 후 자식 컴포넌트를 다시 랜더링을 한다. 이 과정에서 자식 컴포넌트를 완전히 다시 코드를 읽고 렌더링하게 된다. 그 과정에서 스크롤이 페이지 진입점으로 이동한다.
 
