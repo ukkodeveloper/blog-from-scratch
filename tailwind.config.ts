@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import colors from 'tailwindcss/colors';
-import { screens } from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 const config: Config = {
