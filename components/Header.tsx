@@ -6,7 +6,7 @@ import { TagIcon, RectangleStackIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 bg-neutral-700/30 backdrop-blur-lg backdrop-filter ">
+    <header className="sticky top-0  z-10  bg-neutral-700/30 backdrop-blur-lg backdrop-filter ">
       <nav className="laptop:py-2.5 m-auto flex max-w-screen-xl items-end justify-between px-6 py-2">
         <Link href="/">
           <Image alt="로고" src={logo} className="w-44 xl:w-56" />
