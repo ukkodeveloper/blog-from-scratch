@@ -21,7 +21,7 @@ export default function Page({ params }: PageProps) {
   const { tags, image, series, title, date } = post;
 
   return (
-    <div className="divide divide-y-2">
+    <>
       <PostTitleSide title={title} image={image} date={date} />
 
       <div className="py-12 md:grid md:grid-cols-4 xl:grid-cols-4">
@@ -39,6 +39,6 @@ export default function Page({ params }: PageProps) {
           />
         </section>
       </div>
-    </div>
+    </>
   );
 }
