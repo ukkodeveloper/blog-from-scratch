@@ -4,9 +4,11 @@ module.exports = ({ theme }) => ({
       h2: {
         fontSize: '1.6rem',
         paddingBottom: '8px',
-        borderBottom: `1px ${theme('colors.neutral.200')} solid`,
+        color: `${theme('colors.neutral.700')}`,
+        borderBottom: `1px ${theme('colors.neutral.700')} solid`,
       },
       h3: {
+        color: `${theme('colors.neutral.700')}`,
         fontSize: '1.25rem',
       },
       a: {
@@ -23,6 +25,7 @@ module.exports = ({ theme }) => ({
       },
       'p, li': {
         fontFamily: 'var(--font-wanted)',
+        fontSize: '1.1rem',
       },
       li: {
         wordWrap: 'break-word',

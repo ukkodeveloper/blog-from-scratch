@@ -36,7 +36,7 @@ body {
 }
 
 pre {
-  @apply border-2 border-black rounded-md
+  @apply border-2 rounded-md
 }
 
 /* code inserted, deleted */
