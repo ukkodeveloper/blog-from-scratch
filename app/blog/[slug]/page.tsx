@@ -2,6 +2,7 @@ import { postList } from '@/lib/utils/posts';
 import usePost from '@/app/hooks/usePost';
 import PostTitleSide from '@/components/layout/PostTitleSide';
 import PostInfoSide from '@/components/layout/PostInfoSide';
+import Badge from '@/components/Badge';
 
 interface PageProps {
   params: {
@@ -21,24 +22,19 @@ export default function Page({ params }: PageProps) {
   const { tags, image, series, title, date } = post;
 
   return (
-    <>
+    <div className="space-y-4">
       <PostTitleSide title={title} image={image} date={date} />
-
-      <div className="py-12 md:grid md:grid-cols-4 xl:grid-cols-4">
-        <section className="prose md:col-span-3 md:pr-4 xl:col-span-3">
+      <div className="py-4">
+        <section className="prose animate-slideDown">
           <MDXComponent />
         </section>
-
-        <section className="animate-slideDown md:min-h-screen md:pl-4">
-          <PostInfoSide
-            prevPost={prevPost}
-            nextPost={nextPost}
-            series={series}
-            tags={tags}
-            seriesImg={seriesImg}
-          />
-        </section>
       </div>
-    </>
+      <PostInfoSide
+        tags={tags}
+        series={series}
+        nextPost={nextPost}
+        prevPost={prevPost}
+      />
+    </div>
   );
 }

@@ -19,7 +19,7 @@ const config: Config = {
         gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
       animation: {
-        slideDown: 'slideDown 0.5s',
+        slideDown: 'slideDown 0.8s',
       },
       keyframes: {
         slideDown: {

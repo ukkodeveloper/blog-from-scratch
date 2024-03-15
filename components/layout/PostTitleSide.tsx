@@ -9,12 +9,12 @@ interface PostTitleSideProps {
 
 const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
   return (
-    <aside className="relative h-72 animate-slideDown  pb-0">
+    <aside className="relative h-52 animate-slideDown  snap-center pb-0">
       <Image
         src={image}
         alt="post image"
         fill
-        className="-z-10 rounded-md object-cover opacity-50 backdrop-brightness-50"
+        className="-z-10 rounded-md object-cover opacity-50 "
       />
       <Txt
         fontSize="md"
