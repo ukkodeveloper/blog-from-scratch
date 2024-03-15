@@ -19,6 +19,7 @@ const Badge = ({ name, variant, selected = false }: BadgeProps) => {
       href={link}
       className={twMerge(baseStyle, selected && 'bg-neutral-800 text-white')}
     >
+      {variant === 'TAG' && '# '}
       {name}
     </Link>
   );
