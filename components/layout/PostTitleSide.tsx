@@ -9,24 +9,26 @@ interface PostTitleSideProps {
 
 const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
   return (
-    <aside className="relative mb-20 mt-10 animate-slideDown p-10 pb-0 md:grid md:grid-cols-4">
+    <aside className="relative h-72 animate-slideDown  pb-0">
       <Image
         src={image}
         alt="post image"
         fill
         className="-z-10 rounded-md object-cover opacity-50 backdrop-brightness-50"
       />
-      <div className="md:col-span-3">
-        <Txt fontSize="2xl" as="h1" className="tracking-wider">
-          {title}
-        </Txt>
-        <Txt
-          fontSize="md"
-          className="my-8 inline-block rounded-md border-2 border-black px-2 py-1"
-        >
-          {date.split('T')[0]}
-        </Txt>
-      </div>
+      <Txt
+        fontSize="md"
+        className="absolute bottom-0 right-4 my-8 inline-block rounded-md border-2 border-black px-2 py-1"
+      >
+        {date.split('T')[0]}
+      </Txt>
+      <Txt
+        fontSize="xl"
+        as="h1"
+        className="absolute top-[50%] mx-8 translate-y-[-50%] tracking-wider"
+      >
+        {title}
+      </Txt>
     </aside>
   );
 };
