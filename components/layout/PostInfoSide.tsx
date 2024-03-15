@@ -41,7 +41,6 @@ const PostInfoSide = ({
           />
           <Link href={`/series/${series.toLowerCase()}`}>
             <Txt
-              color="white"
               fontSize="md"
               className="spacing absolute inset-0 flex items-center justify-center tracking-wider backdrop-brightness-75"
             >

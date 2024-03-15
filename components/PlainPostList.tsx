@@ -10,18 +10,20 @@ interface PlainPostListProps {
 
 const PlainPostList = ({ posts }: PlainPostListProps) => {
   return (
-    <ul className="border-t-2 py-16">
+    <ul className="space-y-2">
       {posts.map(({ slug, title, summary, date, series, tags }) => (
-        <li key={slug} className="mb-16 space-y-4">
-          <Link href={`/blog/${slug}`} className="space-y-4">
-            <div className="space-y-4">
-              <Txt as="h3" fontSize="lg">
-                {title}
-              </Txt>
-              <Txt>{summary}</Txt>
-              <Txt color="neutral">{date}</Txt>
-            </div>
+        <li
+          key={slug}
+          className="space-y-2 rounded-md px-2 py-4  hover:bg-neutral-100"
+        >
+          <Link href={`/blog/${slug}`} className="space-y-2 ">
+            <Txt as="h2" fontSize="lg">
+              {title}
+            </Txt>
+            <Txt color="neutral">{summary}</Txt>
           </Link>
+          <Txt>{date}</Txt>
+
           <BadgesContainer>
             <Badge name={series} variant="SERIES" />
             {tags.map((tag) => (

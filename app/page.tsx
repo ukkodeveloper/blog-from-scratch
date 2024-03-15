@@ -6,12 +6,13 @@ import Txt from '@/components/Txt';
 import SeriesCard from '@/components/SeriesCard';
 import { postList, seriesList } from '@/lib/utils/posts';
 import Title from '@/components/Title';
+import PlainPostList from '@/components/PlainPostList';
 
 export default function Home() {
   const recentPosts = postList.slice(0, 6);
 
   return (
-    <div className="relative mt-4 space-y-8">
+    <div className="relative mt-4 space-y-10">
       <section>
         <Txt fontSize="xl" as="h1">
           쉽게 쓰여진 글
@@ -44,22 +45,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="mb-16 space-y-6">
-        <Title>series</Title>
-        <div className="grid animate-slideDown grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {seriesList.map((series) => (
-            <SeriesCard key={series} series={series} />
-          ))}
-        </div>
-      </section>
 
-      <section className="mb-16">
+      <section className="space-y-10">
         <Title>articles</Title>
-        <div className="mt-6 flex animate-slideDown flex-col md:grid md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-14">
-          {recentPosts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
+        <PlainPostList posts={postList} />
       </section>
     </div>
   );
