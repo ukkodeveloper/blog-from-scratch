@@ -12,15 +12,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: { ...colors.blue, DEFAULT: colors.blue[600] },
-        neutral: { ...colors.zinc, DEFAULT: colors.zinc[500] },
+        primary: { ...colors.neutral, DEFAULT: colors.neutral[800] },
       },
       fontFamily: {
         wSans: ['var(--font-wanted)', ...fontFamily.sans],
         gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
       animation: {
-        slideDown: 'slideDown 0.8s',
+        slideDown: 'slideDown 0.5s',
       },
       keyframes: {
         slideDown: {

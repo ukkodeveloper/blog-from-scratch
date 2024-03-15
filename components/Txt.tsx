@@ -34,12 +34,10 @@ const SIZE_VARIANT = {
   xl: 'xl:text-4xl md:text-3xl text-2xl font-bold',
   lg: 'xl:text-3xl text-2xl font-bold',
   md: 'xl:text-xl text-lg font-bold',
-  sm: 'text-sm font-light',
+  sm: 'text-sm',
 };
 
 const COLOR_VARIANT = {
-  black: 'text-black',
-  white: 'text-white',
-  neutral: 'text-neutral',
-  primary: 'text-primary',
+  black: 'text-primary',
+  neutral: 'text-neutral-500',
 };

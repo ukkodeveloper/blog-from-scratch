@@ -11,36 +11,39 @@ export default function Home() {
   const recentPosts = postList.slice(0, 6);
 
   return (
-    <div className="relative mt-4 space-y-12">
+    <div className="relative mt-4 space-y-8">
       <section>
-        <div className="group">
-          <Image
-            src={hero}
-            alt="메인 이미지"
-            className="rounded-xl duration-100 group-hover:opacity-75"
-          />
-          <div className="absolute left-0 top-0 ">
+        <Txt fontSize="xl" as="h1">
+          쉽게 쓰여진 글
+        </Txt>
+        <Txt color="neutral">
+          머릿 속에 나부끼는 코드와 고민을 정리하는 일을 합니다.
+        </Txt>
+      </section>
+      <section className="mb-16 rounded-lg bg-gray-100">
+        <div className="flex w-full space-x-6 p-4">
+          <div>
             <Image
-              src={heroHovered}
-              className="rounded-xl opacity-0 transition-opacity delay-100 duration-1000 group-hover:opacity-100"
-              alt="메인 이미지"
+              src="/static/avatar.jpg"
+              alt="profile avatar"
+              width="100"
+              height="100"
+              className="rounded-xl bg-red-300"
             />
-            <div className="absolute left-0 top-0 flex h-full w-full -translate-y-5 transform items-center justify-center opacity-0 transition duration-1000 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
-              <Txt
-                as="h1"
-                fontSize="2xl"
-                color="white"
-                className="absolute right-8"
-              >
-                안녕하세요,
-                <span className="text-neutral-700"> 우코의 블로그</span>
-                입니다.
-              </Txt>
+          </div>
+          <div className="flex flex-col">
+            <Txt className="text-xl font-bold">김유권</Txt>
+            <Txt color="neutral">
+              머릿 속에 나부끼는 코드와 고민을 정리하는 일을 합니다.
+            </Txt>
+            <div className="space-y-4 text-neutral-500">
+              <p className="w-fit rounded-2xl bg-neutral-200 px-2 py-1.5 text-center text-sm">
+                쉽게 쓰여진 빛
+              </p>
             </div>
           </div>
         </div>
       </section>
-
       <section className="mb-16 space-y-6">
         <Title>series</Title>
         <div className="grid animate-slideDown grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
