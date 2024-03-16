@@ -89,7 +89,7 @@ export function Profile({ excluded }: ProfileProps) {
       ) : (
         <button
           type="button"
-          className="relative bottom-1 z-10 h-6 w-[100%] rounded-b-xl bg-neutral-200 hover:bg-neutral-300"
+          className="relative bottom-1 z-10 h-8 w-[100%] rounded-b-xl bg-neutral-200 hover:bg-neutral-300"
           onClick={() => {
             setIsOpened((prev) => !prev);
             profileRef.current?.scrollIntoView({
@@ -99,9 +99,9 @@ export function Profile({ excluded }: ProfileProps) {
           }}
         >
           {isOpened ? (
-            <ChevronUpIcon width="24" className="m-auto text-neutral-500 " />
+            <ChevronUpIcon width="26" className="m-auto text-neutral-500 " />
           ) : (
-            <ChevronDownIcon width="24" className="m-auto text-neutral-500" />
+            <ChevronDownIcon width="26" className="m-auto text-neutral-500" />
           )}
         </button>
       )}
@@ -122,9 +122,7 @@ function ProfileSection({ title, content }: ProfileSectionProps) {
       <Txt fontSize="md" className="ml-1 text-neutral-600">
         {title}
       </Txt>
-      <div className="rounded-xl bg-neutral-200 p-3 text-neutral-600">
-        {content}
-      </div>
+      <div className="rounded-xl bg-white p-3 text-neutral-600">{content}</div>
     </article>
   );
 }
@@ -136,10 +134,6 @@ const ProfileContents = [
   },
   {
     title: '개발 경험',
-    content: <div>준비 중...</div>,
-  },
-  {
-    title: '준비중...',
     content: <div>준비 중...</div>,
   },
 ];
