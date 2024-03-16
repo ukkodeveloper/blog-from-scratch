@@ -31,6 +31,10 @@ module.exports = ({ theme }) => ({
         wordWrap: 'break-word',
         whiteSpace: 'normal',
       },
+      img: {
+        margin: '22px auto',
+        borderRadius: '16px',
+      },
     },
   },
   invert: {
