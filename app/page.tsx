@@ -25,7 +25,6 @@ export default function Home() {
       <Profile />
 
       <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
-        <Txt>Latest</Txt>
         <PlainPostList posts={recentPosts} />
         <div className="flex w-full justify-end">
           <Link
