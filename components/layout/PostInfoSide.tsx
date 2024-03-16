@@ -77,5 +77,5 @@ const PostInfoSide = ({
 export default PostInfoSide;
 
 function SubTitle({ children }: { children: ReactNode }) {
-  return <p className="text-sm font-bold text-neutral-500">{children}</p>;
+  return <p className="text-sm text-neutral-500">{children}</p>;
 }

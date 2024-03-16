@@ -10,11 +10,11 @@ interface PlainPostListProps {
 
 const PlainPostList = ({ posts }: PlainPostListProps) => {
   return (
-    <ul className="space-y-2">
+    <ul>
       {posts.map(({ slug, title, summary, date, series, tags }) => (
         <li
           key={slug}
-          className="space-y-2 rounded-md px-2 py-4  hover:bg-neutral-100"
+          className="mb-8 space-y-2 rounded-md p-2 hover:bg-neutral-100"
         >
           <Link href={`/blog/${slug}`} className="space-y-2 ">
             <Txt as="h2" fontSize="lg">

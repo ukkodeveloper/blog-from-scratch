@@ -14,7 +14,6 @@ export default function RootLayout({
       className={`${wantedSans.variable} ${gmarketSans.variable}`}
     >
       <body>
-        <Header />
         <PageContainer>{children}</PageContainer>
       </body>
     </html>
