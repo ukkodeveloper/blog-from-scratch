@@ -25,6 +25,20 @@ export default function Home() {
       <Profile />
 
       <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
+        <Txt>Latest</Txt>
+        <PlainPostList posts={recentPosts} />
+        <div className="flex w-full justify-end">
+          <Link
+            href={'/series'}
+            className="flex justify-center rounded-2xl bg-neutral-200 px-2 py-2 pl-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
+          >
+            <span className="flex-1">더 보기</span>
+            <ChevronRightIcon width="18" className="ml-1" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
         <Txt>Series</Txt>
         <BadgesContainer>
           {seriesList.map((curSeries) => (
@@ -38,20 +52,6 @@ export default function Home() {
             <Badge key={curSeries} name={curSeries} variant="TAG" />
           ))}
         </BadgesContainer>
-      </section>
-
-      <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
-        <Txt>Latest</Txt>
-        <PlainPostList posts={recentPosts} />
-        <div className="flex w-full justify-end">
-          <Link
-            href={'/series'}
-            className="flex justify-center rounded-2xl bg-neutral-200 px-2 py-2 pl-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
-          >
-            <span className="flex-1">더 보기</span>
-            <ChevronRightIcon width="18" className="ml-1" />
-          </Link>
-        </div>
       </section>
     </div>
   );

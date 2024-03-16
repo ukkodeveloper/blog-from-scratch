@@ -2,9 +2,9 @@ import { getPostBySlug, postList } from '@/lib/utils/posts';
 import usePost from '@/app/hooks/usePost';
 import PostTitleSide from '@/components/layout/PostTitleSide';
 import PostInfoSide from '@/components/layout/PostInfoSide';
-import Badge from '@/components/Badge';
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
+import Profile from '@/components/Profile';
 
 interface PageProps {
   params: {
@@ -69,13 +69,16 @@ export default function Page({ params }: PageProps) {
   const { tags, image, series, title, date } = post;
 
   return (
-    <div className="space-y-4">
+    <div className="animate-slideDown space-y-4">
       <PostTitleSide title={title} image={image} date={date} />
       <div className="py-4">
-        <section className="prose animate-slideDown">
+        <section className="prose">
           <MDXComponent />
         </section>
       </div>
+
+      <Profile excluded={true} />
+
       <PostInfoSide
         tags={tags}
         series={series}

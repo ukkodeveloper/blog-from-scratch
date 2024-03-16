@@ -10,15 +10,25 @@ import {
   DocumentArrowDownIcon,
 } from '@heroicons/react/16/solid';
 import { type ReactNode, useRef, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-export function Profile() {
+interface ProfileProps {
+  excluded?: boolean;
+}
+
+export function Profile({ excluded }: ProfileProps) {
   const [isOpened, setIsOpened] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
   return (
     <section className="relative">
       <div className="relative -top-6" ref={profileRef}></div>
-      <div className=" space-y-4 rounded-t-xl bg-neutral-100 p-4 pb-8">
+      <div
+        className={twMerge(
+          'space-y-4 rounded-t-xl bg-neutral-100 p-4 pb-8',
+          excluded && 'rounded-b-xl'
+        )}
+      >
         <div className="flex w-full sm:space-x-6 ">
           <div>
             <Image
@@ -29,7 +39,6 @@ export function Profile() {
               className="hidden rounded-xl sm:block"
             />
           </div>
-
           <div className="flex w-full flex-1 flex-col">
             <Txt className="text-xl font-bold">김유권</Txt>
             <Txt>프론트엔드 개발자</Txt>
@@ -41,58 +50,61 @@ export function Profile() {
               <Link
                 href="https://github.com/ukkodeveloper"
                 target="_blank"
-                className="align-center flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
+                className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
                 <ChevronLeftIcon width="18" className="mr-1" />
-                <span className="flex-1">쉽게 빚어낸 코드</span>
+                <span className="flex-1">깃허브</span>
               </Link>
               <Link
                 href="https://www.instagram.com/kimupic"
                 target="_blank"
-                className="align-center flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
+                className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
                 <ChevronLeftIcon width="18" className="mr-1" />
-                <span className="flex-1">쉽게 담아낸 빛</span>
+                <span className="flex-1">사진</span>
               </Link>
             </div>
           </div>
         </div>
-        {isOpened && (
+        {isOpened && !excluded && (
           <article className="animate-slideDown space-y-6 py-4">
             {ProfileContents.map((props) => (
               <ProfileSection key={props.title} {...props} />
             ))}
-            <div className="flex w-full justify-end space-x-2">
-              <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">
-                <DocumentArrowDownIcon width="20" className="m-auto mr-1" />
-                <span className="m-auto flex-1">이력서 다운로드</span>
-              </button>
-              <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">
-                <DocumentArrowDownIcon width="20" className="m-auto mr-1" />
-                <span className="m-auto flex-1">포트폴리오 다운로드</span>
-              </button>
-            </div>
+            {/*<div className="flex w-full justify-end space-x-2">*/}
+            {/*  <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">*/}
+            {/*    <DocumentArrowDownIcon width="20" className="m-auto mr-1" />*/}
+            {/*    <span className="m-auto flex-1">이력서 다운로드</span>*/}
+            {/*  </button>*/}
+            {/*  <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">*/}
+            {/*    <DocumentArrowDownIcon width="20" className="m-auto mr-1" />*/}
+            {/*    <span className="m-auto flex-1">포트폴리오 다운로드</span>*/}
+            {/*  </button>*/}
+            {/*</div>*/}
           </article>
         )}
       </div>
-
-      <button
-        type="button"
-        className="relative bottom-1 z-10 h-6 w-[100%] rounded-b-xl bg-neutral-200 hover:bg-neutral-300"
-        onClick={() => {
-          setIsOpened((prev) => !prev);
-          profileRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }}
-      >
-        {isOpened ? (
-          <ChevronUpIcon width="24" className="m-auto text-neutral-500 " />
-        ) : (
-          <ChevronDownIcon width="24" className="m-auto text-neutral-500" />
-        )}
-      </button>
+      {excluded ? (
+        <div></div>
+      ) : (
+        <button
+          type="button"
+          className="relative bottom-1 z-10 h-6 w-[100%] rounded-b-xl bg-neutral-200 hover:bg-neutral-300"
+          onClick={() => {
+            setIsOpened((prev) => !prev);
+            profileRef.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }}
+        >
+          {isOpened ? (
+            <ChevronUpIcon width="24" className="m-auto text-neutral-500 " />
+          ) : (
+            <ChevronDownIcon width="24" className="m-auto text-neutral-500" />
+          )}
+        </button>
+      )}
     </section>
   );
 }
