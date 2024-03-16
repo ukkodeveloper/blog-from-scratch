@@ -14,7 +14,7 @@ const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
         src={image}
         alt="post image"
         fill
-        className="-z-10 rounded-xl object-cover opacity-50 brightness-[40%]"
+        className="-z-10 animate-pulse rounded-xl bg-gray-300 object-cover opacity-50 brightness-[40%]"
       />
       <Txt
         fontSize="xl"
