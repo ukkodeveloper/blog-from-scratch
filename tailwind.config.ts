@@ -19,12 +19,12 @@ const config: Config = {
         gSans: ['var(--font-gmarket)', ...fontFamily.sans],
       },
       animation: {
-        slideDown: 'slideDown 0.8s',
+        slideDown: 'slideDown 1.2s',
       },
       keyframes: {
         slideDown: {
           '0%': { opacity: '0', transform: 'translateY(-20px)' },
-          '30%': { opacity: '0', transform: 'translateY(-20px)' },
+          '15%': { opacity: '0', transform: 'translateY(-20px)' },
         },
       },
       backgroundImage: {
