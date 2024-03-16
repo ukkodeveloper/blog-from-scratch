@@ -68,6 +68,7 @@ export default function RootLayout({
           sizes="16x16"
           href="/static/favicons/favicon-16x16.png"
         />
+
         <link rel="manifest" href="/static/favicons/site.webmanifest" />
       </Head>
       <body>
