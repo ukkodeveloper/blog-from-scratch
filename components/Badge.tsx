@@ -5,9 +5,10 @@ interface BadgeProps {
   name: string;
   variant: 'TAG' | 'SERIES';
   selected?: boolean;
+  replaced?: boolean;
 }
 
-const Badge = ({ name, variant, selected = false }: BadgeProps) => {
+const Badge = ({ name, variant, selected = false, replaced }: BadgeProps) => {
   const baseStyle = `border border-2 border-neutral-800 px-2 py-1 text-[10px] uppercase hover:bg-primary-800  ${SHAPE[variant]}`;
   const link =
     variant === 'TAG'
@@ -20,7 +21,11 @@ const Badge = ({ name, variant, selected = false }: BadgeProps) => {
       {name}
     </span>
   ) : (
-    <Link href={link} className={twMerge(baseStyle, 'hover:text-white')}>
+    <Link
+      href={link}
+      replace={replaced}
+      className={twMerge(baseStyle, 'hover:text-white')}
+    >
       {variant === 'TAG' && '# '}
       {name}
     </Link>

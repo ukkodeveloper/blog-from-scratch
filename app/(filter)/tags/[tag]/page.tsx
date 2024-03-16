@@ -26,6 +26,7 @@ const Page = ({ params }: PageParams) => {
             name={curTag}
             variant="TAG"
             selected={curTag === tag}
+            replaced={true}
           />
         ))}
       </BadgeListLayout>
