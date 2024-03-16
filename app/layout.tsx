@@ -4,6 +4,7 @@ import PageContainer from '@/components/PageContainer';
 
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -49,7 +50,7 @@ export default function RootLayout({
       lang="ko"
       className={`${wantedSans.variable} ${gmarketSans.variable}`}
     >
-      <head>
+      <Head>
         <link
           rel="apple-touch-icon"
           sizes="76x76"
@@ -73,7 +74,7 @@ export default function RootLayout({
           href="/static/favicons/safari-pinned-tab.svg"
           color="#5bbad5"
         />
-      </head>
+      </Head>
       <body>
         <PageContainer>{children}</PageContainer>
       </body>
