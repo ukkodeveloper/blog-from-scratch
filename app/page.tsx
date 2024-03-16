@@ -1,14 +1,9 @@
-import Image from 'next/image';
 import Txt from '@/components/Txt';
 import { postList, seriesList, tagList } from '@/lib/utils/posts';
 import PlainPostList from '@/components/PlainPostList';
 import Link from 'next/link';
-import {
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/16/solid';
-import BadgeListLayout from '@/components/layout/BadgeListLayout';
+import { ChevronRightIcon } from '@heroicons/react/16/solid';
+
 import Badge from '@/components/Badge';
 import BadgesContainer from '@/components/BadgesContainer';
 import Profile from '@/components/Profile';

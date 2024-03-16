@@ -26,7 +26,7 @@ export function Profile() {
               alt="profile avatar"
               width="140"
               height="140"
-              className="hidden rounded-xl bg-red-300 sm:block"
+              className="hidden rounded-xl sm:block"
             />
           </div>
 
