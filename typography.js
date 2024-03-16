@@ -2,7 +2,7 @@ module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
       h2: {
-        fontSize: '1.8rem',
+        fontSize: '1.6rem',
         paddingBottom: '8px',
         color: `${theme('colors.neutral.700')}`,
         borderBottom: `1px ${theme('colors.neutral.300')} solid`,
