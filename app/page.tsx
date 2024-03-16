@@ -9,7 +9,7 @@ import Title from '@/components/Title';
 import PlainPostList from '@/components/PlainPostList';
 import Link from 'next/link';
 import { LinkIcon } from '@heroicons/react/24/outline';
-import { ChevronLeftIcon } from '@heroicons/react/16/solid';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import BadgeListLayout from '@/components/layout/BadgeListLayout';
 import Badge from '@/components/Badge';
 import BadgesContainer from '@/components/BadgesContainer';
@@ -30,7 +30,7 @@ export default function Home() {
 
       <section className="mb-16 space-y-4 rounded-xl bg-neutral-100 p-4">
         <Txt>Profile</Txt>
-        <div className="flex w-full space-x-6 ">
+        <div className="flex w-full sm:space-x-6 ">
           <Image
             src="/static/avatar.jpg"
             alt="profile avatar"
@@ -47,22 +47,22 @@ export default function Home() {
               enthusiasm.
             </Txt>
             <div className="mt-4 flex w-full justify-end space-x-2 sm:mt-auto">
-              <a
+              <Link
                 href="https://github.com/ukkodeveloper"
                 target="_blank"
-                className="align-center flex w-fit justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
+                className="align-center flex justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
                 <ChevronLeftIcon width="18" className="mr-1" />
                 쉽게 빚어낸 코드
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/kimupic"
                 target="_blank"
-                className="align-center flex w-fit justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
+                className="align-center flex justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
                 <ChevronLeftIcon width="18" className="mr-1" />
                 쉽게 담아낸 빛
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,6 +75,7 @@ export default function Home() {
             <Badge key={curSeries} name={curSeries} variant="SERIES" />
           ))}
         </BadgesContainer>
+        <br />
         <Txt>Tags</Txt>
         <BadgesContainer>
           {tagList.map((curSeries) => (
@@ -89,9 +90,10 @@ export default function Home() {
         <div className="flex w-full justify-end">
           <Link
             href={'/series'}
-            className="rounded-md bg-neutral-800 px-3 py-1.5 text-sm text-neutral-100 hover:bg-neutral-700 md:text-lg "
+            className="flex justify-center rounded-2xl bg-neutral-200 px-2 py-2 pl-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
           >
-            더 보기
+            <span>더 보기</span>
+            <ChevronRightIcon width="18" className="ml-1" />
           </Link>
         </div>
       </section>

@@ -14,15 +14,16 @@ const PlainPostList = ({ posts }: PlainPostListProps) => {
       {posts.map(({ slug, title, summary, date, series, tags }) => (
         <li
           key={slug}
-          className="mb-8 space-y-2 rounded-md p-2 hover:bg-neutral-100"
+          className="space-y-2 rounded-md p-2 py-4 hover:bg-neutral-200"
         >
           <Link href={`/blog/${slug}`} className="space-y-2 ">
             <Txt as="h2" fontSize="lg">
               {title}
             </Txt>
             <Txt color="neutral">{summary}</Txt>
+
+            <Txt>{date}</Txt>
           </Link>
-          <Txt>{date}</Txt>
 
           <BadgesContainer>
             <Badge name={series} variant="SERIES" />

@@ -27,6 +27,9 @@ const config: Config = {
           '30%': { opacity: '0', transform: 'translateY(-20px)' },
         },
       },
+      backgroundImage: {
+        custom: `linear-gradient(101deg, #2f4164 23.73%, #C382DA 58.12%, #F9AB4F 82.09%, #F9AB4F 82.1%, #F9AB4F 82.1%, #F9AB4F 82.11%, #FFC540 99.48%)`,
+      },
       typography: require('./typography'),
     },
   },

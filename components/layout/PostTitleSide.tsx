@@ -17,15 +17,15 @@ const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
         className="-z-10 rounded-xl object-cover opacity-50 brightness-[40%]"
       />
       <Txt
-        fontSize="lg"
+        fontSize="xl"
         as="h1"
-        className="absolute top-[10%] mx-8 translate-y-[-50%] font-medium tracking-wider text-white"
+        className="absolute top-[20%] mx-8 translate-y-[-50%] tracking-wider text-white"
       >
         {title}
       </Txt>
       <Txt
-        fontSize="md"
-        className="absolute bottom-0 right-8 my-8 inline-block px-2 py-1 font-medium text-white"
+        fontSize="lg"
+        className="absolute bottom-[10%] right-8 inline-block  text-white"
       >
         {date.split('T')[0]}
       </Txt>

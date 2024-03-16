@@ -14,14 +14,16 @@ const BadgeListLayout = ({
   children,
 }: BadgeListLayoutProps) => {
   return (
-    <section className="m-auto flex flex-col items-center space-y-12 pb-8">
+    <section className="mx-auto mt-24  flex flex-col items-center space-y-16 pb-10">
       <Txt fontSize="sm" className="animate-slideDown lowercase">
         {category}
       </Txt>
       <Txt fontSize="2xl" className="animate-slideDown uppercase" as="h1">
         {currentValue}
       </Txt>
-      <BadgesContainer>{children}</BadgesContainer>
+      <div className="px-2">
+        <BadgesContainer>{children}</BadgesContainer>
+      </div>
     </section>
   );
 };
