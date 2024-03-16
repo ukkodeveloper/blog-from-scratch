@@ -42,11 +42,11 @@ const PostInfoSide = ({
       <section className="space-y-2">
         <SubTitle>PREV / NEXT</SubTitle>
         <div className="flex w-full space-x-4">
-          <div className="flex min-h-16 flex-1 cursor-pointer flex-col items-center justify-center rounded-xl bg-neutral-200 px-4 py-2 text-sm hover:bg-neutral-300">
+          <div className="flex min-h-16 flex-1 cursor-pointer flex-col items-center justify-center rounded-xl bg-neutral-200 px-4 py-2 text-sm ">
             {prevPost ? (
               <Link
                 href={`/blog/${prevPost.slug}`}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:bg-neutral-300"
               >
                 <ArrowLeftIcon className="h-5 w-5" />
                 <Txt className="flex-1">{prevPost.title}</Txt>
@@ -55,11 +55,11 @@ const PostInfoSide = ({
               <Txt color="neutral">이전 글이 없습니다.</Txt>
             )}
           </div>
-          <div className="flex min-h-16 flex-1 cursor-pointer flex-col items-center justify-center rounded-xl bg-neutral-200 px-4 py-2 text-sm hover:bg-neutral-300">
+          <div className="flex min-h-16 flex-1 cursor-pointer flex-col items-center justify-center rounded-xl bg-neutral-200 px-4 py-2 text-sm">
             {nextPost ? (
               <Link
                 href={`/blog/${nextPost.slug}`}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:bg-neutral-300"
               >
                 <Txt className="flex-1">{nextPost.title}</Txt>
                 <ArrowRightIcon className="h-5 w-5" />
