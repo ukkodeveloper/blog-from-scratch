@@ -24,7 +24,7 @@ export function Profile({ excluded }: ProfileProps) {
   return (
     <section className="relative">
       <div className="relative -top-6" ref={profileRef}></div>
-      <Box className={excluded ? 'rounded-b-xl pb-10' : 'rounded-b-none pb-10'}>
+      <Box className={excluded ? 'rounded-b-xl pb-6' : 'rounded-b-none pb-6'}>
         <div className="flex w-full sm:space-x-6 ">
           <div>
             <Image
