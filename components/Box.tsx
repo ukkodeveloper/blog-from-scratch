@@ -1,7 +1,7 @@
 import type { PolymorphicComponentProp } from '@/app/types/polymorphic';
 import { twMerge } from 'tailwind-merge';
 
-export const Box = <C extends React.ElementType = 'span'>({
+export const Box = <C extends React.ElementType = 'div'>({
   as,
   children,
   className,
