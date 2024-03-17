@@ -1,7 +1,5 @@
-import Box from '@/components/Box';
 import BadgesContainer from '@/components/BadgesContainer';
 import Badge from '@/components/Badge';
-import Image from 'next/image';
 import Link from 'next/link';
 import Txt from '@/components/Txt';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
