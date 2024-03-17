@@ -1,7 +1,7 @@
 import { getPostBySlug, postList } from '@/lib/utils/posts';
 import usePost from '@/app/hooks/usePost';
-import PostTitleSide from '@/components/layout/PostTitleSide';
-import PostInfoSide from '@/components/layout/PostInfoSide';
+import PostTitleSide from '@/components/PostTitleSide';
+import PostInfoSide from '@/components/PostInfoSide';
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
 import Profile from '@/components/Profile';

@@ -1,6 +1,6 @@
 import { seriesList, postList } from '@/lib/utils/posts';
 import Badge from '@/components/Badge';
-import BadgeListLayout from '@/components/layout/BadgeListLayout';
+import BadgeListLayout from '@/components/BadgeListLayout';
 import PlainPostList from '@/components/PlainPostList';
 
 const Page = () => {
