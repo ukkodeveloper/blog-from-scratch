@@ -7,6 +7,8 @@ import { ChevronRightIcon } from '@heroicons/react/16/solid';
 import Badge from '@/components/Badge';
 import BadgesContainer from '@/components/BadgesContainer';
 import Profile from '@/components/Profile';
+import Box from '@/components/Box';
+import React from 'react';
 
 export default function Home() {
   return (
@@ -23,7 +25,7 @@ function RecentPosts() {
   const recentPosts = postList.slice(0, 3);
 
   return (
-    <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
+    <Box as="section">
       <PlainPostList posts={recentPosts} />
       <div className="flex w-full justify-end">
         <Link
@@ -34,13 +36,13 @@ function RecentPosts() {
           <ChevronRightIcon width="18" className="ml-1" />
         </Link>
       </div>
-    </section>
+    </Box>
   );
 }
 
 function TagSeriesList() {
   return (
-    <section className="space-y-4 rounded-xl bg-neutral-100 p-4">
+    <Box as="section">
       <Txt>Series</Txt>
       <BadgesContainer>
         {seriesList.map((curSeries) => (
@@ -54,7 +56,7 @@ function TagSeriesList() {
           <Badge key={curSeries} name={curSeries} variant="TAG" />
         ))}
       </BadgesContainer>
-    </section>
+    </Box>
   );
 }
 

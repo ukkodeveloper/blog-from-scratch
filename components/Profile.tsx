@@ -11,6 +11,7 @@ import {
 } from '@heroicons/react/16/solid';
 import { type ReactNode, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import Box from '@/components/Box';
 
 interface ProfileProps {
   excluded?: boolean;
@@ -23,12 +24,7 @@ export function Profile({ excluded }: ProfileProps) {
   return (
     <section className="relative">
       <div className="relative -top-6" ref={profileRef}></div>
-      <div
-        className={twMerge(
-          'space-y-4 rounded-t-xl bg-neutral-100 p-4 pb-8',
-          excluded && 'rounded-b-xl'
-        )}
-      >
+      <Box className={excluded ? 'rounded-b-xl pb-10' : 'rounded-b-none pb-10'}>
         <div className="flex w-full sm:space-x-6 ">
           <div>
             <Image
@@ -83,7 +79,7 @@ export function Profile({ excluded }: ProfileProps) {
             {/*</div>*/}
           </article>
         )}
-      </div>
+      </Box>
       {excluded ? (
         <div></div>
       ) : (
