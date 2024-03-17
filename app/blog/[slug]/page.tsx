@@ -5,6 +5,12 @@ import PostInfoSide from '@/components/PostInfoSide';
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
 import Profile from '@/components/Profile';
+import Box from '@/components/Box';
+
+import Txt from '@/components/Txt';
+import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
+import type { ReactNode, ReactSVGElement } from 'react';
+import Callout from '@/components/Callout';
 
 interface PageProps {
   params: {
@@ -73,7 +79,17 @@ export default function Page({ params }: PageProps) {
   return (
     <div className="animate-slideDown">
       <PostTitleSide title={title} image={image} date={date} />
-      <div className="rounded-2xl bg-neutral-100 p-2">{summary}</div>
+      <Callout
+        icon={
+          <ChatBubbleLeftIcon
+            width={24}
+            height={24}
+            className="text-neutral-700"
+          />
+        }
+        title="이 글의 요약"
+        content={summary}
+      />
 
       <section className="prose">
         <MDXComponent />
