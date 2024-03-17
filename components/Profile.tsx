@@ -12,6 +12,7 @@ import {
 import { type ReactNode, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Box from '@/components/Box';
+import siteMetadata from '@/app/siteMetadata';
 
 interface ProfileProps {
   excluded?: boolean;
@@ -36,7 +37,7 @@ export function Profile({ excluded }: ProfileProps) {
             />
           </div>
           <div className="flex w-full flex-1 flex-col">
-            <Txt className="text-xl font-bold">김유권</Txt>
+            <Txt className="text-xl font-bold">{siteMetadata.author}</Txt>
             <Txt>프론트엔드 개발자</Txt>
             <Txt color="neutral" className="mt-2 italic">
               Success is walking from failure to failure with no loss of
@@ -44,7 +45,7 @@ export function Profile({ excluded }: ProfileProps) {
             </Txt>
             <div className="flex w-full justify-end space-x-2 pt-3 sm:mt-auto">
               <Link
-                href="https://github.com/ukkodeveloper"
+                href={siteMetadata.github}
                 target="_blank"
                 className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
@@ -52,7 +53,7 @@ export function Profile({ excluded }: ProfileProps) {
                 <span className="flex-1">깃허브</span>
               </Link>
               <Link
-                href="https://www.instagram.com/kimupic"
+                href={siteMetadata.instagram}
                 target="_blank"
                 className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >

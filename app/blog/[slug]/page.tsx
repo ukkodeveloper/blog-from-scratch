@@ -24,9 +24,11 @@ export async function generateMetadata({
     return;
   }
 
+  console.log('[post]', post);
+
   const publishedAt = new Date(post.date).toISOString();
   const author = siteMetadata.author;
-  let imageList = [siteMetadata.socialBanner];
+  const imageList = [siteMetadata.socialBanner];
 
   const ogImages = imageList.map((img) => {
     return {
