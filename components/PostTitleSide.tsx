@@ -9,7 +9,7 @@ interface PostTitleSideProps {
 
 const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
   return (
-    <aside className="relative mb-10 aspect-square max-h-[400px] w-full  animate-slideDown snap-center pb-0">
+    <aside className="relative aspect-square max-h-[400px] w-full snap-center pb-0">
       <Image
         src={image}
         alt="post image"
@@ -25,7 +25,7 @@ const PostTitleSide = ({ image, title, date }: PostTitleSideProps) => {
       </Txt>
       <Txt
         fontSize="lg"
-        className="absolute bottom-[10%] right-8 inline-block  text-white"
+        className="absolute bottom-[10%] right-8 inline-block text-white"
       >
         {date.split('T')[0]}
       </Txt>

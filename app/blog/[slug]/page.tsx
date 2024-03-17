@@ -77,8 +77,9 @@ export default function Page({ params }: PageProps) {
   const { tags, image, series, title, date, summary } = post;
 
   return (
-    <div className="animate-slideDown">
+    <div className="animate-slideDown space-y-6">
       <PostTitleSide title={title} image={image} date={date} />
+
       <Callout
         icon={
           <ChatBubbleLeftIcon

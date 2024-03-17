@@ -20,7 +20,7 @@ const PostInfoSide = ({
   series,
 }: PostInfoSideProps) => {
   return (
-    <aside className="top-10 mt-20 flex animate-slideDown flex-col space-y-8 rounded-xl bg-neutral-100 p-4">
+    <aside className="top-10 flex animate-slideDown flex-col space-y-8 rounded-xl bg-neutral-100 p-4">
       <section className="space-y-2">
         <SubTitle>Tags</SubTitle>
         <BadgesContainer>
