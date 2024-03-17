@@ -66,16 +66,16 @@ export default function Page({ params }: PageProps) {
     params.slug
   );
 
-  const { tags, image, series, title, date } = post;
+  const { tags, image, series, title, date, summary } = post;
 
   return (
-    <div className="animate-slideDown space-y-4">
+    <div className="animate-slideDown">
       <PostTitleSide title={title} image={image} date={date} />
-      <div className="py-4">
-        <section className="prose">
-          <MDXComponent />
-        </section>
-      </div>
+      <div className="rounded-2xl bg-neutral-100 p-2">{summary}</div>
+
+      <section className="prose">
+        <MDXComponent />
+      </section>
 
       <Profile excluded={true} />
 
