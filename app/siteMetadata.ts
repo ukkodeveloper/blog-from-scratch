@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: '쉽게 쓰여진, ',
+  title: '쉽게 씌어진,',
   author: '우코 (김유권)',
   headerTitle: '우코의 개발 블로그',
   description:

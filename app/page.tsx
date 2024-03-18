@@ -9,6 +9,7 @@ import BadgesContainer from '@/components/BadgesContainer';
 import Profile from '@/components/Profile';
 import Box from '@/components/Box';
 import React from 'react';
+import siteMetadata from '@/app/siteMetadata';
 
 export default function Home() {
   return (
@@ -64,7 +65,7 @@ function Foreword() {
   return (
     <section className="space-y-2">
       <Txt fontSize="xl" as="h1">
-        쉽게 쓰여진 글
+        {siteMetadata.title}
       </Txt>
       <Txt color="neutral">
         머릿 속에 나부끼는 코드와 고민을 정리하는 공간입니다.
