@@ -27,7 +27,7 @@ class DetailModal extends Component {
   }
 ```
 
-**strictPropertyInitialization**
+### strictPropertyInitialization
 
 Check for class properties that are declared but not set in the constructor.
 
@@ -94,7 +94,7 @@ lotto.numbers;
 
 ### protected
 
-protected 멤버는 오직 서브 클래스(**본인 포함**)에서만 사용할 수 있습니다.
+protected 멤버는 오직 서브 클래스(본인 포함)에서만 사용할 수 있습니다.
 
 ```
 class Parent {
