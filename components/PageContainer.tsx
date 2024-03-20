@@ -6,7 +6,7 @@ interface Props {
 
 export default function PageContainer({ children }: Props) {
   return (
-    <main className="relative mx-auto my-6 h-max min-h-screen max-w-screen-lg space-y-6 px-3 sm:my-10 sm:px-4">
+    <main className="relative mx-auto my-6 h-max min-h-screen max-w-[840px] space-y-6 px-3 sm:my-10 sm:px-4">
       {children}
     </main>
   );

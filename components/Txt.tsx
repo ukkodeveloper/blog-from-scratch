@@ -30,10 +30,10 @@ const Txt = <C extends React.ElementType = 'p'>({
 export default Txt;
 
 const SIZE_VARIANT = {
-  '2xl': 'md:text-4xl text-3xl font-bold',
-  xl: 'md:text-3xl text-2xl font-bold',
-  lg: 'md:text-2xl text-xl font-bold',
-  md: 'md:text-xl text-lg font-bold',
+  '2xl': 'md:text-3xl text-2xl font-bold',
+  xl: 'md:text-2xl text-xl font-bold',
+  lg: 'md:text-xl text-lg font-bold',
+  md: 'text-base',
   sm: 'text-sm',
 };
 
