@@ -6,6 +6,7 @@ image: /images/oauth1.png
 summary: We brainstormed a Git branch strategy for the S-hook project. Here are the discussions we had.
 published: true
 ---
+
 ## Why You Need a Git Branch Strategy
 
 Version control is essential when working on a project in a team. This is because the work that one person is doing is different from the work that another person is doing, and we cannot predict how the two separate entities will affect the other. For this reason, we version control by dividing it into branches, preventing conflicts and ensuring stable software development.
@@ -44,7 +45,6 @@ There was a really heated debate, and it was decided to create all feature branc
 Of course, there are issues. (Any choice will have issues.) The issue is that every time a feature branch is merged, it is not clear whether we should attach it to develop, master, or both develop and master at the same time. It would be better if the features of the functions being developed could be distinguished. However, this is a matter that can be determined flexibly according to the plan or various situations, which can lead to more confusion.
 
 ## GitHub-flow
-
 
 ![](images/git branch 전략-20240118150750543.webp)
 From the image, you can see that it is quite simple compared to Git-flow. If you have a feature to implement, you can derive a branch and develop it. Then, connect a development server to that branch and proceed with sufficient QA. Then, if the feature is needed in time for distribution, it can be merged to the master and distributed.

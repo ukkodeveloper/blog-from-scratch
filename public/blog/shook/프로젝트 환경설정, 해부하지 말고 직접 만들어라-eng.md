@@ -59,9 +59,9 @@ So now I can list what I need to do and work on them one at a time. (I think tha
 The things I need to do are as follows:
 
 - Build environment setup
-	- Use webpack to distinguish dev and prod modes
-	- Enable HMR in dev mode
-	- Serve static files
+  - Use webpack to distinguish dev and prod modes
+  - Enable HMR in dev mode
+  - Serve static files
 - Setup eslint and prettier
 - Setup Jest and StoryBook environments
 

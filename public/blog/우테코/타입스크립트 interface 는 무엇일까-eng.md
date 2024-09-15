@@ -6,6 +6,7 @@ image: /images/타입스크립트%20interface%20는%20무엇일까-2024012823300
 summary: A short overview of interfaces in TypeScript.
 published: true
 ---
+
 ## What is TypeScript?
 
 Personally, the most annoying thing about using JavaScript is runtime errors. I've encountered the `Cannot read properties of undefined` error countless times. Fortunately, these errors can be somewhat mitigated with TypeScript.
@@ -23,13 +24,13 @@ interface Person {
   firstName: string;
   lastName: string;
 }
- 
+
 function greeter(person: Person) {
   return "Hello, " + person.firstName + " " + person.lastName;
 }
- 
+
 let user = { firstName: "Jane", lastName: "User" };
- 
+
 document.body.textContent = greeter(user);
 ```
 
@@ -80,9 +81,9 @@ However, the type alias vs interface debate may have to be revisited with future
 TypeScript has a structural type system. This means that any objects are considered to be of the same type if they have the same structure.
 
 ```
-interface Crew { 
+interface Crew {
   course: string;
-  nickname: string; 
+  nickname: string;
 }
 
 const sendEmailTo = (crew: Crew): void => { //send... }
@@ -103,22 +104,22 @@ Both (1) and (2) do not cause errors. You might notice that `(2)` has the `je
 However, there is an exception that does not follow the structural type system: when it is written directly as an object literal. Human error is more likely to occur when using object literals. It can also lead to misconceptions about the type. Therefore, for object literals, errors are thrown unless they follow the exact type structure. In other words, they are checked more strictly.
 
 ```
-const sendEmailTo = (crew: Crew): void => { 
-  //send... 
-} 
+const sendEmailTo = (crew: Crew): void => {
+  //send...
+}
 
-const ukko = { 
-  course: 'FE', 
-  nickname: 'ukko', 
-  age: 20 
+const ukko = {
+  course: 'FE',
+  nickname: 'ukko',
+  age: 20
 }
 
 sendEmailTo(ukko) // (1)
- 
-sendEmailTo({ 
-  course: 'FE', 
-  nickname: 'ukko', 
-  age: 20 
+
+sendEmailTo({
+  course: 'FE',
+  nickname: 'ukko',
+  age: 20
 }); //(2)
 ```
 

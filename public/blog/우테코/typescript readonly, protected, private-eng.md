@@ -6,6 +6,7 @@ image: /images/typescript%20readonly,%20protected,%20private-20240128232819282.w
 summary: A summary of the keywords used in typescript classes.
 published: true
 ---
+
 ## property field
 
 ```
@@ -38,7 +39,7 @@ If we want to declare the property later, we can use a hack with "!".
 ```
 class DetailModal extends Component {
   #id!: number;
-	
+
   constructor(target: HTMLElement) {
     super(target);
 
@@ -131,7 +132,7 @@ class Parent {
 
 class Child extends Parent {
   greet(): string {
-    return this.sayHi() + ' :child'; 
+    return this.sayHi() + ' :child';
 // ERROR: Property 'sayHi' is private and only accessible within class 'Parent'.
   }
 }
@@ -140,9 +141,7 @@ class Child extends Parent {
 Then what is the difference between the private (#) of javascript and the private keyword of typescript?
 
 1. JS private (#) remains private even after compilation, but TS private keyword does not enforce this after compilation.
-    
 2. Using typescript keyword, we can access it with [ ] bracket notation!
-    
 
 ```
 class Example {
@@ -150,9 +149,9 @@ class Example {
   protected protectedProperty = 2;
   #jsPrivateProperty = 3;
 }
- 
+
 const example = new Example();
- 
+
 example['privateProperty'] //accessible, 1
 example['protectedProperty'] //accessible, 2
 

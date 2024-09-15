@@ -14,26 +14,24 @@ published: true
 ### Are `[[prototype]]`, `__proto__`, and `prototype` all different?
 
 - `prototype`: An object with property values that functions and classes have when they are being declared.
-    ![](images/자바스크립트의%20핵심,%20prototype을%20알아보자-20240128204128083.webp)
-    
+  ![](images/자바스크립트의%20핵심,%20prototype을%20알아보자-20240128204128083.webp)
 - `[[Prototype]]`: A prototype reference. This is a reference to the properties of its own implementation. It cannot be accessed.
-    
 - `__proto__`: A reference used to execute Object.getPrototype... ← getters and setters because the above is inaccessible. It uses the getters and setters that the object object's prototype has through prototype chaining. In other words, it is the prototype object that the instance references with `[[Prototype]]`.
-    
 
 ### Instances, Inheritance
 
 The most confusing part of studying prototypes is the difference between when an instance is generated and when inheritance occurs. Let's explain the difference.
 
 - Instance
-    - Objects declared with constructor functions or classes can have instances created with the new keyword.
-    - An empty object is generated, and this is bound. The members of the empty object are newly allocated as the constructor function (constructor of the class) is executed.
-    - If an instance calls the prototype (method of the class) of the constructor function, it calls the corresponding method by referencing the prototype object via the `[[Prototype]]` prototype reference. This is known as prototype chaining.
+
+  - Objects declared with constructor functions or classes can have instances created with the new keyword.
+  - An empty object is generated, and this is bound. The members of the empty object are newly allocated as the constructor function (constructor of the class) is executed.
+  - If an instance calls the prototype (method of the class) of the constructor function, it calls the corresponding method by referencing the prototype object via the `[[Prototype]]` prototype reference. This is known as prototype chaining.
 
 - Inheritance
-    - The child class references the parent class as `[[Prototype]]`.
-    - The prototype of the child class also references the prototype of the parent class as `[[Prototype]]`.
-    - The parent class's prototype can be accessed via super in the child class declaration.
+  - The child class references the parent class as `[[Prototype]]`.
+  - The prototype of the child class also references the prototype of the parent class as `[[Prototype]]`.
+  - The parent class's prototype can be accessed via super in the child class declaration.
 
 ![](images/자바스크립트의%20핵심,%20prototype을%20알아보자-20240128204203797.webp)
 
@@ -45,9 +43,9 @@ What happens if the prototype of the constructor function points to another obje
 
 ```jsx
 const common = {
-	isBrave: true,
+  isBrave: true,
   isSmart: true,
-	isGood: true,
+  isGood: true,
 };
 
 function Crew(name) {
@@ -58,9 +56,9 @@ Crew.prototype = common;
 
 const ukko = new Crew('ukko');
 
-console.log(ukko.name) //ukko * As a property of the ukko instance object
-console.log(ukko.isBrave) //  ** Returns the isBrave value of the common object, the prototype of ukko.
-console.log(ukko.isGood) //  ** Returns the isGood value of the common object, the prototype of ukko.
+console.log(ukko.name); //ukko * As a property of the ukko instance object
+console.log(ukko.isBrave); //  ** Returns the isBrave value of the common object, the prototype of ukko.
+console.log(ukko.isGood); //  ** Returns the isGood value of the common object, the prototype of ukko.
 ```
 
 Let's break down the above code in order...
@@ -79,7 +77,7 @@ Let's break down the above code in order...
 instanceOf checks through prototype chaining.
 
 ```jsx
-instanceA instanceof ObjA
+instanceA instanceof ObjA;
 ```
 
 This code is a process where instanceA finds the prototype that ObjA is referencing through prototype chaining.

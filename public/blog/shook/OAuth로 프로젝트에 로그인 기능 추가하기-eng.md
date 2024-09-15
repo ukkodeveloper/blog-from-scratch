@@ -8,6 +8,7 @@ published: true
 ---
 
 ## Why OAuth Was Introduced
+
 ### Why OAuth
 
 During the service development process, login became necessary. This is because the user's playlist needs to be saved and duplicate registrations need to be blocked. There are also various methods for the login policy. You can create your own authentication process, or you can authenticate through platforms like Google and Kakao. With our technical level, we judged that we would not be able to thoroughly protect our security. Generally, users tend to use the same ID and password. Therefore, **if user information were to be hacked from our service, there is a high possibility that it could be hacked from other sites as well.** Given the current technical level of the team, we judged that it would be better to delegate to a large platform through OAuth rather than trying to thoroughly protect the security on our own.
@@ -84,11 +85,11 @@ However, there is a cost to parsing JWT for each request. I don't think it costs
 
 After login was introduced, the number of user cases greatly multiplied. This is because there are multiple states based on the access token and the refresh token and these need to be considered.
 
-| Access Token | Refresh Token | Result |
-| --- | --- | --- |
-| Valid | - | This request / Authentication success |
-| Expiration period X <br>but, if member information is wrong (due to withdrawal, etc.) | Valid | This request / 401 |
-| Expiration period | Valid | Refresh request / Authentication success <br>This request / Authentication success |
-| Expiration period | Expiration period and not valid | Refresh request / 401 |
+| Access Token                                                                          | Refresh Token                   | Result                                                                             |
+| ------------------------------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------- |
+| Valid                                                                                 | -                               | This request / Authentication success                                              |
+| Expiration period X <br>but, if member information is wrong (due to withdrawal, etc.) | Valid                           | This request / 401                                                                 |
+| Expiration period                                                                     | Valid                           | Refresh request / Authentication success <br>This request / Authentication success |
+| Expiration period                                                                     | Expiration period and not valid | Refresh request / 401                                                              |
 
 If this is drawn in a figure, it is as

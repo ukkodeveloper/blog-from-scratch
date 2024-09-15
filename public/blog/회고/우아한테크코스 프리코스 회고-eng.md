@@ -90,15 +90,15 @@ It seems like it is something that will make me think as if solving a riddle all
 
 1. What should I follow if the requirements and test code are different?
 
-    This time, I think it is right to meet the requirements. This is because the test code is a tool for keeping good to the requirements.
+   This time, I think it is right to meet the requirements. This is because the test code is a tool for keeping good to the requirements.
 
 2. **However, if the results of the logic described in the requirements and the logic required in the test code are different?**
 
-    **If there is no difference between the results of these two, I need to calmly consider which logic is better.**
-    
-    In fact, even when I first encountered the problem, it seemed more convenient to choose all the categories first and then have each person recommend 5 menus. **This is because after finishing all the code for determining the category, it is clear to divide the roles in the code by passing on the data to recommend the next dish.** In other words, it will improve readability and be easier to maintain. However, the process of recommending food every time you select a category using the method I coded takes a long time to loop and does not seem to be very good for testing or maintenance.
+   **If there is no difference between the results of these two, I need to calmly consider which logic is better.**
 
-    It gave me an opportunity to think about how it is the role of a developer to create better code and better logic given accurate understanding of the purpose and in the absence of side effects.
+   In fact, even when I first encountered the problem, it seemed more convenient to choose all the categories first and then have each person recommend 5 menus. **This is because after finishing all the code for determining the category, it is clear to divide the roles in the code by passing on the data to recommend the next dish.** In other words, it will improve readability and be easier to maintain. However, the process of recommending food every time you select a category using the method I coded takes a long time to loop and does not seem to be very good for testing or maintenance.
+
+   It gave me an opportunity to think about how it is the role of a developer to create better code and better logic given accurate understanding of the purpose and in the absence of side effects.
 
 ###  Input value parsing
 

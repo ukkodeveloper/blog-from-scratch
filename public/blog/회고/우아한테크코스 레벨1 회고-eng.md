@@ -6,6 +6,7 @@ image: /images/우아한테크코스%20레벨1%20회고-20240128232511355.webp
 summary: The two months I spent on UTEK Level 1 flew by. “I learned a lot” is an understatement. There were moments of inspiration, frustration, joy, and feeling overwhelmed. After a whirlwind two months, I was given a week off to pause and reflect on where I’ve been and to think about how to make the most of Level 2. I'm naturally not an optimist, so in this piece, I’ll mostly talk about what I feel I still lack.
 published: true
 ---
+
 ## Getting Started
 
 The two months I spent on Level 1 of UTEK flew by. “I learned a lot” is an understatement. There were moments of inspiration, frustration, joy, and feeling overwhelmed. After a whirlwind of activity that felt like it swallowed me whole, I've been given a week to pause and reflect on where I’ve been and to think about how to make the most of Level 2. I'm naturally not an optimist, so in this piece, I’ll mostly talk about areas that I feel I still lack.
@@ -20,7 +21,7 @@ It wasn't easy. It was especially difficult not to compare myself to others and 
 
 The truth is that while I have a hard time learning new things, what I really have a hard time with is learning “new information”. This probably means that compared to other crews, my comprehension is poor because my foundations are weak. When I get stuck and can’t fish for myself, it’s okay to ask for help from those around me.
 
-My friend Junhee and my mentor were saying the same thing. Just like my mentor told me to schedule time to think and ask questions about things I don't understand, Junhee also told me that it's important to learn quickly from the people around me. 
+My friend Junhee and my mentor were saying the same thing. Just like my mentor told me to schedule time to think and ask questions about things I don't understand, Junhee also told me that it's important to learn quickly from the people around me.
 
 ## Fear of the New
 

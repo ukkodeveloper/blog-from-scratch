@@ -18,9 +18,7 @@ Before explaining Effect, I will explain the basic terminology first. The `useEf
 - set up: Executes the setup function when the corresponding component is rendered for the first time, and when re-rendering occurs.
 
 - clean up: Executes when the corresponding component is re-rendered or removed.
-    
 - dependency array: Only runs clean up → set up if the values included in the dependency array change. If no dependency array is set, effects run every time a re-rendering occurs.
-    
 
 ```
 useEffect(() => {
@@ -31,7 +29,7 @@ useEffect(() => {
 }. []) //3 dependency array
 ```
 
- **And please keep in mind that useEffect runs after the component has been rendered! It does not evaluate during render!**
+**And please keep in mind that useEffect runs after the component has been rendered! It does not evaluate during render!**
 
 ## useEffect is different from the component lifecycle.
 

@@ -9,7 +9,7 @@ published: true
 
 ## What is frontend performance optimization?
 
-In the past, the client was not frequently burdened with performance. However, as the amount of work performed on the web has increased and as diverse images or videos have been included, the bundle size for JavaScript for interaction has also increased. 
+In the past, the client was not frequently burdened with performance. However, as the amount of work performed on the web has increased and as diverse images or videos have been included, the bundle size for JavaScript for interaction has also increased.
 
 Because of this, we must have frequently experienced times when loading takes far too long. Even now, there have been more than a few times when I have entered a particular app or website only to wait for a long time and have no choice but to exit because I cannot stand it.
 
@@ -18,9 +18,10 @@ The article on [Pinterest performance optimization](https://medium.com/dev-chann
 Therefore, I will discuss the well-known frontend performance optimization methods and introduce what we have applied to our current project.
 
 ## Loading optimization
+
 ### Source code
 
-Compared to the past, the capacity of the JavaScript code has increased significantly along with the trend toward SPAs. Bottlenecks may occur in the very process of loading JavaScript. 
+Compared to the past, the capacity of the JavaScript code has increased significantly along with the trend toward SPAs. Bottlenecks may occur in the very process of loading JavaScript.
 
 In fact, based on what we have confirmed in our practical training, if only tree shaking and CSS minification are performed, the size is dramatically reduced from 2.42 MB to 228 KB.
 
@@ -34,7 +35,7 @@ There is also a plugin that minifies CSS files. ([css-minimizer-webpack-plugin](
 
 ### Images
 
-Image optimization is absolutely essential. First, it is frequently used on the web, and second, the capacity is large. 
+Image optimization is absolutely essential. First, it is frequently used on the web, and second, the capacity is large.
 
 The key to image optimization is to minimize the loss and maximize the compression. The best method is to use a different format instead of JPG. The capacity for PNG is five times smaller than JPEG. WebP is a format that can reduce the capacity by 26% compared to PNG. ([WebP](https://developers.google.com/speed/webp#:~:text=WebP%20is%20a%20modern%20image,in%20size%20compared%20to%20PNGs.)) However, the availability of an unfamiliar format should always be confirmed in the browser range offered by the current service.
 
@@ -85,6 +86,7 @@ Actually, since that script is cached once it is loaded, it does not need to be 
 Therefore, we changed it so that the YouTube player could be loaded dynamically using intersectionObserver.
 
 #### Before improvement
+
 ![](images/프론트엔드%20성능%20최적화-20240128151201694.webp)
 
 Prior to improvement, numerous scripts are loaded. This causes the Total Blocking Time

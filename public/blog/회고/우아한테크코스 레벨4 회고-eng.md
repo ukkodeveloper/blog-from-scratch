@@ -7,6 +7,7 @@ image: /images/desiner.jpeg
 summary: The S-HOOK, which was created after a long period of planning, discussion, and development, has finally been created as a service down form. Until now, it was only possible to register the killing part of the song, but now there is also a main page, and a page where you can listen to songs by selecting only the killing part.
 published: true
 ---
+
 The S-HOOK, which was created after a long period of planning, discussion, and development, has finally been created as a service down form. Until now, it was only possible to register the killing part of the song, but now there is also a main page, and a page where you can listen to songs by selecting only the killing part.
 
 In addition to the content about the product, I will try to organize my overall impressions.

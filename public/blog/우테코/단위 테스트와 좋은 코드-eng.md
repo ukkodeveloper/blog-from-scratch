@@ -6,8 +6,11 @@ image: /images/Pasted%20image%2020240118145052.png
 summary: Summarizes the types of testing, why you should test, and what you gain by testing.
 published: true
 ---
+
 ## Types of Tests
+
 ![](images/Pasted%20image%2020240118145052.png)
+
 - Static test: includes TypeScript, eslint, etc.
 - Unit test: Tests a specific function (feature). Of course, it's easy to test when the code is written as pure functions. However, not all functions are like that. Sometimes it can be affected by other dependent features. In this case, you can conduct a test along with a dependent function (Sociable), or separate it and test (Solitary) through mocking.
 - Integration test: Tests a broader feature than a unit test. I haven't experienced it, so I am not sure about it, but it refers to a broader scope than a unit test and yet is smaller than an overall feature.
@@ -46,17 +49,17 @@ You should consider various cases and test them for a single feature. There are 
 This is an insight that I developed while trying to write pure functions so that testing would be easy. It's a bit recursive. At first, I intended to write in pure functions for testing. However, as I wrote it in pure functions, I realized that testing is definitely necessary. Because the more independent a function is, the more likely it is to be used anywhere. For example, I initially created a function that simply returns true if the random value is 4 or higher (because it moves forward when the random value is 4 or higher).
 
 ```jsx
-function isRandomOverFour () {
-	const randomNumber = Random.generate();
-	return randomNumber > 4;
+function isRandomOverFour() {
+  const randomNumber = Random.generate();
+  return randomNumber > 4;
 }
 ```
 
 Here, it is not pure because of the Random value, but separating it gives me the following: (Thinking about it now, I didn't have to separate it into functions.) In the case of the separated function, it can be used not only when checking the advancement condition but also in all cases where numbers are compared. Therefore, since there is room for it to be used globally, I must conduct a test to ensure stability.
 
 ```jsx
-function isOverNumber (num1 , num2) {
-	return num1 > num2;
+function isOverNumber(num1, num2) {
+  return num1 > num2;
 }
 
 isOverNumber(Random.generate(), 4);
