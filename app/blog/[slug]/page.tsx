@@ -5,12 +5,10 @@ import PostInfoSide from '@/components/PostInfoSide';
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
 import Profile from '@/components/Profile';
-import Box from '@/components/Box';
 
-import Txt from '@/components/Txt';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
-import type { ReactNode, ReactSVGElement } from 'react';
 import Callout from '@/components/Callout';
+import Badge from '@/components/Badge';
 
 interface PageProps {
   params: {
@@ -29,8 +27,6 @@ export async function generateMetadata({
   if (!post) {
     return;
   }
-
-  console.log('[post]', post);
 
   const publishedAt = new Date(post.date).toISOString();
   const author = siteMetadata.author;
@@ -70,9 +66,7 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: PageProps) {
-  const { MDXComponent, post, seriesImg, prevPost, nextPost } = usePost(
-    params.slug
-  );
+  const { MDXComponent, post, prevPost, nextPost } = usePost(params.slug);
 
   const { tags, image, series, title, date, summary } = post;
 
@@ -92,11 +86,13 @@ export default function Page({ params }: PageProps) {
         content={summary}
       />
 
+      <Badge variant="TAG" name="English" />
+
       <section className="prose">
         <MDXComponent />
       </section>
 
-      <Profile excluded={true} />
+      <Profile excluded />
 
       <PostInfoSide
         tags={tags}

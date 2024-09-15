@@ -1,6 +1,3 @@
-import type { MDXComponents } from 'mdx/types';
-import Link from 'next/link';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import { getPostBySlug, getPostsBySeries } from '@/lib/utils/posts';
 import { notFound } from 'next/navigation';
 import useMDX from '@/app/hooks/useMDX';

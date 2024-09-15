@@ -15,6 +15,11 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+html {
+  font-size: 14px;
+}
+
+
 /* prose body */
 .prose {
   max-width: 100%;
@@ -82,7 +87,7 @@ pre[class*="language-"] {
   background: hsl(230, 1%, 98%);
   color: hsl(230, 8%, 24%);
   font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  font-size: 15px;
+  font-size: 12px;
   direction: ltr;
   text-align: left;
   white-space: pre;

@@ -7,10 +7,8 @@ import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronUpIcon,
-  DocumentArrowDownIcon,
 } from '@heroicons/react/16/solid';
 import { type ReactNode, useRef, useState } from 'react';
-import { twMerge } from 'tailwind-merge';
 import Box from '@/components/Box';
 import siteMetadata from '@/app/siteMetadata';
 
@@ -31,8 +29,8 @@ export function Profile({ excluded }: ProfileProps) {
             <Image
               src="/static/avatar.jpg"
               alt="profile avatar"
-              width="140"
-              height="140"
+              width="120"
+              height="120"
               className="hidden rounded-xl sm:block"
             />
           </div>
@@ -68,16 +66,6 @@ export function Profile({ excluded }: ProfileProps) {
             {ProfileContents.map((props) => (
               <ProfileSection key={props.title} {...props} />
             ))}
-            {/*<div className="flex w-full justify-end space-x-2">*/}
-            {/*  <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">*/}
-            {/*    <DocumentArrowDownIcon width="20" className="m-auto mr-1" />*/}
-            {/*    <span className="m-auto flex-1">이력서 다운로드</span>*/}
-            {/*  </button>*/}
-            {/*  <button className="flex flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-3 text-center text-sm text-neutral-700 hover:bg-neutral-300">*/}
-            {/*    <DocumentArrowDownIcon width="20" className="m-auto mr-1" />*/}
-            {/*    <span className="m-auto flex-1">포트폴리오 다운로드</span>*/}
-            {/*  </button>*/}
-            {/*</div>*/}
           </article>
         )}
       </Box>
