@@ -1,6 +1,7 @@
 import { getPostBySlug, getPostsBySeries } from '@/lib/utils/posts';
 import { notFound } from 'next/navigation';
 import useMDX from '@/app/hooks/useMDX';
+import slugger from '@/lib/utils/slugger';
 
 const usePost = (slugRaw: string) => {
   const slug = decodeURI(slugRaw);
@@ -13,8 +14,9 @@ const usePost = (slugRaw: string) => {
   const { series } = post;
 
   const postsInSeries = getPostsBySeries(series);
+
   const currentIndex = postsInSeries.findIndex(
-    (postItem) => post.slug == postItem.slug
+    (postItem) => post.slug === slugger(postItem.slug)
   );
 
   const nextPost = postsInSeries[currentIndex + 1];

@@ -12,17 +12,21 @@ const postList = allPosts
     slug: slugger(post.slug),
   }));
 
+const postKorList = allPosts.filter((post) => !post.slug.endsWith('-eng'));
+
 const getUniqueSortedArray = (arr: string[]) => {
   return [...new Set(arr)].sort((a, b) => a.localeCompare(b));
 };
 
 const tagList = getUniqueSortedArray(
-  postList.reduce<string[]>((acc, { tags }) => [...acc, ...tags], [])
+  postKorList.reduce<string[]>((acc, { tags }) => [...acc, ...tags], [])
 );
 
-const seriesList = getUniqueSortedArray(postList.map(({ series }) => series));
+const seriesList = getUniqueSortedArray(
+  postKorList.map(({ series }) => series)
+);
 
-const seriesMap = postList.reduce<
+const seriesMap = postKorList.reduce<
   Record<string, { tags: string[]; posts: Post[] }>
 >((acc, post) => {
   const { series, tags } = post;
@@ -60,11 +64,12 @@ const getPostBySlug = (slug: string) => {
 const getPostsByTag = (tag: string) => {
   const tagToFind = slugger(tag);
 
-  return postList.filter((post) => post.tags.includes(tagToFind)) || [];
+  return postKorList.filter((post) => post.tags.includes(tagToFind)) || [];
 };
 
 export {
   postList,
+  postKorList,
   tagList,
   seriesList,
   seriesMap,

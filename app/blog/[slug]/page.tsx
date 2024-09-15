@@ -10,6 +10,7 @@ import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
 import Callout from '@/components/Callout';
 import Button from '@/components/Button';
 import { LanguageIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 interface PageProps {
   params: {
@@ -67,9 +68,19 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: PageProps) {
-  const { MDXComponent, post, prevPost, nextPost } = usePost(params.slug);
+  const slug = params.slug;
+  const slugKor = slug.replace(/-eng$/, '');
 
-  const { tags, image, series, title, date, summary } = post;
+  const { MDXComponent, post } = usePost(params.slug);
+  const { prevPost, nextPost, post: postKor } = usePost(slugKor);
+
+  const { image, title, date, summary } = post;
+  const { tags, series } = postKor;
+
+  const isPostEnglish = slug.endsWith('-eng');
+  const href = isPostEnglish
+    ? `/blog/${slug.replace(/-eng$/, '')}`
+    : `/blog/${slug}-eng`;
 
   return (
     <div className="animate-slideDown space-y-6">
@@ -88,10 +99,12 @@ export default function Page({ params }: PageProps) {
       />
 
       <div className="ml-auto flex justify-end">
-        <Button variant="outline" name="English">
-          <LanguageIcon className="h-6 w-6" />
-          translate
-        </Button>
+        <Link href={href}>
+          <Button variant="outline" name="English" className="text-xs">
+            <LanguageIcon className="h-4 w-4" />
+            {isPostEnglish ? '한국어로 보기' : 'to English'}
+          </Button>
+        </Link>
       </div>
 
       <section className="prose">
