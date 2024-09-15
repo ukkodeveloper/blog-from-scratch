@@ -8,7 +8,8 @@ import Profile from '@/components/Profile';
 
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/solid';
 import Callout from '@/components/Callout';
-import Badge from '@/components/Badge';
+import Button from '@/components/Button';
+import { LanguageIcon } from '@heroicons/react/24/outline';
 
 interface PageProps {
   params: {
@@ -86,7 +87,12 @@ export default function Page({ params }: PageProps) {
         content={summary}
       />
 
-      <Badge variant="TAG" name="English" />
+      <div className="ml-auto flex justify-end">
+        <Button variant="outline" name="English">
+          <LanguageIcon className="h-6 w-6" />
+          translate
+        </Button>
+      </div>
 
       <section className="prose">
         <MDXComponent />
