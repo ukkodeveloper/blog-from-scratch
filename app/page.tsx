@@ -1,5 +1,5 @@
 import Txt from '@/components/Txt';
-import { postList, seriesList, tagList } from '@/lib/utils/posts';
+import { postKorList, seriesList, tagList } from '@/lib/utils/posts';
 import PlainPostList from '@/components/PlainPostList';
 import Link from 'next/link';
 import { ChevronRightIcon } from '@heroicons/react/16/solid';
@@ -23,7 +23,7 @@ export default function Home() {
 }
 
 function RecentPosts() {
-  const recentPosts = postList.slice(0, 3);
+  const recentPosts = postKorList.slice(0, 3);
 
   return (
     <Box as="section">
