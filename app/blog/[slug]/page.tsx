@@ -94,7 +94,7 @@ export default function Page({ params }: PageProps) {
             className="text-neutral-700"
           />
         }
-        title="이 글의 요약"
+        title={isPostEnglish ? 'Summary' : '이 글의 요약'}
         content={summary}
       />
 

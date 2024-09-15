@@ -6,6 +6,7 @@ image: /images/typescript%20readonly,%20protected,%20private-20240128232819282.w
 summary: 타입스크립트 클래스에서 사용되는 키워드를 정리해봤습니다.
 published: true
 ---
+
 ## property field
 
 ```
@@ -40,7 +41,7 @@ Check for class properties that are declared but not set in the constructor.
 ```
 class DetailModal extends Component {
   #id!: number;
-	
+
   constructor(target: HTMLElement) {
     super(target);
 
@@ -133,7 +134,7 @@ class Parent {
 
 class Child extends Parent {
   greet(): string {
-    return this.sayHi() + ' :child'; 
+    return this.sayHi() + ' :child';
 // ERROR: Property 'sayHi' is private and only accessible within class 'Parent'.
   }
 }
@@ -142,9 +143,7 @@ class Child extends Parent {
 그렇다면 javascript private(#)와 typescript의 private 키워드의 차이는 무엇일까요?
 
 1. JS private(#)은 컴파일 이후에도 private이 유지되지만, TS private 키워드는 컴파일 이후에 강제하지 않습니다.
-    
 2. typescript 키워드를 사용하면, [ ] 대괄호 표기법으로 접근이 가능합니다!
-    
 
 ```
 class Example {
@@ -152,9 +151,9 @@ class Example {
   protected protectedProperty = 2;
   #jsPrivateProperty = 3;
 }
- 
+
 const example = new Example();
- 
+
 example['privateProperty'] //접근 가능, 1
 example['protectedProperty'] //접근 가능, 2
 
