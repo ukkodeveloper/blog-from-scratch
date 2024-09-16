@@ -11,7 +11,7 @@ const siteMetadata = {
   socialBanner: '/static/twitter-card.png',
   email: 'ukkodeveloper@gamil.com',
   github: 'https://github.com/ukkodeveloper',
-  instagram: 'https://www.instagram.com/kimupic',
+  photograph: '/photograph',
 };
 
 export default siteMetadata;

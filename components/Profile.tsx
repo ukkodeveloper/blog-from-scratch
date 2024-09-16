@@ -11,6 +11,9 @@ import {
 import { type ReactNode, useRef, useState } from 'react';
 import Box from '@/components/Box';
 import siteMetadata from '@/app/siteMetadata';
+import { PhotoIcon } from '@heroicons/react/24/outline';
+import { CameraIcon } from '@heroicons/react/24/solid';
+import { Github } from './SocialIcons';
 
 interface ProfileProps {
   excluded?: boolean;
@@ -47,16 +50,15 @@ export function Profile({ excluded }: ProfileProps) {
                 target="_blank"
                 className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
-                <ChevronLeftIcon width="18" className="mr-1" />
-                <span className="flex-1">깃허브</span>
+                <Github width="18" className="mr-1" />
+                <span className="flex-1">GitHub</span>
               </Link>
               <Link
-                href={siteMetadata.instagram}
-                target="_blank"
+                href={siteMetadata.photograph}
                 className="align-center flex max-w-40 flex-1 justify-center rounded-2xl bg-neutral-200 px-2 py-2 pr-4 text-center text-sm text-neutral-700 hover:bg-neutral-300"
               >
-                <ChevronLeftIcon width="18" className="mr-1" />
-                <span className="flex-1">사진</span>
+                <CameraIcon width="18" className="mr-1" />
+                <span className="flex-1">_wrks</span>
               </Link>
             </div>
           </div>

@@ -63,7 +63,7 @@ function TagSeriesList() {
 
 function Foreword() {
   return (
-    <section className="space-y-2">
+    <section className="space-y-2 pt-4">
       <Txt fontSize="xl" as="h1">
         {siteMetadata.title}
       </Txt>

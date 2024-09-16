@@ -7,7 +7,7 @@ import {
 
 export function NavBar() {
   return (
-    <nav className="flex w-full justify-end space-x-2">
+    <nav className="flex w-full justify-end space-x-2 pt-4">
       <Link
         href={'/series'}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60"

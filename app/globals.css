@@ -8,10 +8,18 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-.no-scrollbar::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
-  -ms-overflow-style: none;
+}
+
+/* Firefox */
+* {
   scrollbar-width: none;
+}
+
+/* IE와 다른 브라우저들을 위한 fallback */
+* {
+  -ms-overflow-style: none;
 }
 
 @media (prefers-color-scheme: dark) {
