@@ -1,6 +1,7 @@
 import _projectImages from '../(data)/projectImages.json';
 import PhotographPageContainer from '../(components)/photographPageContainer';
-import Image from 'next/image';
+import ImageWithModal from '../(components)/Image';
+import { OverlayProvider } from '@toss/use-overlay';
 
 interface PageParams {
   params: {
@@ -18,16 +19,8 @@ const Page = ({ params }: PageParams) => {
   return (
     <PhotographPageContainer title={`_wrks_${params.project}`}>
       <div className="group m-auto w-fit transition-colors duration-500 group-hover:bg-black ">
-        {images.map((image) => (
-          <div key={image} className="group relative flex w-full flex-shrink-0">
-            <Image
-              width={650}
-              height={1400}
-              src={image}
-              alt={`Gallery image ${image}`}
-              className="w-full object-cover transition duration-500 group-hover:scale-90"
-            />
-          </div>
+        {images.map((image, index) => (
+          <ImageWithModal key={image + index} image={image} />
         ))}
       </div>
     </PhotographPageContainer>
