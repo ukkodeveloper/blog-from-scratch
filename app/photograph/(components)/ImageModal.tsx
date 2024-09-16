@@ -1,7 +1,10 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  ArrowDownOnSquareStackIcon,
+  ArrowUturnLeftIcon,
+} from '@heroicons/react/24/outline';
 
 interface ImageModalProps {
   src: string;
@@ -10,6 +13,8 @@ interface ImageModalProps {
 }
 
 const ImageModal: React.FC<ImageModalProps> = ({ src, close, isOpen }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -43,6 +48,9 @@ const ImageModal: React.FC<ImageModalProps> = ({ src, close, isOpen }) => {
         <div className="pointer-events-auto relative max-h-[90vh] max-w-[90vw]">
           <Image
             src={src}
+            onLoad={() => {
+              setIsLoaded(true);
+            }}
             alt="Modal image"
             className="max-h-[80vh] w-auto rounded-lg object-contain"
             width={1200}
@@ -50,22 +58,20 @@ const ImageModal: React.FC<ImageModalProps> = ({ src, close, isOpen }) => {
           />
         </div>
 
-        <div className="pointer-events-auto absolute right-5 top-5 z-30 flex gap-2">
-          <button
-            type="button"
-            onClick={handleDownload}
-            className="rounded bg-white p-2 text-black hover:bg-neutral-300"
-          >
-            download
-          </button>
-          <button
-            type="button"
-            onClick={close}
-            className="rounded-full bg-white p-2 text-black hover:bg-neutral-300"
-          >
-            <XMarkIcon width={24} height={24} />
-          </button>
-        </div>
+        {isLoaded && (
+          <div className="pointer-events-auto absolute top-10 z-30 flex w-full justify-center gap-6">
+            <button
+              type="button"
+              onClick={handleDownload}
+              className="text-white"
+            >
+              <ArrowDownOnSquareStackIcon width={30} height={30} />
+            </button>
+            <button className="text-white" onClick={close}>
+              <ArrowUturnLeftIcon width={30} height={30} />
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
