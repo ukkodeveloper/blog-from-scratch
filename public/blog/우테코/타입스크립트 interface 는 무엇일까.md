@@ -6,6 +6,7 @@ image: /images/타입스크립트%20interface%20는%20무엇일까-2024012823300
 summary: 타입스크립트의 interface에 대해 간략히 설명해 놓은 글입니다.
 published: true
 ---
+
 ## 타입스크립트란?
 
 개인적으로 자바스크립트를 사용하면서 가장 까다로웠던 것이 런타임에서 에러가 발생한다는 점입니다. 특히 `Cannot read properties of undefined` 에러를 정말 많이 겪었습니다. 이런 에러는 타입스크립트에서 어느정도 해소가 가능합니다.
@@ -23,13 +24,13 @@ interface Person {
   firstName: string;
   lastName: string;
 }
- 
+
 function greeter(person: Person) {
   return "Hello, " + person.firstName + " " + person.lastName;
 }
- 
+
 let user = { firstName: "Jane", lastName: "User" };
- 
+
 document.body.textContent = greeter(user);
 ```
 
@@ -80,9 +81,9 @@ type alias과 interface를 비교하기 전에 한 가지 확실히 해둘 것�
 타입스크립트는 구조적 타입 시스템을 갖고 있습니다. 즉 구조만 같다면 어떤 객체여도 같은 타입으로 보겠다는 뜻입니다.
 
 ```
-interface Crew { 
+interface Crew {
   course: string;
-  nickname: string; 
+  nickname: string;
 }
 
 const sendEmailTo = (crew: Crew): void => { //send... }
@@ -103,22 +104,22 @@ sendEmailTo(jejuDullegil) //(2)
 하지만 구조적 타입 시스템을 따르지 않는 예외사항이 있습니다. 객체 리터럴로 바로 작성될 때입니다. 객체 리터럴로 작성될 경우 휴먼 에러이 발생할 확률이 높습니다. 또한 해당 타입에 대한 오해를 불러일으키기 쉽상입니다. 따라서 객체 리터럴의 경우는 정확한 타입 구조를 지키지 않는 한 에러를 발생시킵니다. 즉, 더 엄격하게 검사합니다.
 
 ```
-const sendEmailTo = (crew: Crew): void => { 
-  //send... 
-} 
+const sendEmailTo = (crew: Crew): void => {
+  //send...
+}
 
-const ukko = { 
-  course: 'FE', 
-  nickname: 'ukko', 
-  age: 20 
+const ukko = {
+  course: 'FE',
+  nickname: 'ukko',
+  age: 20
 }
 
 sendEmailTo(ukko) // (1)
- 
-sendEmailTo({ 
-  course: 'FE', 
-  nickname: 'ukko', 
-  age: 20 
+
+sendEmailTo({
+  course: 'FE',
+  nickname: 'ukko',
+  age: 20
 }); //(2)
 ```
 
