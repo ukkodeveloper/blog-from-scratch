@@ -1,6 +1,5 @@
 import './globals.css';
 import { gmarketSans, wantedSans } from '@/styles/fonts';
-import BlogPageContainer from '@/components/PageContainer';
 
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';

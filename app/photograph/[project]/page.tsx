@@ -1,6 +1,7 @@
 import _projectImages from '../(data)/projectImages.json';
-import PhotographPageContainer from '../(components)/photographPageContainer';
+
 import ImageWithModal from '../(components)/Image';
+import PhotographPageContainer from '@/components/PhotographPageContainer';
 
 interface PageParams {
   params: {

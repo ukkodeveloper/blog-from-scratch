@@ -32,9 +32,7 @@ const ImageWithModal = ({ image }: Props) => {
       {isOpen && (
         <ImageModal
           src={image}
-          isOpen={isOpen}
           close={() => {
-            console.log(isOpen);
             setIsOpen(false);
           }}
         />

@@ -2,8 +2,9 @@ import Txt from '@/components/Txt';
 import _projectImages from './(data)/projectImages.json';
 
 import Image from 'next/image';
-import PhotographPageContainer from './(components)/photographPageContainer';
+
 import Link from 'next/link';
+import PhotographPageContainer from '@/components/PhotographPageContainer';
 
 const PhotographerPortfolio = () => {
   const projectImages = _projectImages as Record<string, string[]>;
@@ -28,7 +29,7 @@ const PhotographerPortfolio = () => {
             {[...project].map((str, index) => (
               <Txt
                 key={str + index}
-                className="text-s m-auto w-fit text-white opacity-0 transition duration-500 group-hover:opacity-100"
+                className="m-auto w-fit text-xs text-white opacity-0 transition duration-500 group-hover:opacity-100"
               >
                 {str}
               </Txt>
