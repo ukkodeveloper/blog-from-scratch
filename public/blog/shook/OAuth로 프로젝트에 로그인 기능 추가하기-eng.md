@@ -17,7 +17,7 @@ During the service development phase, an issue arose where a login was needed. T
 
 Oauth is a protocol that delegates a user's access rights to a third party.
 
-![Oauth1](/images/oauth1.png)
+![Oauth1](/images/oauth1.webp)
 
 The flow of Oauth is as follows. In the image above, Client refers to the backend, and the Authorization Server is Google's or Kakao's authentication server. The Client (backend) sends an authentication request and, if valid, receives an Access Token and a Refresh Token. Then, when a request is made to the Resource Server requiring authentication, it can confirm that the Access Token is valid, and an expiration response may be returned. If an expiration response is submitted, the Refresh Token can be sent to Authorization to receive a new, updated Access Token.
 
@@ -25,7 +25,7 @@ The flow of Oauth is as follows. In the image above, Client refers to the backen
 
 The Oauth flow above is the flow between the server (authentication client) and the authentication server. Now, let's confirm the flow between the Client and Server of our service.
 
-![Oauth2](/images/oauth2.png)
+![Oauth2](/images/oauth2.webp)
 
 1. The Client redirects to the Oauth authentication page provided by Kakao or Google.
 2. Once the user logs in to the corresponding page, the URL containing the authentication code will be sent to the specified redirect page.
@@ -93,4 +93,4 @@ Since login was introduced, the number of user cases has increased dramatically.
 | expiration period                                                                         | expiration period and not valid | update request/401                     |
 
 If this is drawn as a diagram, it is as follows.
-![Oauth3](/images/oauth3.png)
+![Oauth3](/images/oauth3.webp)
