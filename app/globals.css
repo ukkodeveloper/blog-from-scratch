@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -19,20 +25,19 @@ html {
   font-size: 14px;
 }
 
-
 /* prose body */
 .prose {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-
 /* code block title */
 .rehype-code-title {
-  @apply bg-white inline-block text-sm font-bold px-1 py-0.5 border-2 border-black font-wSans text-black rounded-md mb-0.5
+  @apply mb-0.5 inline-block rounded-md border-2 border-black bg-white px-1 py-0.5 font-wSans text-sm font-bold text-black;
 }
 
-code::before, code::after {
+code::before,
+code::after {
   display: none;
 }
 
@@ -41,7 +46,7 @@ body {
 }
 
 pre {
-  @apply border-2 rounded-md
+  @apply rounded-md border-2;
 }
 
 /* code inserted, deleted */
@@ -82,11 +87,12 @@ pre {
  * --syntax-cursor-line: hsla(230, 8%, 24%, 0.05);
  */
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   background: hsl(230, 1%, 98%);
   color: hsl(230, 8%, 24%);
-  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
+    monospace;
   font-size: 12px;
   direction: ltr;
   text-align: left;
@@ -104,22 +110,22 @@ pre[class*="language-"] {
 }
 
 /* Selection */
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] *::-moz-selection,
-pre[class*="language-"] *::-moz-selection {
+code[class*='language-']::-moz-selection,
+code[class*='language-'] *::-moz-selection,
+pre[class*='language-'] *::-moz-selection {
   background: hsl(230, 1%, 90%);
   color: inherit;
 }
 
-code[class*="language-"]::selection,
-code[class*="language-"] *::selection,
-pre[class*="language-"] *::selection {
+code[class*='language-']::selection,
+code[class*='language-'] *::selection,
+pre[class*='language-'] *::selection {
   background: hsl(230, 1%, 90%);
   color: inherit;
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
@@ -127,7 +133,7 @@ pre[class*="language-"] {
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
   padding: 0.2em 0.3em;
   border-radius: 0.3em;
   white-space: normal;
@@ -221,7 +227,10 @@ pre[class*="language-"] {
   color: hsl(301, 63%, 40%);
 }
 
-.language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation {
+.language-javascript
+  .token.template-string
+  > .token.interpolation
+  > .token.interpolation-punctuation.punctuation {
   color: hsl(344, 84%, 43%);
 }
 
@@ -348,7 +357,9 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
 
 /* Hovering over a linkable line number (in the gutter area) */
 /* Requires Line Numbers plugin as well */
-pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+pre[id].linkable-line-numbers.linkable-line-numbers
+  span.line-numbers-rows
+  > span:hover:before {
   background-color: hsla(230, 8%, 24%, 0.05);
 }
 
@@ -442,8 +453,6 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 .prism-previewer-easing.prism-previewer-easing:before {
   border-radius: 0.3em;
 }
-
-
 
 /* Background colour within the popup */
 .prism-previewer-angle.prism-previewer-angle:before,
