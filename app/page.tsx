@@ -18,6 +18,7 @@ export default function Home() {
       <Profile />
       <RecentPosts />
       <TagSeriesList />
+      <br />
     </>
   );
 }
@@ -43,7 +44,7 @@ function RecentPosts() {
 
 function TagSeriesList() {
   return (
-    <Box as="section">
+    <Box as="section" className="mb-10">
       <Txt>Series</Txt>
       <BadgesContainer>
         {seriesList.map((curSeries) => (
@@ -63,7 +64,7 @@ function TagSeriesList() {
 
 function Foreword() {
   return (
-    <section className="space-y-2 pt-4">
+    <section className="space-y-2 pt-6">
       <Txt fontSize="xl" as="h1">
         {siteMetadata.title}
       </Txt>

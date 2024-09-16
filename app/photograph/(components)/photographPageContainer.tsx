@@ -11,8 +11,8 @@ const PhotographPageContainer = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="h-[100svh] overflow-y-hidden pb-10">
-      <div className="w-max-[650px] transition-color group duration-500 ease-in-out hover:bg-black">
+    <div className="h-[100svh] overflow-y-hidden ">
+      <div className="w-max-[650px] transition-color group duration-500 ease-in-out  hover:bg-black">
         <Link href="/photograph">
           <Txt
             as="h1"

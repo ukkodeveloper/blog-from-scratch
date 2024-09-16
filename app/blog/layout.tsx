@@ -6,7 +6,7 @@ export default function BlogPostLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="py-4">
+    <div className="py-10">
       <NavBar />
       {children}
     </div>

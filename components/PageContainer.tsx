@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import BottomNav from './BottomNav';
 
 interface Props {
   children: ReactNode;
@@ -9,6 +10,7 @@ export default function PageContainer({ children }: Props) {
     <main className="h-[100svh] overflow-y-auto">
       <div className="relative mx-auto h-max min-h-screen max-w-[650px] space-y-6 px-3">
         {children}
+        <BottomNav />
       </div>
     </main>
   );
