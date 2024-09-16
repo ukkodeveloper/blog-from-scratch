@@ -8,7 +8,7 @@ const siteMetadata = {
   siteUrl: 'https://ukko-dev.vercel.app/',
   siteRepo: 'https://github.com/ukkodeveloper/',
   siteLogo: '/static/logo.svg',
-  socialBanner: '/static/twitter-card.png',
+  socialBanner: '/static/twitter-card.webp',
   email: 'ukkodeveloper@gamil.com',
   github: 'https://github.com/ukkodeveloper',
   photograph: '/photograph',

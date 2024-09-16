@@ -11,7 +11,6 @@ import {
 import { type ReactNode, useRef, useState } from 'react';
 import Box from '@/components/Box';
 import siteMetadata from '@/app/siteMetadata';
-import { PhotoIcon } from '@heroicons/react/24/outline';
 import { CameraIcon } from '@heroicons/react/24/solid';
 import { Github } from './SocialIcons';
 
