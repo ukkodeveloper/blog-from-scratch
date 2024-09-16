@@ -47,6 +47,7 @@ public/*
 # 허용할 디렉토리
 !public/images/
 !public/blog/
+!public/photographs/
 !public/static/
 
 # 허용하지 않을 디렉토리
