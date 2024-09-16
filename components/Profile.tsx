@@ -29,7 +29,7 @@ export function Profile({ excluded }: ProfileProps) {
         <div className="flex w-full sm:space-x-6 ">
           <div>
             <Image
-              src="/static/avatar.jpg"
+              src="/static/avatar.png"
               alt="profile avatar"
               width="120"
               height="120"
