@@ -3,7 +3,7 @@ title: Retrospective on Elegant Tech Course Level 4
 date: 2023-10-24
 tags:
   - ElegantTechCourse
-image: /images/desiner.jpeg
+image: /images/desiner.webp
 summary: The S-HOOK, which was created after a long period of planning, discussion, and development, has finally been created as a service down form. Until now, it was only possible to register the killing part of the song, but now there is also a main page, and a page where you can listen to songs by selecting only the killing part.
 published: true
 ---

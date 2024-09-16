@@ -2,14 +2,14 @@
 title: Tests and Good Code
 date: 2023-04-10
 tags: ['test', 'unit-test', 'e2e']
-image: /images/Pasted%20image%2020240118145052.png
+image: /images/Pasted%20image%2020240118145052.webp
 summary: Summarizes the types of testing, why you should test, and what you gain by testing.
 published: true
 ---
 
 ## Types of Tests
 
-![](images/Pasted%20image%2020240118145052.png)
+![](images/Pasted%20image%2020240118145052.webp)
 
 - Static test: includes TypeScript, eslint, etc.
 - Unit test: Tests a specific function (feature). Of course, it's easy to test when the code is written as pure functions. However, not all functions are like that. Sometimes it can be affected by other dependent features. In this case, you can conduct a test along with a dependent function (Sociable), or separate it and test (Solitary) through mocking.

@@ -7,24 +7,24 @@ import {
 
 export function NavBar() {
   return (
-    <nav className="sticky top-4 z-10 my-4 flex w-full justify-end space-x-2">
+    <nav className="top-4 z-10 my-4 flex w-full justify-end space-x-2">
       <Link
         href={'/series'}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60"
+        className="flex h-8 w-8  items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60 md:h-10 md:w-10"
       >
-        <RectangleGroupIcon width="24" height="24" color="white" />
+        <RectangleGroupIcon width="20" height="20" color="white" />
       </Link>
       <Link
         href={'/tags'}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60 md:h-10 md:w-10"
       >
-        <HashtagIcon width="24" height="24" color="white" />
+        <HashtagIcon width="20" height="20" color="white" />
       </Link>
       <Link
         href={'/'}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-800/30 hover:bg-neutral-800/60 md:h-10 md:w-10"
       >
-        <HomeIcon width="24" height="24" color="white" />
+        <HomeIcon width="20" height="20" color="white" />
       </Link>
     </nav>
   );

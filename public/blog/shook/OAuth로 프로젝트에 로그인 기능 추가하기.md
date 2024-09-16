@@ -2,12 +2,13 @@
 title: 'OAuth로 프로젝트에 로그인 기능 추가하기'
 date: '2023-10-14'
 tags: ['oauth', '로그인', '토큰']
-image: '/images/oauth1.png'
+image: '/images/oauth1.webp'
 summary: '백엔드와 함께 Oauth를 협업하는 과정에서, 프론트엔드에서 고민했던 것들을 적었습니다.'
 published: true
 ---
 
 ## 왜 Oauth를 도입했는가
+
 ### 왜 Oauth인가
 
 서비스 개발 과정에서 로그인이 필요해졌다. 유저의 플레이리스트를 저장해야하고, 중복 등록을 막아야 하기 때문이다. 로그인 정책에도 여러 방식이 있다. 자체 인증 과정을 만들 수도 있으며, 구글과 카카오 같은 플랫폼을 통해 인증하는 방법도 있다. 우리 기술 수준에서는 자체적으로 보안을 철저하게 지킬 수 없다는 판단을 했다. 사용자는 보통 같은 아이디와 비밀번호를 사용하는 경우가 많다. 따라서 **만약 우리 서비스로부터 사용자 정보가 해킹당한다면, 다른 사이트에서도 해킹될 수 있는 가능성이 높다.** 현재 팀의 기술 수준으로 보았을 때 보안을 철저하게 지킬 수 없다 생각하여 Oauth를 통해 거대 플랫폼에 위임하는 방식이 낫다고 판단하였다.
@@ -16,7 +17,7 @@ published: true
 
 Oauth란 사용자의 접근 권한을 제 3자에게 위임하는 프로토콜이다.
 
-![Oauth1](/images/oauth1.png)
+![Oauth1](/images/oauth1.webp)
 
 Oauth의 플로우는 다음과 같다. 위 그림에서 Client는 백엔드를 가르키고, Authorization Server는 구글이나 카카오의 인증서버다. Client(백엔드)에서 인증 요청을 보내고 유효할 경우 Access Token과 Refresh Token을 받게 된다. 그리고 인증이 필요할 때 Resource 서버에 요청을 하여 Access Token이 유효한 지 확인할 수 있으며 만료 응답이 올 수도 있다. 만료 응답이 올 경우 Refresh Token을 Authorization에 보내어 갱신된 새로운 Access Token을 받을 수 있다.
 
@@ -24,14 +25,14 @@ Oauth의 플로우는 다음과 같다. 위 그림에서 Client는 백엔드를 
 
 위의 Oauth 플로우는 서버(인증 클라이언트)와 인증 서버와의 플로우다. 이번에는 우리 서비스의 Client와 Server와의 플로우를 확인해보면 다음과 같다.
 
-![Oauth2](/images/oauth2.png)
+![Oauth2](/images/oauth2.webp)
 
 1. 클라이언트에서 카카오나 구글에서 제공해주는 Oauth 인증 페이지로 리다이렉트시켜준다.
 2. 해당 페이지에서 유저가 로그인을 하면 지정해준 리다이렉트 페이지에 인증 코드가 담긴 URL을 보내준다.
 3. 클라이언트에서 인증 코드를 받아서 서버에 요청을 보낸다.
 4. 서버는 카카오나 구글에 인증 코드를 보내준다.
 5. 카카오나 구글에서 인증 코드를 확인 후에 유효하면 access token을 보내준다.
-6. 서버에서 해당 access token을 확인한 후에 자체적으로 access token을 다시 만든다. **이때 주의할 점은 전자의 access token은 카카오나 구글에 대한 인증 정보를 담은 토큰이고, 후자는 서버에 대한 인증 정보를 담은 토큰이다. 그리고 서버는  클라이언트에게 응답으로 access token을 담아 보낸다.**
+6. 서버에서 해당 access token을 확인한 후에 자체적으로 access token을 다시 만든다. **이때 주의할 점은 전자의 access token은 카카오나 구글에 대한 인증 정보를 담은 토큰이고, 후자는 서버에 대한 인증 정보를 담은 토큰이다. 그리고 서버는 클라이언트에게 응답으로 access token을 담아 보낸다.**
 
 ## Refresh 토큰
 
@@ -84,17 +85,18 @@ refresh token은 탈취가 되지 않도록 보안적으로 더 신경을 써야
 
 로그인이 도입된 이후 사용자 경우의 수가 굉장히 많아졌다. access token, refresh token을 기준으로 여러 상태가 있고 이를 고려해야하기 때문이다.
 
-| access token | refresh token | 결과 |
-| --- | --- | --- |
-| 유효 | - | 본 요청 / 인증 성공 |
+| access token | refresh token | 결과                |
+| ------------ | ------------- | ------------------- |
+| 유효         | -             | 본 요청 / 인증 성공 |
+
 | 기간 만료X
-but, 회원 정보가 틀린 경우 (탈퇴 등으로 인하여) | 유효 | 본 요청 / 401  |
+but, 회원 정보가 틀린 경우 (탈퇴 등으로 인하여) | 유효 | 본 요청 / 401 |
 | 기간 만료 | 유효 | 갱신 요청 / 인증 성공
 본 요청 / 인증 성공 |
 | 기간 만료 | 기간 만료 및 유효 X | 갱신 요청 / 401 |
 
 이를 그림으로 그리면 다음과 같다.
-![Oauth3](/images/oauth3.png)
+![Oauth3](/images/oauth3.webp)
 
 ### 401 에러 처리
 
@@ -104,31 +106,33 @@ but, 회원 정보가 틀린 경우 (탈퇴 등으로 인하여) | 유효 | 본 
 
 ```tsx
 class ErrorBoundary extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { hasError: false };
-    }
-
-    static getDerivedStateFromError(error) {
-      return { hasError: true };
-    }
-
-    render() {
-      if (this.state.hasError) {
-        return <a>
-						{this.props.children}
-						<LoginModal />
-					</a>
-      }
-
-      return this.props.children;
-    }
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <a>
+          {this.props.children}
+          <LoginModal />
+        </a>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 ```
 
 첫째, 스크롤이 처음 진입점으로 가지는 문제가 발생한다.
 
-![Oauth4](/images/oauth4.png)
+![Oauth4](/images/oauth4.webp)
 
 shook 서비스에는 스와이프 형식으로 노래를 보여준다. 페이지 진입점으로 부터 스와이프 후에 인증이 필요한 상호작용이 발생하고 Error Bounday에서 이를 감지한 후 자식 컴포넌트를 다시 랜더링을 한다. 이 과정에서 자식 컴포넌트를 완전히 다시 코드를 읽고 렌더링하게 된다. 그 과정에서 스크롤이 페이지 진입점으로 이동한다.
 
@@ -143,6 +147,7 @@ shook 서비스에는 스와이프 형식으로 노래를 보여준다. 페이�
 짧은 시간동안 백엔드와 로그인을 함께 구현하면서 토의도 많이하고, 여러 이슈들도 많이 직면했다. 전체적인 로그인 흐름을 결정하는 것도 많은 시간이 소비되었지만, 실제 구현하는 것은 한 차원 더 힘든 일이라는 것을 새삼 깨닫게 되었다. 또한 프론트엔드 측면에서는 앞서 말했듯 로그인 기능이 프로그램 전반에 영향을 끼치는 것이기 때문에 확인하고 또 확인하는 과정을 반복했다. 아직 배포중인 프로덕션에 로그인 기능이 추가된 지 얼마 안되어 또 어떤 버그가 일어날 지는 모르겠지만 현재까지는 버그 없이 잘 진행되는 것 같다.
 
 ### 참고
+
 - https://hudi.blog/oauth-2.0/
 - https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc
 - https://tansfil.tistory.com/59
