@@ -10,16 +10,19 @@ import Profile from '@/components/Profile';
 import Box from '@/components/Box';
 import React from 'react';
 import siteMetadata from '@/app/siteMetadata';
+import BlogPageContainer from '@/components/BlogPageContainer';
 
 export default function Home() {
   return (
-    <>
-      <Foreword />
-      <Profile />
-      <RecentPosts />
-      <TagSeriesList />
-      <br />
-    </>
+    <BlogPageContainer>
+      <div className="space-y-6">
+        <Foreword />
+        <Profile />
+        <RecentPosts />
+        <TagSeriesList />
+        <br />
+      </div>
+    </BlogPageContainer>
   );
 }
 
@@ -64,7 +67,7 @@ function TagSeriesList() {
 
 function Foreword() {
   return (
-    <section className="space-y-2 pt-6">
+    <section className="space-y-2 ">
       <Txt fontSize="xl" as="h1">
         {siteMetadata.title}
       </Txt>

@@ -1,6 +1,6 @@
 import './globals.css';
 import { gmarketSans, wantedSans } from '@/styles/fonts';
-import PageContainer from '@/components/PageContainer';
+import BlogPageContainer from '@/components/PageContainer';
 
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
@@ -68,9 +68,7 @@ export default function RootLayout({
         href="/static/favicons/favicon-16x16.png"
       />
       <link rel="manifest" href="/static/favicons/site.webmanifest" />
-      <body>
-        <PageContainer>{children}</PageContainer>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
