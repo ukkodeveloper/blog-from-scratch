@@ -1,7 +1,6 @@
 import _projectImages from '../(data)/projectImages.json';
 import PhotographPageContainer from '../(components)/photographPageContainer';
 import ImageWithModal from '../(components)/Image';
-import { OverlayProvider } from '@toss/use-overlay';
 
 interface PageParams {
   params: {
