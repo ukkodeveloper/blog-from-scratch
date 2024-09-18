@@ -1,6 +1,6 @@
 ---
-title: 'OAuth로 프로젝트에 로그인 기능 추가하기'
-date: '2023-10-14'
+title: OAuth로 프로젝트에 로그인 기능 추가하기
+date: 2023-10-14
 tags: ['oauth', '로그인', '토큰']
 image: '/images/oauth1.webp'
 summary: '백엔드와 함께 Oauth를 협업하는 과정에서, 프론트엔드에서 고민했던 것들을 적었습니다.'

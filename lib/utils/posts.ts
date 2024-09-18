@@ -3,7 +3,10 @@ import slugger from '@/lib/utils/slugger';
 
 const postList = allPosts
   .filter((post) => post.published)
-  .sort((a, b) => b.date.localeCompare(a.date))
+  .sort(
+    (a, b) =>
+      new Date(b.date.trim()).getTime() - new Date(a.date.trim()).getTime()
+  )
   .map((post) => ({
     ...post,
     tags: post.tags.map(slugger),
@@ -11,7 +14,7 @@ const postList = allPosts
     slug: slugger(post.slug),
   }));
 
-const postKorList = allPosts.filter((post) => !post.slug.endsWith('-eng'));
+const postKorList = postList.filter((post) => !post.slug.endsWith('-eng'));
 
 const getUniqueSortedArray = (arr: string[]) => {
   return [...new Set(arr)].sort((a, b) => a.localeCompare(b));
