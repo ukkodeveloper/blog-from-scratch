@@ -4,6 +4,7 @@ import { gmarketSans, wantedSans } from '@/styles/fonts';
 import type { Metadata } from 'next';
 import siteMetadata from '@/app/siteMetadata';
 import Head from 'next/head';
+import BackgroundChangeUtil from '@/components/ThemeChanger';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -68,6 +69,7 @@ export default function RootLayout({
       />
       <link rel="manifest" href="/static/favicons/site.webmanifest" />
       <body>{children}</body>
+      <BackgroundChangeUtil />
     </html>
   );
 }

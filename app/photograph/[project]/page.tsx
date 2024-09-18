@@ -18,7 +18,7 @@ const Page = ({ params }: PageParams) => {
   const images = projectImages[params.project];
   return (
     <PhotographPageContainer title={`_wrks_${params.project}`}>
-      <div className="group m-auto w-fit transition-colors duration-500 group-hover:bg-black ">
+      <div className="group-hover:black group m-auto min-h-[100svh] w-fit transition-colors  duration-500">
         {images.map((image, index) => (
           <ImageWithModal key={image + index} image={image} />
         ))}

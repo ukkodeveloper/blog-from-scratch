@@ -10,8 +10,8 @@ interface Props {
 
 export default function PhotographPageContainer({ title, children }: Props) {
   return (
-    <main className="transition-color relative h-[100svh] min-h-screen  overflow-y-auto bg-black duration-500 hover:bg-white">
-      <div className="transition-color group relative mx-auto w-screen max-w-[650px] px-10 duration-500 hover:bg-black">
+    <main className="transition-color relative h-[100svh] min-h-screen overflow-y-auto bg-black duration-500 hover:bg-white">
+      <div className="transition-color group relative mx-auto w-screen max-w-[650px] duration-500 hover:bg-black">
         <Link href="/photograph">
           <Txt
             as="h2"
