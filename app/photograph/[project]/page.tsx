@@ -1,6 +1,5 @@
 import _projectImages from '../(data)/projectImages.json';
-
-import ImageWithModal from '../(components)/Image';
+import ImageList from '../(components)/ImageList';
 import PhotographPageContainer from '@/components/PhotographPageContainer';
 
 interface PageParams {
@@ -19,9 +18,7 @@ const Page = ({ params }: PageParams) => {
   return (
     <PhotographPageContainer title={`_wrks_${params.project}`}>
       <div className="group-hover:black group m-auto min-h-[100svh] w-fit transition-colors  duration-500">
-        {images.map((image, index) => (
-          <ImageWithModal key={image + index} image={image} />
-        ))}
+        <ImageList images={images} />
       </div>
     </PhotographPageContainer>
   );
