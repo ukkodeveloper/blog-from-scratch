@@ -25,7 +25,7 @@ export default function PhotographPageContainer({ title, children }: Props) {
       </div>
 
       <Txt
-        fontSize="md"
+        fontSize="sm"
         className="fixed bottom-4 flex w-full justify-center font-wSans text-white"
       >
         KIM YOOKWON

@@ -9,9 +9,7 @@ interface Props {
 export default function BlogPageContainer({ children }: Props) {
   return (
     <main className="relative h-[100svh] min-h-screen overflow-y-auto">
-      <div className="mx-auto w-screen max-w-[650px] px-10 py-4">
-        {children}
-      </div>
+      <div className="mx-auto w-screen max-w-[650px] px-3 py-4">{children}</div>
       <BottomNav />
     </main>
   );
