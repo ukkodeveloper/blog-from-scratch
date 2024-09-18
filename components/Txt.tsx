@@ -33,8 +33,8 @@ const SIZE_VARIANT = {
   '2xl': 'md:text-3xl text-2xl font-bold',
   xl: 'md:text-2xl text-xl font-bold',
   lg: 'md:text-xl text-lg font-bold',
-  md: 'text-base',
-  sm: 'text-sm',
+  md: 'text-sm md:text-base',
+  sm: 'text-xs md:text-sm',
 };
 
 const COLOR_VARIANT = {
