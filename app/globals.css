@@ -49,6 +49,10 @@ code::after {
   display: none;
 }
 
+code {
+  font-size: 0.8rem !important;
+}
+
 body {
   @apply relative font-gSans;
 }

@@ -1,7 +1,6 @@
 import { allPosts, type Post } from '@/.contentlayer/generated';
 import slugger from '@/lib/utils/slugger';
 
-// sort posts
 const postList = allPosts
   .filter((post) => post.published)
   .sort((a, b) => b.date.localeCompare(a.date))

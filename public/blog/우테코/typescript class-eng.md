@@ -2,7 +2,7 @@
 title: typescript readonly, protected, private
 date: 2023-03-13
 tags: ['typescript', 'class']
-image: /images/typescript%20readonly,%20protected,%20private-20240128232819282.webp
+image: /images/typescript.webp
 summary: A summary of the keywords used in typescript classes.
 published: true
 ---

@@ -6,7 +6,7 @@ tags:
   - flux
   - life-time
 published: true
-image: /images/know-react4.png
+image: /images/know-react4.webp
 summary: This post covers concepts that I misunderstood or continue to ponder about while using React. It is based on the official documentation.
 ---
 
@@ -28,11 +28,11 @@ I used to think that a key in React is a prop that must be attached to an array.
 
 However, this opportunity allowed me to think more deeply about the relationship between keys and state.
 
-![know-react1](/images/know-react1.png)
+![know-react1](/images/know-react1.webp)
 
 Let's assume we are rendering components A, B, and C as an array like this. If D and F are added in the next render, we will lose the state management. This is because the state declared using useState manages the array based on the render order. Therefore, if we iterate over the array to render, the order of the elements may change continuously, making it impossible to map the state of the array's element components.
 
-![know-react2](/images/know-react2.png)
+![know-react2](/images/know-react2.webp)
 
 However, if we assign unique id values as keys to the list elements, it will look like this. Regardless of whether the order or number of elements in the array changes, the component state managed by the array element component can be mapped directly to the state.
 
@@ -45,7 +45,7 @@ I learned that state change is the only factor that triggers re-rendering. Previ
 ### Synthetic Event
 
 This is an event object that wraps the Native Event in React. Therefore, the properties we use when attaching events in React code, such as onClick, are actually Synthetic Events. This may be natural because the output of React's rendering process is the Virtual DOM, not the Real DOM. Before attaching the Virtual DOM to the Real DOM, additional operations can be performed for optimization, such as delegating and assigning events.
-![](images/know-react3.png)
+![](images/know-react3.webp)
 
 As shown in the figure, the event handlers in the child components are delegated to the common ancestor component, which registers the events. This has the advantage of preventing too many events from being registered in the global object.
 
@@ -63,7 +63,7 @@ However, I learned that useEffect is not a hook for managing the component lifec
 
 Refs are also closely related to the component lifecycle. Refs are referenced during the rendering process. Therefore, if there is a Ref that references the DOM, that Ref will reference the already attached Real DOM. The reason this is important is because we need to know what the Ref is referencing when a re-render occurs.
 
-![know-react4](/images/know-react4.png)
+![know-react4](/images/know-react4.webp)
 
 The following diagram shows the process of changing state. The state changes and re-rendering occurs, but if the component uses a Ref, it will reference the DOM before it is changed. Therefore, it is common to use the Ref logic in useEffect. This is because the changed Ref operates in a state where the reference to the DOM has been made.
 
@@ -79,7 +79,7 @@ In vanilla JavaScript, we had to manually create, access, and add DOM elements. 
 
 Therefore, when using React, we can experience changes being reflected as if by magic without directly manipulating the DOM. However, the term "declarative" implies that someone else is handling complex tasks "imperatively." In other words, React provides an API for us to use declaratively, and React itself handles the actual complex tasks.
 
-![know-react5](/images/know-react5.png)
+![know-react5](/images/know-react5.webp)
 
 This image is part of the conference materials released by the React team. It is a good illustration of how React uses the FLUX pattern to solve the complexities arising from the MVC pattern. First, React's rendering process is unidirectional. When an initial render or user interaction triggers an Action (setState), it modifies the data (state) managed by the Dispatcher and draws the View based on that data.
 

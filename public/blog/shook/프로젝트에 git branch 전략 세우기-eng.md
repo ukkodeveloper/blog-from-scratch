@@ -2,7 +2,7 @@
 title: Establish a Git Branch Strategy for Your Project
 date: 2023-07-20
 tags: ['git']
-image: /images/oauth1.png
+image: /images/oauth1.webp
 summary: We brainstormed a Git branch strategy for the S-hook project. Here are the discussions we had.
 published: true
 ---
