@@ -1,6 +1,46 @@
 {
+  "alone": [
+    "/photographs/alone/00.webp",
+    "/photographs/alone/01.webp",
+    "/photographs/alone/02.webp",
+    "/photographs/alone/03.webp",
+    "/photographs/alone/04.webp",
+    "/photographs/alone/05.webp",
+    "/photographs/alone/06.JPG.webp",
+    "/photographs/alone/07.webp",
+    "/photographs/alone/회고.webp"
+  ],
+  "daily": [
+    "/photographs/daily/01.webp",
+    "/photographs/daily/02.JPG.webp",
+    "/photographs/daily/03.JPG.webp",
+    "/photographs/daily/04.webp",
+    "/photographs/daily/05.JPG.webp",
+    "/photographs/daily/06.JPG.webp",
+    "/photographs/daily/07.JPG.webp"
+  ],
+  "feels": [
+    "/photographs/feels/00.webp",
+    "/photographs/feels/01.JPG.webp",
+    "/photographs/feels/02.webp",
+    "/photographs/feels/03.webp",
+    "/photographs/feels/04.webp",
+    "/photographs/feels/05.webp",
+    "/photographs/feels/06.webp",
+    "/photographs/feels/07.webp",
+    "/photographs/feels/08.webp",
+    "/photographs/feels/09.webp",
+    "/photographs/feels/10.webp",
+    "/photographs/feels/11.webp"
+  ],
+  "instability": [
+    "/photographs/instability/00.webp",
+    "/photographs/instability/01.webp",
+    "/photographs/instability/02.webp",
+    "/photographs/instability/03.webp",
+    "/photographs/instability/04.webp"
+  ],
   "japan-tour": [
-    "/photographs/japan-tour/@thumbnail.webp",
     "/photographs/japan-tour/20190321-DSCF0102.webp",
     "/photographs/japan-tour/20190323-DSCF0654.webp",
     "/photographs/japan-tour/20190326-DSCF1153.webp",
@@ -34,49 +74,9 @@
     "/photographs/japan-tour/20190418-DSCF7009.webp",
     "/photographs/japan-tour/20190422-DSCF7612.webp",
     "/photographs/japan-tour/20190423-DSCF7865.webp",
-    "/photographs/japan-tour/20190424-20190424_181455.webp"
+    "/photographs/japan-tour/20190424-20190424_181455.webp",
+    "/photographs/japan-tour/@thumbnail.webp"
   ],
-  "alone": [
-    "/photographs/alone/00.webp",
-    "/photographs/alone/01.webp",
-    "/photographs/alone/02.webp",
-    "/photographs/alone/03.webp",
-    "/photographs/alone/04.webp",
-    "/photographs/alone/05.webp",
-    "/photographs/alone/06.JPG.webp",
-    "/photographs/alone/07.webp"
-  ],
-  "daily": [
-    "/photographs/daily/01.webp",
-    "/photographs/daily/02.JPG.webp",
-    "/photographs/daily/03.JPG.webp",
-    "/photographs/daily/04.webp",
-    "/photographs/daily/05.JPG.webp",
-    "/photographs/daily/06.JPG.webp",
-    "/photographs/daily/07.JPG.webp"
-  ],
-  "feels": [
-    "/photographs/feels/00.webp",
-    "/photographs/feels/01.JPG.webp",
-    "/photographs/feels/02.webp",
-    "/photographs/feels/03.webp",
-    "/photographs/feels/04.webp",
-    "/photographs/feels/05.webp",
-    "/photographs/feels/06.webp",
-    "/photographs/feels/07.webp",
-    "/photographs/feels/08.webp",
-    "/photographs/feels/09.webp",
-    "/photographs/feels/10.webp",
-    "/photographs/feels/11.webp"
-  ],
-  "instability": [
-    "/photographs/instability/00.webp",
-    "/photographs/instability/01.webp",
-    "/photographs/instability/02.webp",
-    "/photographs/instability/03.webp",
-    "/photographs/instability/04.webp"
-  ],
-
   "out": [
     "/photographs/out/@thumbnail.webp",
     "/photographs/out/DSCF0098.JPG.webp",
@@ -92,12 +92,12 @@
     "/photographs/over/남산타워의밤.JPG.webp"
   ],
   "plant": [
-    "/photographs/plant/@thumbnail.webp",
     "/photographs/plant/01.webp",
     "/photographs/plant/02_1.webp",
     "/photographs/plant/03_1.webp",
     "/photographs/plant/04_1.webp",
-    "/photographs/plant/14_1.webp"
+    "/photographs/plant/14_1.webp",
+    "/photographs/plant/@thumbnail.webp"
   ],
   "vivid": [
     "/photographs/vivid/20160502_192430.webp",

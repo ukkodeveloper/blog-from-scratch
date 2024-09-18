@@ -19,7 +19,7 @@ git branch 전략에는 여러가지가 있다. 가장 대표적인 전략으로
 ### git-flow
 
 git-flow에서 설명하자면 크게 develop 브랜치와 master 브랜치로 구분된다. master 브랜치는 배포하고 있는 브랜치이며, develop 브랜치는 완료된 기능들을 모아둔 브랜치이다. 즉, develop 브랜치는 master 브랜치로 가기 전 임시로 저장되어 있는 형태이다. 그림을 보면 더 이해하기 쉬울 것이다.
-![](images/git%20branch%20전략-20240118150657130.webp)
+![](images/gitbranch-2.webp)
 
 이제 이 핵심 두 브랜치 develop과 master에서 어떤 파생 브랜치들이 생기는 지 보면 된다. master 브랜치에서는 hotfixes 브랜치가 파생된다. 이름에서 알 수 있듯, 이는 급하게 수정되어야 하는 버그 수정 브랜치이다. 따라서 develop이 아닌 master에서 분기되어야 한다. 그리고 hot fix가 되었다면 develop과 master 모두 반영해주어야 한다.
 
@@ -46,7 +46,7 @@ develop 브랜치에서 파생된 브랜치는 feature 브랜치다. 기능 개�
 ## github-flow
 
 
-![](images/git%20branch%20전략-20240118150750543.webp)
+![](images/gitbranch02.webp)
 사진부터 git-flow와는 비교도 안되게 단순하다는 것을 알 수 있다. 기능 구현할 것이 있으면 branch를 파생해서 개발하면 된다. 그런 다음 그 브랜치에서 개발 서버를 연결하여 충분히 QA를 진행하는 것이다. 그런 다음 배포 시기에 필요한 기능이라면 master에 merge하여 배포할 수 있다.
 
 이러한 점은 git-flow의 여러 문제를 해결해준다. 우선, 변형된 git-flow에서 생겼던 병합 시에 생기는 다양한 선택지와 그로 인해 발생되는 복잡도가 해결된다. 그리고 git-flow를 변형할 수 밖에 없었던 이유였던 develop 브랜치에서 선택적으로 기능을 배포하는 일도 해결된다. 왜냐하면, 만약 당장 필요하지 않을 것 같은 기능은 개발이 완료되어도 master에 병합되지 않기 때문이다. 그대로 브랜치를 살려두면 된다.

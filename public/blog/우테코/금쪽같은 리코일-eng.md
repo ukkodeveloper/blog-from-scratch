@@ -19,13 +19,13 @@ When the shopping cart item state does not change, we receive a new shopping car
 
 ### 1️⃣ Situation where only the server is changed ⭕
 
-![](images/금쪽1.gif)
+![](images/recoil01.gif)
 
 Mako's shopping cart currently has two items, while Woog's is empty. As you can see, when the server changes, the new shopping cart is rendered.
 
 ### 2️⃣ Situation where the shopping cart state is changed and then the server is changed ❌
 
-![](images/금쪽2.gif)
+![](images/recoil02.gif)
 
 Let's add an item to the shopping cart. From Woog's server, we added 10 servings of Seorlong Cheese Pizza to the cart. The shopping cart state has changed. After this, when switching to the Mako server, Woog's shopping cart is still the state. In other words, the shopping cart state is not transitioning.
 
