@@ -13,7 +13,7 @@ const BottomNav = () => {
 
   const linkClass = (isActive: boolean) =>
     twMerge(
-      'transition-color rounded-xl py-1 px-2 text-xs font-semibold text-gray-700 duration-300 hover:bg-gray-200 md:text-sm',
+      'transition-color rounded-xl p-1 text-xs font-semibold text-gray-700 duration-300 hover:bg-gray-200 md:text-sm',
       isActive
         ? 'bg-gray-400 cursor-default hover:bg-gray-400'
         : 'cursor-pointer'
