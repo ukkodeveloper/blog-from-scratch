@@ -4,8 +4,7 @@ const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const PROMPT = ``;
-const SERIES_CATEGORIES = ['우테코', '회고', 'shook'];
+const SERIES_CATEGORIES = ['우테코', '회고', 'shook', 'short'];
 
 async function translateContent(content) {
   const model = genAI.getGenerativeModel({ model: 'gemini-pro' });

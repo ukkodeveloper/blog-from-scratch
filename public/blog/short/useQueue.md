@@ -4,18 +4,18 @@ date: 2024-09-03
 tags:
   - tanstackQuery
   - react
-image: images/useQueue-20241003131109212.webp
+image: /images/useQueue-20241003131109212.webp
 summary: useQueue 훅을 통해 순차적으로 promise를 처리하기
 published: true
 ---
-최근, 한 화면에서 이미지를 업로드할 때 순차적으로 upscale api를 호출해야하는 경우가 있었다. 즉, 동시에 api호출을 하면 안되었던 상황이었다. 이 때 우려되었던 점들이 있다. aync queue가 리렌더링에 영향을 받지 않아야 한다. 또한 이미지 상태를 수정, 삭제를 해야하기 때문에 언제든 비동기 처리를 중단할 수 있어야 한다. 이 문제들은 단순히 코드를 '돌아가게' 만드는 것으로는 해결할 수 없었다. 
+
+최근, 한 화면에서 이미지를 업로드할 때 순차적으로 upscale api를 호출해야하는 경우가 있었다. 즉, 동시에 api호출을 하면 안되었던 상황이었다. 이 때 우려되었던 점들이 있다. aync queue가 리렌더링에 영향을 받지 않아야 한다. 또한 이미지 상태를 수정, 삭제를 해야하기 때문에 언제든 비동기 처리를 중단할 수 있어야 한다. 이 문제들은 단순히 코드를 '돌아가게' 만드는 것으로는 해결할 수 없었다.
 
 ## useQueue
 
 이런 배경에서 우리는 `useQueue`라는 커스텀 훅을 설계했다. 이 훅의 핵심 아이디어는 간단하다: React의 상태 관리 시스템에서 비동기 작업 관리를 분리하는 것이다.
 
 이를 위해 우리는 React 18에서 도입된 `useSyncExternalStore`를 활용했다. 이 훅은 React의 외부에 있는 상태를 안전하게 구독할 수 있게 해준다. 이를 통해 우리는 큐의 상태를 React의 리렌더링 주기와 완전히 분리할 수 있었다.
-
 
 ```typescript
 export interface Queue<TTask, TResult> {
@@ -25,9 +25,26 @@ export interface Queue<TTask, TResult> {
 }
 
 export type QueueState<TTask, TResult> =
-  | { id: string; status: 'IDLE' | 'IN_PROGRESS'; task: TTask; controller: AbortController }
-  | { id: string; status: 'SUCCESS'; task: TTask; result: TResult; controller: AbortController }
-  | { id: string; status: 'ERROR'; task: TTask; error: unknown; controller: AbortController };
+  | {
+      id: string;
+      status: 'IDLE' | 'IN_PROGRESS';
+      task: TTask;
+      controller: AbortController;
+    }
+  | {
+      id: string;
+      status: 'SUCCESS';
+      task: TTask;
+      result: TResult;
+      controller: AbortController;
+    }
+  | {
+      id: string;
+      status: 'ERROR';
+      task: TTask;
+      error: unknown;
+      controller: AbortController;
+    };
 ```
 
 이 인터페이스는 작업의 상태를 명확하게 구분하고, 작업의 추가와 삭제, 그리고 각 작업의 현재 상태를 관리할 수 있게 해준다.
@@ -56,16 +73,12 @@ class QueueManager<TTask, TResult> {
     return this.states;
   }
 
-  add(task: TTask) {
- 
-  }
+  add(task: TTask) {}
 
-  remove(id: string) {
- 
-  }
+  remove(id: string) {}
 
   private notifyListeners() {
-    this.listeners.forEach(listener => listener());
+    this.listeners.forEach((listener) => listener());
   }
 }
 ```

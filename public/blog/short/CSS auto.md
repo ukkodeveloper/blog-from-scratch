@@ -3,7 +3,7 @@ title: CSS의 auto와 Intrinsic Sizing
 date: 2024-08-15
 tags:
   - css
-image: images/CSS%20auto-20241003131032251.webp
+image: /images/CSS%20auto-20241003131032251.webp
 summary: 자동으로 사이즈를 정해준다는 것을 이해하기
 published: true
 ---
